@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  common_name: MyString
+  scientific_name: MyString
+  image: MyString
+  song: MyString
+  region: MyString
+
+two:
+  common_name: MyString
+  scientific_name: MyString
+  image: MyString
+  song: MyString
+  region: MyString

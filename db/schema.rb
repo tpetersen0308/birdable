@@ -10,17 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180802235811) do
+ActiveRecord::Schema.define(version: 20180803214048) do
 
   create_table "birds", force: :cascade do |t|
     t.string "common_name"
     t.string "scientific_name"
     t.string "image"
     t.string "song"
-    t.string "region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "family"
+  end
+
+  create_table "birds_regions", force: :cascade do |t|
+    t.integer "bird_id"
+    t.integer "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bird_id"], name: "index_birds_regions_on_bird_id"
+    t.index ["region_id"], name: "index_birds_regions_on_region_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

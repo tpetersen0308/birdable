@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bird: one
+  region: 
+  to: MyString
+
+two:
+  bird: two
+  region: 
+  to: MyString

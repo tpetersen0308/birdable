@@ -13,5 +13,10 @@ class BirdScraper < ApplicationRecord
       next if i == 0  
       taxonomies[taxon.attributes.values[0].value] = taxon.text
     end
+    return taxonomies
+  end
+
+  def self.scrape_birds_by_tid(tid)
+
   end
 end

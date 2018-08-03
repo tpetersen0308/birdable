@@ -16,6 +16,15 @@ class BirdScraper < ApplicationRecord
     return taxonomies
   end
 
+  def self.scrape_regions(url)
+    regions = {}
+    self.get_page(url).css("select#edit-field-bird-region-tid option").each.with_index do |region, i|
+      next if i == 0  
+      regions[region.attributes.values[0].value] = region.text
+    end
+    return regions
+  end
+
   def self.scrape_birds_by_family_tid(family_tid, family_name)
     url = "https://www.audubon.org/bird-guide?field_bird_family_tid=" + family_tid
     doc = self.get_page(url)

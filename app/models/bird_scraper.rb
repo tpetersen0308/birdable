@@ -36,7 +36,7 @@ class BirdScraper < ApplicationRecord
         scientific_name: bird.css("p.scientific-name").text.strip.downcase,
         image: bird.css("img")[0].attributes.values[0].value,
         song: bird.css("div.field-name-field-bird-audio li a")[0].attributes["href"].value,
-        family: family_name
+        family: family_name.downcase
       }
       birds.push(new_bird)
 

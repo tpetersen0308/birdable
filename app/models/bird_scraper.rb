@@ -11,7 +11,7 @@ class BirdScraper < ApplicationRecord
     taxonomies = {}
     self.get_page(url).css("select#edit-field-bird-family-tid option").each.with_index do |taxon, i|
       next if i == 0  
-      taxonomies[taxon.attributes.values[0].value] = taxon.text
+      taxonomies[taxon.attributes.values[0].value] = taxon.text.downcase
     end
     return taxonomies
   end
@@ -20,7 +20,7 @@ class BirdScraper < ApplicationRecord
     regions = {}
     self.get_page(url).css("select#edit-field-bird-region-tid option").each.with_index do |region, i|
       next if i == 0  
-      regions[region.attributes.values[0].value] = region.text
+      regions[region.attributes.values[0].value] = region.text.downcase
     end
     return regions
   end

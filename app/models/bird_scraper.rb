@@ -16,7 +16,22 @@ class BirdScraper < ApplicationRecord
     return taxonomies
   end
 
-  def self.scrape_birds_by_family_tid(family_tid)
-    
+  def self.scrape_birds_by_family_tid(family_tid, family_name)
+    url = "https://www.audubon.org/bird-guide?field_bird_family_tid=" + family_tid
+    doc = self.get_page(url)
+    birds = []
+    doc.css("div.bird-card-grid-container div.page-0").map do |bird|
+      next unless bird.css("div.field-name-field-bird-audio li a")[0]
+      new_bird = {
+        common_name: bird.css("h4.common-name a").text.downcase,
+        scientific_name: bird.css("p.scientific-name").text.strip.downcase,
+        image: bird.css("img")[0].attributes.values[0].value,
+        song: bird.css("div.field-name-field-bird-audio li a")[0].attributes["href"].value,
+        family: family_name
+      }
+      birds.push(new_bird)
+
+    end
+    return birds
   end
 end

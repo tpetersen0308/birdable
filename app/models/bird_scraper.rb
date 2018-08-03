@@ -27,15 +27,25 @@ class BirdScraper < ApplicationRecord
   
   def self.scrape_bird_names_by_region(regions)
     birds_by_region = {}
-
+    
     regions.each do |region_tid, region_name|
-      url = "https://www.audubon.org/bird-guide?field_bird_family_tid=All&field_bird_region_tid=" + region_tid
+      
+      page = 0
+      url = "https://www.audubon.org/bird-guide?page=" + page.to_s + "&field_bird_family_tid=All&field_bird_region_tid=" + region_tid
       doc = self.get_page(url)
-      bird_names = doc.css("div.bird-card-grid-container div.page-0").map do |bird|
-        next unless bird.css("div.field-name-field-bird-audio li a")[0]
-        bird.css("h4.common-name a").text.downcase
+
+      while(doc.css("div.bird-card-grid-container div.page-" + page.to_s)[0])
+        bird_names = doc.css("div.bird-card-grid-container div.page-" + page.to_s).map do |bird|
+          next unless bird.css("div.field-name-field-bird-audio li a")[0]
+          bird.css("h4.common-name a").text.downcase
+        end
+        birds_by_region[region_name] ||= []
+        birds_by_region[region_name].concat(bird_names)
+        page += 1
+        url = "https://www.audubon.org/bird-guide?page=" + page.to_s + "&field_bird_family_tid=All&field_bird_region_tid=" + region_tid
+        doc = self.get_page(url)
+        break if page == 20
       end
-      birds_by_region[region_name] = bird_names
     end
     return birds_by_region
   end

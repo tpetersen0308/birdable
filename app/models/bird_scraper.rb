@@ -16,7 +16,7 @@ class BirdScraper < ApplicationRecord
     return taxonomies
   end
 
-  def self.scrape_birds_by_tid(tid)
-
+  def self.scrape_birds_by_family_tid(family_tid)
+    
   end
 end

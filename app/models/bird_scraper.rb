@@ -44,7 +44,6 @@ class BirdScraper < ApplicationRecord
         page += 1
         url = "https://www.audubon.org/bird-guide?page=" + page.to_s + "&field_bird_family_tid=All&field_bird_region_tid=" + region_tid
         doc = self.get_page(url)
-        break if page == 20
       end
     end
     return birds_by_region

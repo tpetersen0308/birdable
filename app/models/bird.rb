@@ -8,6 +8,10 @@ class Bird < ApplicationRecord
   end 
 
   def audubon_url
-    "https://www.audubon.org/field-guide/bird/" + self.common_name.gsub(' ', '-').gsub(/[^a-z\-]/, '')
+    "https://www.audubon.org/field-guide/bird/" + self.url_safe_common_name
+  end
+
+  def url_safe_common_name
+    self.common_name.gsub(' ', '-').gsub(/[^a-z\-]/, '')
   end
 end

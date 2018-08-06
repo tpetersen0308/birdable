@@ -3,6 +3,5 @@ Rails.application.routes.draw do
 
   get "/birds" => "birds#index"
   get "/birds/:filter" => "birds#index"
-  get "/birds/:common_name" => "birds#show"
   
 end

@@ -21,6 +21,6 @@ class Bird < ApplicationRecord
   end
 
   def self.by_family(family_name)
-    self.all.select{|bird| bird.url_safe_attribute("family") == params[:filter]}.sort_by{|bird| bird.common_name}
+    self.all.select{|bird| bird.url_safe_attribute("family") == family_name}.sort_by{|bird| bird.common_name}
   end
 end

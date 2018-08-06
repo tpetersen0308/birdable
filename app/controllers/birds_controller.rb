@@ -1,10 +1,10 @@
 class BirdsController < ApplicationController
   
   def index
-    if params[:region]
-      @birds = Bird.all.select do |bird| 
-        bird.regions.map{|region| region.url_safe_attribute("name")}.include?(params[:region])
-      end.sort_by{|bird| bird.common_name}
+    if Region.all.map{|region| region.url_safe_attribute("name")}.include?(params[:filter])
+      @birds = Bird.by_region(params[:filter])
+    elsif params[:filter]
+      @birds = Bird.all.select{|bird| bird.url_safe_attribute("family") == params[:filter]}.sort_by{|bird| bird.common_name}
     else
       @birds = Bird.all.sort_by{|bird| bird.common_name}
     end

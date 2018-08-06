@@ -3,7 +3,7 @@ class BirdsController < ApplicationController
   def index
     if params[:region]
       @birds = Bird.all.select do |bird| 
-        bird.regions.map{|region| region.url_safe_name}.include?(params[:region])
+        bird.regions.map{|region| region.url_safe_attribute("name")}.include?(params[:region])
       end.sort_by{|bird| bird.common_name}
     else
       @birds = Bird.all.sort_by{|bird| bird.common_name}
@@ -13,7 +13,7 @@ class BirdsController < ApplicationController
   end
 
   def show
-    @bird = Bird.all.select{|bird| bird.url_safe_common_name == params[:common_name]}
+    @bird = Bird.all.select{|bird| bird.url_safe_attribute("common_name") == params[:common_name]}
 
     render json: @bird
   end

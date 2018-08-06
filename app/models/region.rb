@@ -3,5 +3,9 @@ class Region < ApplicationRecord
   has_many :birds, through: :birds_regions
   include Formattable
 
-  REGIONS = ["alaska and the north", "california", "eastern canada", "florida", "great lakes", "mid atlantic", "new england", "northwest", "plains", "rocky mountains", "southeast", "southwest", "texas", "western canada"]
+  REGIONS = ["alaska-and-the-north", "california", "eastern-canada", "florida", "great-lakes", "mid-atlantic", "new-england", "northwest", "plains", "rocky-mountains", "southeast", "southwest", "texas", "western-canada"]
+
+  def self.regions
+    REGIONS
+  end
 end

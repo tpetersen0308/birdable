@@ -1,7 +1,7 @@
 class BirdsController < ApplicationController
   
   def index
-    if Region.all.map{|region| region.url_safe_attribute("name")}.include?(params[:filter])
+    if Region.regions.include?(params[:filter])
       @birds = Bird.by_region(params[:filter])
     elsif params[:filter]
       @birds = Bird.by_family(params[:filter])

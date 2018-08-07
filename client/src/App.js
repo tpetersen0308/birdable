@@ -28,4 +28,8 @@ function mapDispatchToProps(dispatch) {
   return { fetchBirds: () => dispatch(fetchBirds()) }
 }
 
+function mapStateToProps(state) {
+  return { birds: state.birds }
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(App)

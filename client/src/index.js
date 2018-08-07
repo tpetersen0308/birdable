@@ -7,5 +7,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();

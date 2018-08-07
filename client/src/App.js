@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { fetchBirds } from './actions/fetchBirds.js'
 
 class App extends Component {
   render() {
@@ -18,4 +20,8 @@ class App extends Component {
   }
 }
 
-export default App;
+App.defaultProps = {
+  birds: [],
+}
+
+

@@ -24,4 +24,8 @@ App.defaultProps = {
   birds: [],
 }
 
+function mapDispatchToProps(dispatch) {
+  return { fetchBirds: () => dispatch(fetchBirds()) }
+}
+
 

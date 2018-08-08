@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import { fetchBirds } from '../actions/fetchBirds.js';
 import NavBar from './NavBar.js';
+import BirdsPage from '../containers/BirdsPage.js';
+import ExercisePage from '../containers/ExercisePage.js';
+import HomePage from '../containers/HomePage.js'
 
 class App extends Component {
 
@@ -17,7 +21,14 @@ class App extends Component {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <header className="App-header">
           <h1 className="App-title">birdable</h1>
-          <NavBar />
+          <Router>
+            <div>
+              <NavBar />
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/exercise' component={ExercisePage} />
+              <Route exact path='/birds' component={BirdsPage} />
+            </div>
+          </Router>
         </header>
       </div>
     );

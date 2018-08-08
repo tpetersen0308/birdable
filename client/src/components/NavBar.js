@@ -3,21 +3,21 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
+    <div style={{ borderTop: '1px solid white', paddingTop: '10px', marginBottom: '12px' }}>
       <NavLink
-        style={{ marginRight: '10px' }}
+        style={{ marginRight: '10px', color: 'white' }}
         to="/"
       >
         Home
       </NavLink>
       <NavLink
-        style={{ marginRight: '10px' }}
+        style={{ marginRight: '10px', color: 'white' }}
         to="/exercise"
       >
         Practice
       </NavLink>
       <NavLink
-        style={{ marginRight: '10px' }}
+        style={{ marginRight: '10px', color: 'white' }}
         to="/birds"
       >
         Browse Birds

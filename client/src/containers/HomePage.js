@@ -7,6 +7,7 @@ class HomePage extends Component {
       <div>
         <header className="App-header">
           <h1 className="App-title">birdable</h1>
+          <p>an online resource for improving bird identification skills</p>
           <NavBar />
         </header>
       </div>

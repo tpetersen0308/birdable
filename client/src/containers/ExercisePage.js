@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class ExercisePage extends Component {
-
   render() {
     return (
-      <div></div>
+      <div>Exercise Page</div>
     )
   }
 }

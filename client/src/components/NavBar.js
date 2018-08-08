@@ -10,21 +10,18 @@ const NavBar = () => {
       <NavLink
         style={{ marginRight: '10px' }}
         to="/"
-        component={App}
       >
         Home
       </NavLink>
       <NavLink
         style={{ marginRight: '10px' }}
         to="/exercise"
-        component={ExercisePage}
       >
         Practice
       </NavLink>
       <NavLink
         style={{ marginRight: '10px' }}
         to="/birds"
-        component={BirdsPage}
       >
         Browse Birds
       </NavLink>

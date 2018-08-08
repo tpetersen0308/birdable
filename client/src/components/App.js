@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 import { connect } from 'react-redux';
-import { fetchBirds } from './actions/fetchBirds.js';
+import { fetchBirds } from '../actions/fetchBirds.js';
 import NavBar from './NavBar.js';
 
 class App extends Component {

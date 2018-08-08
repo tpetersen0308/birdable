@@ -11,6 +11,9 @@ class App extends Component {
   }
 
   render() {
+
+    let birdImages = this.props.birds.map(bird => <p><img src={bird.image} alt={bird.common_name} /></p>)
+
     return (
       <div className="App">
         <header className="App-header">
@@ -20,6 +23,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        {birdImages}
       </div>
     );
   }

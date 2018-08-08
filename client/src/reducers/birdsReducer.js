@@ -1,9 +1,7 @@
-function birdsReducer(state = { loading: false, birds: [] }, action) {
+function birdsReducer(state = [], action) {
   switch (action.type) {
-    case 'LOADING_BIRDS':
-      return Object.assign({}, state, { loading: true })
     case "FETCH_BIRDS":
-      return { loading: false, birds: action.payload }
+      return action.payload
     default:
       return state
   }

@@ -20,9 +20,9 @@ class App extends Component {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <Router>
           <div>
-            <Route exact path='/' component={HomePage} />
-            <Route exact path='/exercise' component={ExercisePage} />
-            <Route exact path='/birds' component={BirdsPage} />
+            <Route path='/' component={HomePage} />
+            <Route path='/exercise' component={ExercisePage} />
+            <Route path='/birds' component={BirdsPage} />
           </div>
         </Router>
       </div>

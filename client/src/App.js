@@ -5,6 +5,11 @@ import { connect } from 'react-redux';
 import { fetchBirds } from './actions/fetchBirds.js'
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchBirds();
+  }
+
   render() {
     return (
       <div className="App">

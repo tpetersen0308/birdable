@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import App from './App.js';
+import BirdsPage from '../containers/BirdsPage.js';
+import ExercisePage from '../containers/ExercisePage.js';
 
 const NavBar = () => {
   return (

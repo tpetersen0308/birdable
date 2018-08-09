@@ -8,3 +8,8 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.dropdown-menu {
+  height: 140px;
+  overflow-y: scroll;
+}

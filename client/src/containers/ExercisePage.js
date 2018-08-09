@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 class ExercisePage extends Component {
   render() {
     return (
-      <div>Exercise Page</div>
+      <div>
+        <h3>Select which regions and families you would like to test your knowledge of below:</h3>
+        {/* ADD DROPDOWN MENUS HERE */}
+      </div>
     )
   }
 }

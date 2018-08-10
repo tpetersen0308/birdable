@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Form, FormGroup, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
-import { toTitleCase } from '../index.js';
+import { toTitleCase, urlSafeString } from '../index.js';
 import '../index.css';
 
 class ExercisePage extends Component {

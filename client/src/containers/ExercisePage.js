@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, FormGroup, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
+import { Button, Form, FormGroup, ControlLabel, FormControl, Checkbox, DropdownButton, MenuItem } from 'react-bootstrap';
 import { toTitleCase, urlSafeString } from '../index.js';
 import { selectBirds } from '../actions/exerciseActions.js';
 import '../index.css';
@@ -14,10 +14,18 @@ class ExercisePage extends Component {
     }
   }
 
-  selectFamily = event => {
+  handleFamilyCheckbox = event => {
+    if (event.target.checked) {
+      this.selectFamily(event.target.value);
+    } else {
+      this.deselectFamily(event.target.value);
+    }
+  }
+
+  selectFamily = family => {
     this.setState({
       ...this.state,
-      selectedFamilies: this.state.selectedFamilies.concat(event.target.value)
+      selectedFamilies: this.state.selectedFamilies.concat([family])
     }, () => console.log(this.state.selectedFamilies))
   }
 
@@ -28,10 +36,10 @@ class ExercisePage extends Component {
     }, () => console.log(this.state.selectedRegions))
   }
 
-  deselectFamily = event => {
+  deselectFamily = family => {
     this.setState({
       ...this.state,
-      selectedFamilies: this.state.selectedFamilies.filter(family => family !== event.target.value)
+      selectedFamilies: this.state.selectedFamilies.filter(familyName => familyName !== family)
     }, () => console.log(this.state.selectedFamilies))
   }
 
@@ -79,7 +87,7 @@ class ExercisePage extends Component {
     return (
       <div>
         <h4>Select families and regions to practice identifying:</h4>
-        <div id="filter-options">
+        {/* <div id="filter-options">
           <Form inline onSubmit={this.handleSubmit}>
             <FormGroup controlId="formControlsSelectMultiple">
               <p><ControlLabel>Families</ControlLabel></p>
@@ -109,8 +117,16 @@ class ExercisePage extends Component {
               {this.state.selectedRegions.map(region => <p><Checkbox checked value={region} onChange={this.deselectRegion}>{toTitleCase(region)}</Checkbox></p>)}
             </FormGroup>
           </Form>
+        </div> */}
+
+
+        <div id="filter-dropdown">
+          <DropdownButton title="Families">
+            {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} value={family}>{toTitleCase(family)}</Checkbox>)}
+          </DropdownButton>
         </div>
       </div>
+
     )
   }
 }

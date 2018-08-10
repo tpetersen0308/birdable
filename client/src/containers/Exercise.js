@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addProblem, addSolution } from '../actions/exerciseActions.js';
+import { addProblem, addSolution, addUserAnswer } from '../actions/exerciseActions.js';
 
 class Exercise extends Component {
   render() {
@@ -20,6 +20,7 @@ function mapDispatchToProps(dispatch) {
   return {
     addProblem: (problem) => dispatch(addProblem(problem)),
     addSolution: (solution) => dispatch(addSolution(solution)),
+    addUserAnswer: (userAnswer) => dispatch(addUserAnswer(userAnswer)),
   }
 }
 

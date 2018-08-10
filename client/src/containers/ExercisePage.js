@@ -8,11 +8,16 @@ class ExercisePage extends Component {
     super();
     this.state = {
       selectedBirds: [],
+      selectedFamilies: [],
+      selectedRegions: [],
     }
   }
 
   addFamilySelection = event => {
-
+    this.setState({
+      ...this.state,
+      selectedFamilies: this.state.selectedFamilies.push(event.target.value)
+    }, () => console.log(this.state.selectedFamilies))
   }
 
   addRegionSelection = event => {

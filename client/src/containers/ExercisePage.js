@@ -96,11 +96,17 @@ class ExercisePage extends Component {
       <div>
         <h4>Select families and regions to practice identifying:</h4>
         <div id="filter-dropdown">
-          <DropdownButton title="Families">
+          <DropdownButton
+            bsStyle="warning"
+            title="Families"
+          >
             {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} value={family}>{toTitleCase(family)}</Checkbox>)}
           </DropdownButton>
           {'  '}
-          <DropdownButton title="Regions">
+          <DropdownButton
+            bsStyle='warning'
+            title="Regions"
+          >
             {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} value={region}>{toTitleCase(region)}</Checkbox>)}
           </DropdownButton>
           {'  '}

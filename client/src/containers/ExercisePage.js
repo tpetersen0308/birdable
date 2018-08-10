@@ -66,6 +66,8 @@ class ExercisePage extends Component {
     birds = this.filterByRegions(birds, this.state.selectedRegions);
 
     this.props.selectBirds(birds);
+
+    this.props.history.push('/exercises/problem');
   }
 
   render() {

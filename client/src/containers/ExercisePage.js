@@ -21,7 +21,10 @@ class ExercisePage extends Component {
   }
 
   selectRegion = event => {
-
+    this.setState({
+      ...this.state,
+      selectedRegions: this.state.selectedRegions.concat(event.target.value)
+    }, () => console.log(this.state.selectedRegions))
   }
 
   render() {

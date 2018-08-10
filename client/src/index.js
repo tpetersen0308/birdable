@@ -24,7 +24,7 @@ export function toTitleCase(str) {
 }
 
 export function urlSafeString(str) {
-  string.replace(/\s/g, '-').replace(/[^a-zA-Z\-]/g, '').toLowerCase()
+  return str.replace(/\s/g, '-').replace(/[^a-zA-Z\-]/g, '').toLowerCase()
 }
 
 ReactDOM.render(

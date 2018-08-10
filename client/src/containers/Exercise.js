@@ -21,6 +21,12 @@ class Exercise extends Component {
     })
   }
 
+  resetExercise = (birdSelection) => {
+    let birds = this.getBirdsForProblem(birdSelection);
+    this.resetProblem(birds);
+    this.resetSolution(birds);
+  }
+
   getBirdsForProblem = birdSelection => {
     let birds = [];
     for (let i = 0; i < 4; i++) {

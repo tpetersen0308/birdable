@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Exercise extends Component {
   render() {
@@ -8,4 +9,10 @@ class Exercise extends Component {
   }
 }
 
-export default Exercise;
+function mapStateToProps(state) {
+  return {
+    exercise: state.exercise,
+  }
+}
+
+export default connect(mapStateToProps)(Exercise);

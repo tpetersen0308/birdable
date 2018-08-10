@@ -18,3 +18,22 @@ body {
 .checkbox {
   margin-left: 8px;
 }
+
+img {
+  background: 50% 50% no-repeat; /* 50% 50% centers image in div */
+  max-width: 200px;
+  max-height: 200px;
+  vertical-align: top;
+}
+
+.thumbnail {
+  width: 20%;
+  height: 300px;
+  float: left;
+  margin-left: 4%;
+}
+
+.bird-cards {
+  margin: auto
+}
+

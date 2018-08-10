@@ -50,7 +50,7 @@ class ExercisePage extends Component {
     return (
       <div>
         <h4>Select which regions and families you would like to test your knowledge of below:</h4>
-        <div class="filter-options">
+        <div id="filter-options">
           <Form inline>
             <FormGroup controlId="formControlsSelectMultiple">
               <p><ControlLabel>Families</ControlLabel></p>
@@ -68,7 +68,20 @@ class ExercisePage extends Component {
             <Button type="submit">Submit</Button>
           </Form>
         </div>
-      </div >
+        <div id='selected-filters'>
+          <Form inline>
+            <FormGroup controlId="formControlCheckboxMultiple">
+              <p><ControlLabel>Selected Families:</ControlLabel></p>
+              {this.state.selectedFamilies.map(family => <p><Checkbox checked value={family} >{family}</Checkbox></p>)}
+            </FormGroup>
+            {"            "}
+            <FormGroup controlId="formControlCheckboxMultiple">
+              <p><ControlLabel>Selected Regions:</ControlLabel></p>
+              {this.state.selectedRegions.map(region => <p><Checkbox checked value={region} >{region}</Checkbox></p>)}
+            </FormGroup>
+          </Form>
+        </div>
+      </div>
     )
   }
 }

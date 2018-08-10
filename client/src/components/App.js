@@ -6,7 +6,8 @@ import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import { fetchBirds } from '../actions/fetchBirds.js';
 import BirdsPage from '../containers/BirdsPage.js';
 import ExercisePage from '../containers/ExercisePage.js';
-import HomePage from '../containers/HomePage.js'
+import HomePage from '../containers/HomePage.js';
+import Exercise from '../containers/Exercise.js';
 
 class App extends Component {
 
@@ -22,7 +23,7 @@ class App extends Component {
           <div>
             <Route path='/' component={HomePage} />
             <Route path='/birds' component={BirdsPage} />
-            <Route path='/exercises' component={ExercisePage} />
+            <Route exact path='/exercises' component={ExercisePage} />
             <Route path='/exercises/problem' component={Exercise} />
             <Route path='/exercises/solution' component={Exercise} />
           </div>

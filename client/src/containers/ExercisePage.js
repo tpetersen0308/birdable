@@ -95,39 +95,6 @@ class ExercisePage extends Component {
     return (
       <div>
         <h4>Select families and regions to practice identifying:</h4>
-        {/* <div id="filter-options">
-          <Form inline onSubmit={this.handleSubmit}>
-            <FormGroup controlId="formControlsSelectMultiple">
-              <p><ControlLabel>Families</ControlLabel></p>
-              <FormControl componentClass="select" multiple>
-                {familyMenuItems}
-              </FormControl>
-            </FormGroup>
-            {"   "}
-            <FormGroup controlId="formControlsSelectMultiple">
-              <p><ControlLabel>Regions</ControlLabel></p>
-              <FormControl componentClass="select" multiple>
-                {regionMenuItems}
-              </FormControl>
-            </FormGroup><br /><br />
-            <Button type="submit">Submit</Button>
-          </Form>
-        </div>
-        <div id='selected-filters'>
-          <Form inline>
-            <FormGroup controlId="formControlCheckboxMultiple">
-              <p><ControlLabel>Selected Families:</ControlLabel></p>
-              {this.state.selectedFamilies.map(family => <p><Checkbox checked value={family} onChange={this.deselectFamily} >{toTitleCase(family)}</Checkbox></p>)}
-            </FormGroup>
-            {"            "}
-            <FormGroup controlId="formControlCheckboxMultiple">
-              <p><ControlLabel>Selected Regions:</ControlLabel></p>
-              {this.state.selectedRegions.map(region => <p><Checkbox checked value={region} onChange={this.deselectRegion}>{toTitleCase(region)}</Checkbox></p>)}
-            </FormGroup>
-          </Form>
-        </div> */}
-
-
         <div id="filter-dropdown">
           <DropdownButton title="Families">
             {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} value={family}>{toTitleCase(family)}</Checkbox>)}

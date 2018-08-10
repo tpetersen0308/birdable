@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Form, FormGroup, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
 import { toTitleCase, urlSafeString } from '../index.js';
+import { selectBirds } from '../actions/exerciseActions.js';
 import '../index.css';
 
 class ExercisePage extends Component {
@@ -117,7 +118,16 @@ class ExercisePage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { birds: state.birds }
+  return {
+    birds: state.birds,
+    exercise: {
+      birdSelection: state.birdSelection,
+    }
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { selectBirds: (birds) => dispatch(selectBirds(birds)) }
 }
 
 export default connect(mapStateToProps)(ExercisePage)

@@ -43,6 +43,16 @@ class ExercisePage extends Component {
   }
 
   handleSubmit = event => {
+    let birds = this.props.birds
+    if (this.state.selectedFamilies.length > 0) {
+      birds = birds.filter(bird => this.state.selectedFamilies.includes(bird.family))
+    }
+
+    if (this.state.selectedRegions.length > 0) {
+      for (let regionName of this.state.selectedRegions) {
+        birds = birds.filter(bird => bird.regions.map(region => region.name).includes(regionName))
+      }
+    }
 
   }
 

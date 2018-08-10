@@ -64,7 +64,11 @@ class ExercisePage extends Component {
     birds = this.filterByFamilies(birds, this.state.selectedFamilies);
 
     birds = this.filterByRegions(birds, this.state.selectedRegions);
-    debugger
+
+    this.setState({
+      ...this.state,
+      selectedBirds: birds,
+    }, () => console.log(this.state.selectedBirds))
   }
 
   render() {

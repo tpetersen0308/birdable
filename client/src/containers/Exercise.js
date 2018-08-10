@@ -6,8 +6,11 @@ class Exercise extends Component {
 
   // resetProblem and resetSolution are passed to Solution as props and called when 
   // user clicks "next" on solution component
-  resetProblem = () => {
-
+  resetProblem = (birds) => {
+    this.props.addProblem({
+      type: 'SONG',
+      birds: birds,
+    })
   }
 
   resetSolution = () => {

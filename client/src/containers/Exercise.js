@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addProblem, addSolution } from '../actions/exerciseActions.js';
 
 class Exercise extends Component {
   render() {
@@ -15,4 +16,11 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Exercise);
+function mapDispatchToProps(dispatch) {
+  return {
+    addProblem: (problem) => dispatch(addProblem(problem)),
+    addSolution: (solution) => dispatch(addSolution(solution)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Exercise);

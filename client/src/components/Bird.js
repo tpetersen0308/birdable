@@ -1,10 +1,11 @@
 import React from 'react';
 import { Thumbnail } from 'react-bootstrap';
+import { toTitleCase } from '../index.js';
 
 export const Bird = (props) => {
   let nameInfo = <div>
-    <h3>{props.bird.common_name}</h3>
-    <p>{props.bird.scientific_name}</p>
+    <h3>{toTitleCase(props.bird.common_name)}</h3>
+    <p><i>{toTitleCase(props.bird.scientific_name)}</i></p>
   </div>
 
   let songInfo = <div><audio

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Bird } from './Bird.js';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 const Problem = (props) => {
-  let birds = props.problem.birds.map(bird => <Bird bird={bird} exerciseType="SONG" />)
+  let birds = props.problem.birds.map(bird => <Col xs={6} md={4}><Bird bird={bird} exerciseType="SONG" /></Col>)
   let correctBird = props.problem.birds.filter(bird => bird.id === props.problem.correctAnswerKey)[0]
   let songAudio = ''
   if (correctBird) {
@@ -18,7 +19,11 @@ const Problem = (props) => {
 
   return (
     <div>
-      {birds}
+      <Grid>
+        <Row>
+          {birds}
+        </Row>
+      </Grid>
       {songAudio}
     </div>
   )

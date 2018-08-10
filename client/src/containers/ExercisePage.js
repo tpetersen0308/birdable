@@ -78,7 +78,7 @@ class ExercisePage extends Component {
 
     return (
       <div>
-        <h4>Select which regions and families you would like to test your knowledge of below:</h4>
+        <h4>Select families and regions to practice identifying:</h4>
         <div id="filter-options">
           <Form inline onSubmit={this.handleSubmit}>
             <FormGroup controlId="formControlsSelectMultiple">

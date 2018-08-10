@@ -32,7 +32,7 @@ FRONTEND
 
 
 TODO:
-- Refactor region and family filters to select multiple options
+- Problem and Solution are presentational components conditionally rendered by Exercise
 - Birds can be selected by generation 4 random numbers between 0 and birds.length 
 - Add user class
 - Add user authentication

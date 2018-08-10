@@ -12,7 +12,7 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         style={{ marginRight: '10px', color: 'white' }}
-        to="/exercise"
+        to="/exercises"
       >
         Practice
       </NavLink>

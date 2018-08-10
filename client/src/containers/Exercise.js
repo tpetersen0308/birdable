@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProblem, addSolution, addUserAnswer } from '../actions/exerciseActions.js';
+import Problem from '../components/Problem.js';
+import Solution from '../componentsSolution.js';
 
 class Exercise extends Component {
 
@@ -42,7 +44,7 @@ class Exercise extends Component {
 
   render() {
     return (
-      <div>New Problem</div>
+      <div>{this.props.exercise.userAnswer ? <Solution solution={this.props.exercise.solution} /> : <Problem problem={this.props.exercise.problem} />}</div>
     )
   }
 }

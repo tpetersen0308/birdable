@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Form, FormGroup, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
+import { toTitleCase } from '../index.js';
 import '../index.css';
 
 class ExercisePage extends Component {
@@ -48,8 +49,8 @@ class ExercisePage extends Component {
   render() {
     const taxonomicFamilies = ["albatrosses", "anhingas", "auks, murres, puffins", "barn owls", "becards, tityras and allies", "blackbirds and orioles", "boobies and gannets", "bushtits", "cardinals, grosbeaks and buntings", "chachalacas", "chickadees and titmice", "cormorants", "cranes", "creepers", "crows, magpies, jays", "cuckoos, roadrunners, anis", "dippers", "ducks and geese", "falcons", "finches", "frigatebirds", "gnatcatchers", "grebes", "gulls and terns", "hawks and eagles", "herons, egrets, bitterns", "hummingbirds", "ibises and spoonbills", "kingfishers", "kinglets", "larks", "leaf-warblers", "longspurs and snow buntings", "loons", "lovebirds and australasian parrots", "mockingbirds and thrashers", "new world quail", "new world sparrows", "new world vultures", "nightjars", "northern storm-petrels", "nuthatches", "old world flycatchers", "old world sparrows", "olive warblers", "ospreys", "owls", "oystercatchers", "pelicans", "pheasants and grouse", "pigeons and doves", "plovers", "rails, gallinules, coots", "sandpipers", "shearwaters and petrels", "shrikes", "silky-flycatchers", "skuas and jaegers", "southern storm-petrels", "starlings and mynas", "stilts and avocets", "storks", "swallows", "swifts", "sylviid warblers", "thrushes", "trogons", "tropicbirds", "tyrant flycatchers", "verdins", "vireos", "wagtails and pipits", "waxwings", "wood warblers", "woodpeckers", "wrens", "yellow-breasted chats"];
     const regions = ["alaska and the north", "california", "eastern canada", "florida", "great lakes", "mid atlantic", "new england", "northwest", "plains", "rocky mountains", "southeast", "southwest", "texas", "western canada"];
-    const familyMenuItems = taxonomicFamilies.map(family => <option value={family} onClick={this.selectFamily}>{family}</option>)
-    const regionMenuItems = regions.map(region => <option value={region} onClick={this.selectRegion}>{region}</option>)
+    const familyMenuItems = taxonomicFamilies.map(family => <option value={family} onClick={this.selectFamily}>{toTitleCase(family)}</option>)
+    const regionMenuItems = regions.map(region => <option value={region} onClick={this.selectRegion}>{toTitleCase(region)}</option>)
 
     return (
       <div>
@@ -76,12 +77,12 @@ class ExercisePage extends Component {
           <Form inline>
             <FormGroup controlId="formControlCheckboxMultiple">
               <p><ControlLabel>Selected Families:</ControlLabel></p>
-              {this.state.selectedFamilies.map(family => <p><Checkbox checked value={family} onChange={this.deselectFamily} >{family}</Checkbox></p>)}
+              {this.state.selectedFamilies.map(family => <p><Checkbox checked value={family} onChange={this.deselectFamily} >{toTitleCase(family)}</Checkbox></p>)}
             </FormGroup>
             {"            "}
             <FormGroup controlId="formControlCheckboxMultiple">
               <p><ControlLabel>Selected Regions:</ControlLabel></p>
-              {this.state.selectedRegions.map(region => <p><Checkbox checked value={region} onChange={this.deselectRegion}>{region}</Checkbox></p>)}
+              {this.state.selectedRegions.map(region => <p><Checkbox checked value={region} onChange={this.deselectRegion}>{toTitleCase(region)}</Checkbox></p>)}
             </FormGroup>
           </Form>
         </div>

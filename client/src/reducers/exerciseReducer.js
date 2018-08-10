@@ -4,7 +4,7 @@ function exerciseReducer(state = {
   correctAnswerKey: null,
 }, action) {
   switch (action.type) {
-    case "NEW_EXERCISE":
+    case "ADD_EXERCISE":
       return action.payload;
     default:
       return state;

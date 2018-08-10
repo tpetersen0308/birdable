@@ -98,19 +98,21 @@ class ExercisePage extends Component {
         <div id="filter-dropdown">
           <DropdownButton
             bsStyle="warning"
+            bsSize="large"
             title="Families"
           >
             {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} value={family}>{toTitleCase(family)}</Checkbox>)}
           </DropdownButton>
           {'  '}
           <DropdownButton
+            bsSize="large"
             bsStyle='warning'
             title="Regions"
           >
             {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} value={region}>{toTitleCase(region)}</Checkbox>)}
           </DropdownButton>
           {'  '}
-          <Button type="submit" onClick={this.handleSubmit}>Submit</Button>
+          <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Submit</Button>
         </div>
       </div>
 

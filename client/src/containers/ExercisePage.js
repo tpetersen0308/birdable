@@ -28,7 +28,10 @@ class ExercisePage extends Component {
   }
 
   deselectFamily = event => {
-
+    this.setState({
+      ...this.state,
+      selectedFamilies: this.state.selectedFamilies.filter(family => family !== event.target.value)
+    }, () => console.log(this.state.selectedFamilies))
   }
 
   deselectRegion = event => {

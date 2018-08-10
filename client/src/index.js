@@ -23,6 +23,10 @@ export function toTitleCase(str) {
   );
 }
 
+export function url_safe_string(str) {
+  string.replace(/\s/g, '-').replace(/[^a-zA-Z\-]/g, '').toLowerCase()
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

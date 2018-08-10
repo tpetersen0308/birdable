@@ -72,12 +72,12 @@ class ExercisePage extends Component {
           <Form inline>
             <FormGroup controlId="formControlCheckboxMultiple">
               <p><ControlLabel>Selected Families:</ControlLabel></p>
-              {this.state.selectedFamilies.map(family => <p><Checkbox checked value={family} >{family}</Checkbox></p>)}
+              {this.state.selectedFamilies.map(family => <p><Checkbox checked value={family} onChange={this.deselectFamily} >{family}</Checkbox></p>)}
             </FormGroup>
             {"            "}
             <FormGroup controlId="formControlCheckboxMultiple">
               <p><ControlLabel>Selected Regions:</ControlLabel></p>
-              {this.state.selectedRegions.map(region => <p><Checkbox checked value={region} >{region}</Checkbox></p>)}
+              {this.state.selectedRegions.map(region => <p><Checkbox checked value={region} onChange={this.deselectRegion}>{region}</Checkbox></p>)}
             </FormGroup>
           </Form>
         </div>

@@ -35,7 +35,10 @@ class ExercisePage extends Component {
   }
 
   deselectRegion = event => {
-
+    this.setState({
+      ...this.state,
+      selectedRegions: this.state.selectedRegions.filter(region => region !== event.target.value)
+    }, () => console.log(this.state.selectedRegions))
   }
 
   render() {

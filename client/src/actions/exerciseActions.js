@@ -9,3 +9,7 @@ export function addProblem(problem) {
 export function addSolution(solution) {
   return { type: "ADD_SOLUTION", payload: solution }
 }
+
+export function addUserAnswer(userAnswer) {
+  return { type: "ADD_USER_ANSWER", payload: userAnswer }
+}

@@ -10,3 +10,5 @@ function exerciseReducer(state = {
       return state;
   }
 }
+
+export default exerciseReducer;

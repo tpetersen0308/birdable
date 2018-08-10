@@ -11,3 +11,5 @@ function solutionReducer(state = {
       return state;
   }
 }
+
+export default solutionReducer;

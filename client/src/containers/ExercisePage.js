@@ -42,11 +42,17 @@ class ExercisePage extends Component {
     }, () => console.log(this.state.selectedRegions))
   }
 
+  filterByFamilies = (birds, families) => {
+    if (families.length > 0) {
+      birds = birds.filter(bird => families.includes(bird.family))
+    }
+    return birds
+  }
+
   handleSubmit = event => {
     let birds = this.props.birds
-    if (this.state.selectedFamilies.length > 0) {
-      birds = birds.filter(bird => this.state.selectedFamilies.includes(bird.family))
-    }
+
+    birds = this.filterByFamilies(birds, this.state.selectedFamilies);
 
     if (this.state.selectedRegions.length > 0) {
       for (let regionName of this.state.selectedRegions) {

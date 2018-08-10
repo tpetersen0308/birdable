@@ -3,7 +3,7 @@ import { Thumbnail } from 'react-bootstrap';
 import { toTitleCase } from '../index.js';
 
 export const Bird = (props) => {
-  let nameInfo = <div>
+  let nameInfo = <div className="bird-name-info">
     <h4>{toTitleCase(props.bird.common_name)}</h4>
     <p><i>{toTitleCase(props.bird.scientific_name)}</i></p>
   </div>

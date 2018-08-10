@@ -4,7 +4,7 @@ import { toTitleCase } from '../index.js';
 
 export const Bird = (props) => {
   let nameInfo = <div>
-    <h3>{toTitleCase(props.bird.common_name)}</h3>
+    <h4>{toTitleCase(props.bird.common_name)}</h4>
     <p><i>{toTitleCase(props.bird.scientific_name)}</i></p>
   </div>
 
@@ -19,19 +19,17 @@ export const Bird = (props) => {
   let birdInfo = exerciseType => {
     switch (exerciseType) {
       case "NAME":
-        return <div>{songInfo}</div>
+        return <div className="bird-card">{songInfo}</div>
       case "SONG":
-        return <div>{nameInfo}</div>
+        return <div className="bird-card">{nameInfo}</div>
       default:
-        return <div>{nameInfo}{songInfo}</div>
+        return <div className="bird-card">{nameInfo}{songInfo}</div>
     }
   }
 
   return (
-    <div>
-      <Thumbnail src={props.bird.image} alt={props.bird.common_name}>
-        {birdInfo(props.exerciseType)}
-      </Thumbnail>
-    </div>
+    <Thumbnail src={props.bird.image} alt={props.bird.common_name}>
+      {birdInfo(props.exerciseType)}
+    </Thumbnail>
   )
 }

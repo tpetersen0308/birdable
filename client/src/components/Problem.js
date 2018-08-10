@@ -19,7 +19,14 @@ const Problem = (props) => {
 
   return (
     <div>
+      <br />
+      <br />
+      <h4>Listen to the song sample and select the matching bird below:</h4>
+      <br />
+      <br />
       {songAudio}
+      <br />
+      <br />
       <div className="bird-cards">
         {birds}
       </div>

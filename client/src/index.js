@@ -23,7 +23,7 @@ export function toTitleCase(str) {
   );
 }
 
-export function url_safe_string(str) {
+export function urlSafeString(str) {
   string.replace(/\s/g, '-').replace(/[^a-zA-Z\-]/g, '').toLowerCase()
 }
 

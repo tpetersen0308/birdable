@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProblem, addSolution, addUserAnswer } from '../actions/exerciseActions.js';
 import Problem from '../components/Problem.js';
-import Solution from '../componentsSolution.js';
+import Solution from '../components/Solution.js';
 
 class Exercise extends Component {
 

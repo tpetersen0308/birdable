@@ -13,8 +13,12 @@ class Exercise extends Component {
     })
   }
 
-  resetSolution = () => {
-
+  resetSolution = (birds) => {
+    this.props.addSolution({
+      type: 'SONG',
+      birds: birds,
+      correctAnswerKey: birds[Math.floor(Math.random() * 4)].id,
+    })
   }
 
   getBirdsForProblem = birdSelection => {

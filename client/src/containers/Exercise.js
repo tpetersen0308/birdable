@@ -4,6 +4,10 @@ import { addProblem, addSolution, addUserAnswer } from '../actions/exerciseActio
 
 class Exercise extends Component {
 
+  componentDidMount() {
+    this.resetExercise(this.props.exercise.birdSelection);
+  }
+
   // resetProblem and resetSolution are passed to Solution as props and called when 
   // user clicks "next" on solution component
   resetProblem = (birds) => {

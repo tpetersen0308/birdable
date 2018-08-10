@@ -124,6 +124,12 @@ class ExercisePage extends Component {
           <DropdownButton title="Families">
             {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} value={family}>{toTitleCase(family)}</Checkbox>)}
           </DropdownButton>
+          {'  '}
+          <DropdownButton title="Regions">
+            {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} value={region}>{toTitleCase(region)}</Checkbox>)}
+          </DropdownButton>
+          {'  '}
+          <Button type="submit">Submit</Button>
         </div>
       </div>
 

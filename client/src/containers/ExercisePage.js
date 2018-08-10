@@ -59,10 +59,10 @@ class ExercisePage extends Component {
   }
 
   handleSubmit = event => {
+    event.preventDefault();
+
     let birds = this.props.birds;
-
     birds = this.filterByFamilies(birds, this.state.selectedFamilies);
-
     birds = this.filterByRegions(birds, this.state.selectedRegions);
 
     this.setState({

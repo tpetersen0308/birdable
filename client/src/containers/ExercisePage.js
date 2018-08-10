@@ -49,17 +49,22 @@ class ExercisePage extends Component {
     return birds
   }
 
-  handleSubmit = event => {
-    let birds = this.props.birds
-
-    birds = this.filterByFamilies(birds, this.state.selectedFamilies);
-
-    if (this.state.selectedRegions.length > 0) {
-      for (let regionName of this.state.selectedRegions) {
+  filterByRegions = (birds, regions) => {
+    if (regions.length > 0) {
+      for (let regionName of regions) {
         birds = birds.filter(bird => bird.regions.map(region => region.name).includes(regionName))
       }
     }
+    return birds
+  }
 
+  handleSubmit = event => {
+    let birds = this.props.birds;
+
+    birds = this.filterByFamilies(birds, this.state.selectedFamilies);
+
+    birds = this.filterByRegions(birds, this.state.selectedRegions);
+    debugger
   }
 
   render() {

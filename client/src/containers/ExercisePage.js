@@ -22,6 +22,14 @@ class ExercisePage extends Component {
     }
   }
 
+  handleRegionCheckbox = event => {
+    if (event.target.checked) {
+      this.select(event.target.value);
+    } else {
+      this.deselect(event.target.value);
+    }
+  }
+
   selectFamily = family => {
     this.setState({
       ...this.state,

@@ -4,6 +4,16 @@ import { addProblem, addSolution, addUserAnswer } from '../actions/exerciseActio
 
 class Exercise extends Component {
 
+  // resetProblem and resetSolution are passed to Solution as props and called when 
+  // user clicks "next" on solution component
+  resetProblem = () => {
+
+  }
+
+  resetSolution = () => {
+
+  }
+
   getBirdsForProblem = birdSelection => {
     let birds = [];
     for (let i = 0; i < 4; i++) {
@@ -14,7 +24,6 @@ class Exercise extends Component {
   }
 
   render() {
-    debugger
     return (
       <div>New Problem</div>
     )

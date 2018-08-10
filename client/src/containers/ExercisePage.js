@@ -9,7 +9,6 @@ class ExercisePage extends Component {
   constructor() {
     super();
     this.state = {
-      selectedBirds: [],
       selectedFamilies: [],
       selectedRegions: [],
     }
@@ -66,10 +65,7 @@ class ExercisePage extends Component {
     birds = this.filterByFamilies(birds, this.state.selectedFamilies);
     birds = this.filterByRegions(birds, this.state.selectedRegions);
 
-    this.setState({
-      ...this.state,
-      selectedBirds: birds,
-    }, () => console.log(this.state.selectedBirds))
+    this.props.selectBirds(birds);
   }
 
   render() {
@@ -121,7 +117,7 @@ function mapStateToProps(state) {
   return {
     birds: state.birds,
     exercise: {
-      birdSelection: state.birdSelection,
+      birdSelection: state.exercise.birdSelection,
     }
   }
 }
@@ -130,4 +126,4 @@ function mapDispatchToProps(dispatch) {
   return { selectBirds: (birds) => dispatch(selectBirds(birds)) }
 }
 
-export default connect(mapStateToProps)(ExercisePage)
+export default connect(mapStateToProps, mapDispatchToProps)(ExercisePage)

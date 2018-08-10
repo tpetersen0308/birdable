@@ -33,7 +33,7 @@ class ExercisePage extends Component {
   selectFamily = family => {
     this.setState({
       ...this.state,
-      selectedFamilies: this.state.selectedFamilies.concat([family])
+      selectedFamilies: this.state.selectedFamilies.concat(family)
     }, () => console.log(this.state.selectedFamilies))
   }
 

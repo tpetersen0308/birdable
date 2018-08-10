@@ -24,9 +24,9 @@ class ExercisePage extends Component {
 
   handleRegionCheckbox = event => {
     if (event.target.checked) {
-      this.select(event.target.value);
+      this.selectRegion(event.target.value);
     } else {
-      this.deselect(event.target.value);
+      this.deselectRegion(event.target.value);
     }
   }
 
@@ -37,10 +37,10 @@ class ExercisePage extends Component {
     }, () => console.log(this.state.selectedFamilies))
   }
 
-  selectRegion = event => {
+  selectRegion = region => {
     this.setState({
       ...this.state,
-      selectedRegions: this.state.selectedRegions.concat(event.target.value)
+      selectedRegions: this.state.selectedRegions.concat(region)
     }, () => console.log(this.state.selectedRegions))
   }
 

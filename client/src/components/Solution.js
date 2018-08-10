@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const Solution = (props) => {
   return (
-    <div></div>
+    <div>Solution</div>
   )
 }
 

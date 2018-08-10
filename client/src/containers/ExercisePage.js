@@ -129,7 +129,7 @@ class ExercisePage extends Component {
             {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} value={region}>{toTitleCase(region)}</Checkbox>)}
           </DropdownButton>
           {'  '}
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onClick={this.handleSubmit}>Submit</Button>
         </div>
       </div>
 

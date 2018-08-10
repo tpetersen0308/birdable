@@ -12,4 +12,5 @@ body {
 .dropdown-menu {
   height: 140px;
   overflow-y: scroll;
+  width: 280px;
 }

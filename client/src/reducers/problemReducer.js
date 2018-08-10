@@ -1,14 +1,14 @@
-function exerciseReducer(state = {
+function problemReducer(state = {
   type: '',
   birds: [],
   correctAnswerKey: null,
 }, action) {
   switch (action.type) {
-    case "ADD_EXERCISE":
+    case "ADD_PROBLEM":
       return action.payload;
     default:
       return state;
   }
 }
 
-export default exerciseReducer;
+export default problemReducer;

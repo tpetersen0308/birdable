@@ -19,7 +19,7 @@ const Solution = (props) => {
       <br />
       <br />
       <h4>{correct ? "Correct!" : "Sorry, the correct answer was " + toTitleCase(correctBird.common_name) + ':'}</h4>
-      <Button>Next Exercise</Button>
+      <Button onClick={props.resetExercise}>Next Exercise</Button>
       {'  '}
       <Button>Quit</Button>
       <br />

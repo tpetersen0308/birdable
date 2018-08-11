@@ -10,6 +10,10 @@ class Exercise extends Component {
     this.resetExercise(this.props.exercise.birdSelection);
   }
 
+  checkProblem = event => {
+
+  }
+
   resetProblem = (birds) => {
     this.props.addProblem({
       type: 'SONG',
@@ -35,7 +39,7 @@ class Exercise extends Component {
 
   render() {
     return (
-      <div>{this.props.exercise.userAnswer ? <Solution problem={this.props.exercise.problem} resetExercise={this.resetExercise} /> : <Problem problem={this.props.exercise.problem} />}</div>
+      <div>{this.props.exercise.userAnswer ? <Solution problem={this.props.exercise.problem} resetExercise={this.resetExercise} /> : <Problem problem={this.props.exercise.problem} checkAnswer={this.checkAnswer} />}</div>
     )
   }
 }

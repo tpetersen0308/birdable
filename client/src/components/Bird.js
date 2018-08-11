@@ -24,7 +24,7 @@ export const Bird = (props) => {
       case "SONG":
         return <Thumbnail src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{nameInfo}</div></Thumbnail>
       default:
-        return <Thumbnail className="full-content" src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{nameInfo}{songInfo}</div></Thumbnail>
+        return <Thumbnail id={props.id} className="full-content" src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{nameInfo}{songInfo}</div></Thumbnail>
     }
   }
 

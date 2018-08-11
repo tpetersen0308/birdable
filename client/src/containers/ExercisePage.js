@@ -94,7 +94,9 @@ class ExercisePage extends Component {
 
     return (
       <div>
+        <br />
         <h4>Select families and regions to practice identifying:</h4>
+        <br />
         <div id="filter-dropdown">
           <DropdownButton
             bsStyle="warning"
@@ -112,7 +114,7 @@ class ExercisePage extends Component {
             {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} value={region}>{toTitleCase(region)}</Checkbox>)}
           </DropdownButton>
           {'  '}
-          <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Submit</Button>
+          <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Go!</Button>
         </div>
       </div>
 

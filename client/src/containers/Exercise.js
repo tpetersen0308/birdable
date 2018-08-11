@@ -7,7 +7,7 @@ import Solution from '../components/Solution.js';
 class Exercise extends Component {
 
   componentDidMount() {
-    this.resetExercise(this.props.exercise.birdSelection);
+    this.resetExercise();
   }
 
   submitAnswer = (answerKey) => {
@@ -27,9 +27,10 @@ class Exercise extends Component {
   }
 
   // resetExercise is passed as props to solution and called when next exercise button is clicked
-  resetExercise = (birdSelection) => {
-    let birds = this.getBirdsForProblem(birdSelection);
+  resetExercise = () => {
+    let birds = this.getBirdsForProblem(this.props.exercise.birdSelection);
     this.resetProblem(birds);
+    this.addUserAnswer(null);
   }
 
   getBirdsForProblem = birdSelection => {
@@ -44,11 +45,12 @@ class Exercise extends Component {
   render() {
     return (
       <div>
-        {this.props.exercise.userAnswer ? <Solution
-          problem={this.props.exercise.problem}
-          userAnswer={this.props.exercise.userAnswer}
-          correct={this.correct}
-          resetExercise={this.resetExercise} /> :
+        {this.props.exercise.userAnswer ?
+          <Solution
+            problem={this.props.exercise.problem}
+            userAnswer={this.props.exercise.userAnswer}
+            correct={this.correct}
+            resetExercise={this.resetExercise} /> :
           <Problem
             problem={this.props.exercise.problem}
             submitAnswer={this.submitAnswer}

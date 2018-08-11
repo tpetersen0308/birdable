@@ -1,5 +1,5 @@
 import React from 'react';
-import Bird from './Bird.js';
+import { Bird } from './Bird.js';
 
 export const Home = (props) => {
   return (

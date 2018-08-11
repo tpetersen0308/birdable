@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar.js';
+import Home from './Home.js';
+import { connect } from 'react-redux';
 
 class HomePage extends Component {
   render() {
@@ -10,9 +12,14 @@ class HomePage extends Component {
           <p>an online resource for improving bird identification skills</p>
           <NavBar />
         </header>
+        <Home />
       </div>
     )
   }
 }
 
-export default HomePage;
+function mapStateToProps(state) {
+  return { birds: state.birds }
+}
+
+export default connect(mapStateToProps)(HomePage);

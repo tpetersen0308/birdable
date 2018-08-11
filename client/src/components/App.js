@@ -12,7 +12,6 @@ import Exercise from '../containers/Exercise.js';
 class App extends Component {
 
   componentDidMount() {
-    this.props.loadingBirds();
     this.props.fetchBirds();
   }
 
@@ -41,7 +40,6 @@ App.defaultProps = {
 function mapDispatchToProps(dispatch) {
   return {
     fetchBirds: () => dispatch(fetchBirds()),
-    loadingBirds: () => dispatch({ type: "LOADING_BIRDS" })
   }
 }
 

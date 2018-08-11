@@ -17,7 +17,7 @@ class HomePage extends Component {
           <p>an online resource for improving bird identification skills</p>
           <NavBar />
         </header>
-        <Home bird={this.randomBird(this.props.birds)} />
+        {this.props.loading ? <h4>loading...</h4> : <Home bird={this.randomBird(this.props.birds)} />}
       </div>
     )
   }

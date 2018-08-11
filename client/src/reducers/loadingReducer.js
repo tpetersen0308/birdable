@@ -1,7 +1,7 @@
-function loadingReducer(state = null, action) {
+function loadingReducer(state = true, action) {
   switch (action.type) {
-    case 'LOADING_BIRDS':
-      return true
+    case 'DONE_LOADING':
+      return false
     default:
       return state
   }

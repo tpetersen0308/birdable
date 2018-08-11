@@ -7,6 +7,7 @@ export function fetchBirds() {
       .then(response => response.json())
       .then(birds => {
         dispatch({ type: 'FETCH_BIRDS', payload: birds })
+        dispatch({ type: 'DONE_LOADING' })
       });
   };
 }

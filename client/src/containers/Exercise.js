@@ -30,7 +30,7 @@ class Exercise extends Component {
   resetExercise = () => {
     let birds = this.getBirdsForProblem(this.props.exercise.birdSelection);
     this.resetProblem(birds);
-    this.addUserAnswer(null);
+    this.props.addUserAnswer(null);
   }
 
   getBirdsForProblem = birdSelection => {

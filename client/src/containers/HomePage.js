@@ -24,7 +24,10 @@ class HomePage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { birds: state.birds }
+  return {
+    birds: state.birds,
+    loading: state.loading,
+  }
 }
 
 export default connect(mapStateToProps)(HomePage);

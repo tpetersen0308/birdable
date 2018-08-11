@@ -12,6 +12,7 @@ import Exercise from '../containers/Exercise.js';
 class App extends Component {
 
   componentDidMount() {
+    this.props.loadingBirds();
     this.props.fetchBirds();
   }
 
@@ -38,11 +39,17 @@ App.defaultProps = {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { fetchBirds: () => dispatch(fetchBirds()) }
+  return {
+    fetchBirds: () => dispatch(fetchBirds()),
+    loadingBirds: () => dispatch({ type: "LOADING_BIRDS" })
+  }
 }
 
 function mapStateToProps(state) {
-  return { birds: state.birds }
+  return {
+    birds: state.birds,
+    loading: state.loading
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

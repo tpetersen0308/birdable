@@ -28,10 +28,8 @@ export const Bird = (props) => {
   }
 
   return (
-    <a onClick={props.checkAnswer}>
-      <Thumbnail src={props.bird.image} alt={props.bird.common_name}>
-        {birdInfo(props.exerciseType)}
-      </Thumbnail>
-    </a>
+    <Thumbnail src={props.bird.image} alt={props.bird.common_name}>
+      {birdInfo(props.exerciseType)}
+    </Thumbnail>
   )
 }

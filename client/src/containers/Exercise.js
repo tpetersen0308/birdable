@@ -33,6 +33,10 @@ class Exercise extends Component {
     this.props.addUserAnswer(null);
   }
 
+  quit = () => {
+    this.props.history.push('/');
+  }
+
   getBirdsForProblem = birdSelection => {
     let birds = [];
     for (let i = 0; i < 4; i++) {
@@ -50,7 +54,9 @@ class Exercise extends Component {
             problem={this.props.exercise.problem}
             userAnswer={this.props.exercise.userAnswer}
             correct={this.correct}
-            resetExercise={this.resetExercise} /> :
+            resetExercise={this.resetExercise}
+            quit={this.quit}
+          /> :
           <Problem
             problem={this.props.exercise.problem}
             submitAnswer={this.submitAnswer}

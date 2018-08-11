@@ -21,7 +21,7 @@ const Solution = (props) => {
       <h4>{correct ? "Correct!" : "Sorry, the correct answer was " + toTitleCase(correctBird.common_name) + ':'}</h4>
       <Button onClick={props.resetExercise}>Next Exercise</Button>
       {'  '}
-      <Button>Quit</Button>
+      <Button onClick={props.quit}>Quit</Button>
       <br />
       <br />
       <div className="bird-cards">

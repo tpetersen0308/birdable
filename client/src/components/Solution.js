@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { Bird } from './Bird.js';
 
 const Solution = (props) => {
-  let birds = props.problem.birds.map(bird => <Bird bird={bird} />)
+  let correct = props.correct(props.userAnswer, props.problem.correctAnswerKey);
+  let birds = props.problem.birds.map(bird => <Bird
+    bird={bird}
+    id={correct ? (bird.id === props.userAnswer ? 'correct-answer' : '') : (bird.id === props.userAnswer ? 'incorrect-answer' : '')}
+  />)
 
   return (
     <div>
-      <h4>{props.userAnswer === props.problem.correctAnswerKey ? "Correct!" : "Incorrect"}</h4>
+      <h4>{correct ? "Correct!" : "Incorrect"}</h4>
       <div className="bird-cards">
         {birds}
       </div>

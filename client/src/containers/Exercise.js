@@ -14,6 +14,10 @@ class Exercise extends Component {
     this.props.addUserAnswer(answerKey);
   }
 
+  correct = (answer, userAnswer) => {
+    return answer === userAnswer;
+  }
+
   resetProblem = (birds) => {
     this.props.addProblem({
       type: 'SONG',
@@ -39,7 +43,17 @@ class Exercise extends Component {
 
   render() {
     return (
-      <div>{this.props.exercise.userAnswer ? <Solution problem={this.props.exercise.problem} userAnswer={this.props.exercise.userAnswer} resetExercise={this.resetExercise} /> : <Problem problem={this.props.exercise.problem} submitAnswer={this.submitAnswer} />}</div>
+      <div>
+        {this.props.exercise.userAnswer ? <Solution
+          problem={this.props.exercise.problem}
+          userAnswer={this.props.exercise.userAnswer}
+          correct={this.correct}
+          resetExercise={this.resetExercise} /> :
+          <Problem
+            problem={this.props.exercise.problem}
+            submitAnswer={this.submitAnswer}
+          />}
+      </div>
     )
   }
 }

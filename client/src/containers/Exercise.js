@@ -40,7 +40,7 @@ class Exercise extends Component {
 
   render() {
     return (
-      <div>{this.props.exercise.userAnswer ? <Solution problem={this.props.exercise.problem} resetExercise={this.resetExercise} /> : <Problem problem={this.props.exercise.problem} checkAnswer={this.checkAnswer} />}</div>
+      <div>{this.props.exercise.userAnswer ? <Solution problem={this.props.exercise.problem} resetExercise={this.resetExercise} /> : <Problem problem={this.props.exercise.problem} submitAnswer={this.submitAnswer} />}</div>
     )
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Bird } from './Bird.js';
 import { toTitleCase } from '../index.js';
+import { Button } from 'react-bootstrap';
 
 const Solution = (props) => {
   let correct = props.correct(props.userAnswer, props.problem.correctAnswerKey);
@@ -15,7 +16,14 @@ const Solution = (props) => {
 
   return (
     <div>
+      <br />
+      <br />
       <h4>{correct ? "Correct!" : "Sorry, the correct answer was " + toTitleCase(correctBird.common_name) + ':'}</h4>
+      <Button>Next Exercise</Button>
+      {'  '}
+      <Button>Quit</Button>
+      <br />
+      <br />
       <div className="bird-cards">
         {birds}
       </div>

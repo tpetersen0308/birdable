@@ -3,7 +3,7 @@ import '../index.css';
 import { Bird } from './Bird.js';
 
 const Problem = (props) => {
-  let birds = props.problem.birds.map(bird => <Bird checkAnswer={props.checkAnswer} bird={bird} exerciseType="SONG" />)
+  let birds = props.problem.birds.map(bird => <a onClick={() => props.checkAnswer(bird.id)}><Bird bird={bird} exerciseType="SONG" /></a>)
   let correctBird = props.problem.birds.filter(bird => bird.id === props.problem.correctAnswerKey)[0]
   let songAudio = ''
   if (correctBird) {

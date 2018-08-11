@@ -6,6 +6,7 @@ const Solution = (props) => {
 
   return (
     <div>
+      <h4>{props.userAnswer === props.problem.correctAnswerKey ? "Correct!" : "Incorrect"}</h4>
       <div className="bird-cards">
         {birds}
       </div>

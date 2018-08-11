@@ -8,28 +8,27 @@ export const Bird = (props) => {
     <p><i>{toTitleCase(props.bird.scientific_name)}</i></p>
   </div>
 
-  let songInfo = <div><audio
+  let songInfo = <audio
     id={props.bird.id}
+    className="audio-small"
     controls
     src={props.bird.song}>
     Your browser does not support the <code>audio</code> element.
-    </audio>
-  </div>
+  </audio>
+
 
   let birdInfo = exerciseType => {
     switch (exerciseType) {
       case "NAME":
-        return <div className="bird-card">{songInfo}</div>
+        return <Thumbnail src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{songInfo}</div></Thumbnail>
       case "SONG":
-        return <div className="bird-card">{nameInfo}</div>
+        return <Thumbnail src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{nameInfo}</div></Thumbnail>
       default:
-        return <div className="bird-card">{nameInfo}{songInfo}</div>
+        return <Thumbnail className="full-content" src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{nameInfo}{songInfo}</div></Thumbnail>
     }
   }
 
   return (
-    <Thumbnail src={props.bird.image} alt={props.bird.common_name}>
-      {birdInfo(props.exerciseType)}
-    </Thumbnail>
+    birdInfo(props.exerciseType)
   )
 }

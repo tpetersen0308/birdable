@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar.js';
-import Home from './Home.js';
+import { Home } from '../components/Home.js';
 import { connect } from 'react-redux';
 
 class HomePage extends Component {
+
+  randomBird = (birds) => {
+    return birds[Math.floor(Math.random() * birds.length)];
+  }
+
   render() {
     return (
       <div>
@@ -12,7 +17,7 @@ class HomePage extends Component {
           <p>an online resource for improving bird identification skills</p>
           <NavBar />
         </header>
-        <Home />
+        <Home bird={this.randomBird(this.props.birds)} />
       </div>
     )
   }

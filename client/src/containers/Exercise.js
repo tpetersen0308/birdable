@@ -10,8 +10,8 @@ class Exercise extends Component {
     this.resetExercise(this.props.exercise.birdSelection);
   }
 
-  checkProblem = event => {
-
+  checkAnswer = event => {
+    debugger
   }
 
   resetProblem = (birds) => {

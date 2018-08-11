@@ -28,7 +28,7 @@ export const Bird = (props) => {
   }
 
   return (
-    <Thumbnail src={props.bird.image} alt={props.bird.common_name}>
+    <Thumbnail onClick={props.checkAnswer} src={props.bird.image} alt={props.bird.common_name}>
       {birdInfo(props.exerciseType)}
     </Thumbnail>
   )

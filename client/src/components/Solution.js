@@ -5,7 +5,10 @@ const Solution = (props) => {
   let correct = props.correct(props.userAnswer, props.problem.correctAnswerKey);
   let birds = props.problem.birds.map(bird => <Bird
     bird={bird}
-    id={correct ? (bird.id === props.userAnswer ? 'correct-answer' : '') : (bird.id === props.userAnswer ? 'incorrect-answer' : '')}
+    id={correct ? (bird.id === props.userAnswer ? 'correct-answer' : '')
+      : (bird.id === props.userAnswer ? 'incorrect-answer'
+        : (bird.id === props.problem.correctAnswerKey ? 'correct-answer'
+          : ''))}
   />)
 
   return (

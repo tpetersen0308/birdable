@@ -12,7 +12,6 @@ class Exercise extends Component {
 
   submitAnswer = (answerKey) => {
     this.props.addUserAnswer(answerKey);
-    window.history.push('/exercises/solution');
   }
 
   resetProblem = (birds) => {

@@ -10,8 +10,9 @@ class Exercise extends Component {
     this.resetExercise(this.props.exercise.birdSelection);
   }
 
-  checkAnswer = (answerKey) => {
-    debugger
+  submitAnswer = (answerKey) => {
+    this.props.addUserAnswer(answerKey);
+    window.history.push('/exercises/solution');
   }
 
   resetProblem = (birds) => {

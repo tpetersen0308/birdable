@@ -37,11 +37,11 @@ img {
   margin: auto
 }
 
-.thumbnail .correct-answer {
+#correct-answer {
   border: 2px solid #129965;
 }
 
-.thumbnail .incorrect-answer {
+#incorrect-answer {
   border: 2px solid #c10d34;
 }
 

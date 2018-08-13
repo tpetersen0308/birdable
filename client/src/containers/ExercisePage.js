@@ -111,7 +111,8 @@ function mapStateToProps(state) {
     birds: state.birds,
     exercise: {
       birdSelection: state.exercise.birdSelection,
-    }
+    },
+    loading: state.loading,
   }
 }
 

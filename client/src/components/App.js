@@ -8,6 +8,7 @@ import BirdsPage from '../containers/BirdsPage.js';
 import ExercisePage from '../containers/ExercisePage.js';
 import HomePage from '../containers/HomePage.js';
 import Exercise from '../containers/Exercise.js';
+import NavBar from './NavBar.js';
 
 class App extends Component {
 
@@ -21,8 +22,13 @@ class App extends Component {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <Router>
           <div>
-            <Route path='/' component={HomePage} />
-            <Route path='/birds' component={BirdsPage} />
+            <header className="App-header">
+              <h1 className="App-title">birdable</h1>
+              <p>an online resource for improving bird identification skills</p>
+              <NavBar />
+            </header>
+            <Route exact path='/' component={HomePage} />
+            <Route exact path='/birds' component={BirdsPage} />
             <Route exact path='/exercises' component={ExercisePage} />
             <Route path='/exercises/problem' component={Exercise} />
             <Route path='/exercises/solution' component={Exercise} />

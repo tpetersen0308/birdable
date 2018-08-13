@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import NavBar from '../components/NavBar.js';
-import { Home } from '../components/Home.js';
 import { connect } from 'react-redux';
+import { Bird } from '../components/Bird.js';
 
 class HomePage extends Component {
 
@@ -12,7 +11,10 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        {this.props.loading ? <h4>loading...</h4> : <Home bird={this.randomBird(this.props.birds)} />}
+        <br />
+        <h3>Look at this cool bird!</h3>
+        <br />
+        {this.props.loading ? <h4>loading...</h4> : <Bird bird={this.randomBird(this.props.birds)} />}
       </div>
     )
   }

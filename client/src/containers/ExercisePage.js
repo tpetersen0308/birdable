@@ -94,12 +94,15 @@ class ExercisePage extends Component {
         <br />
         <h4>Select families and regions to practice identifying:</h4>
         <br />
-        <BirdFilter
-          families={taxonomicFamilies}
-          regions={regions}
-          handleFamilyCheckbox={this.handleFamilyCheckbox}
-          handleRegionCheckbox={this.handleRegionCheckbox}
-          handleSubmit={this.handleSubmit} />
+        {this.props.loading ? <h4>loading...</h4> :
+          <BirdFilter
+            families={taxonomicFamilies}
+            regions={regions}
+            handleFamilyCheckbox={this.handleFamilyCheckbox}
+            handleRegionCheckbox={this.handleRegionCheckbox}
+            handleSubmit={this.handleSubmit}
+          />}
+
       </div>
 
     )

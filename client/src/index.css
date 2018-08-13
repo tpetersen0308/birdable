@@ -26,6 +26,10 @@ img {
   vertical-align: top;
 }
 
+.bird-cards {
+  margin: auto
+}
+
 .thumbnail {
   width: 20%;
   height: 300px;
@@ -40,9 +44,10 @@ img {
   margin-left: 4%;
 }
 
-.bird-cards {
-  margin: auto
+#home-bird {
+  margin-left: 40%;
 }
+
 
 #correct-answer {
   border: 2px solid #129965;

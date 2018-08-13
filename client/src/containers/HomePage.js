@@ -14,7 +14,7 @@ class HomePage extends Component {
         <br />
         <h3>Look at this cool bird!</h3>
         <br />
-        {this.props.loading ? <h4>loading...</h4> : <Bird bird={this.randomBird(this.props.birds)} />}
+        {this.props.loading ? <h4>loading...</h4> : <Bird id='home-bird' bird={this.randomBird(this.props.birds)} />}
       </div>
     )
   }

@@ -18,7 +18,7 @@ class BirdsPage extends Component {
         <br />
         <BirdsFilter handleSubmitRoute={this.submitForBrowse} selectAction={this.props.selectBirdsForBrowse} />
         <br />
-        <BirdsList />
+        <BirdsList birds={this.props.birds} />
       </div>
     )
   }

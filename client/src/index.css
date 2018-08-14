@@ -21,9 +21,10 @@ body {
 
 img {
   background: 50% 50% no-repeat; /* 50% 50% centers image in div */
-  max-width: 150px;
-  max-height: 150px;
-  vertical-align: top;
+  max-width: 100%; 
+  max-height: 150px; 
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .bird-cards {
@@ -33,7 +34,7 @@ img {
 .thumbnail {
   width: 20%;
   min-width: 300px;
-  height: 300px;
+  height: 275px;
   float: left;
   margin-left: 4%;
 }
@@ -47,8 +48,8 @@ img {
 }
 
 #home-bird {
-  margin-left: 30%;
-  width: 40%;
+  margin-left: 35%;
+  width: 30%;
 }
 
 
@@ -62,4 +63,13 @@ img {
 
 .audio-small {
   width: 100%;
+}
+
+.birds-list {
+  display: inline-block;
+  margin: auto;
+}
+
+.bird-description {
+  vertical-align: bottom;
 }

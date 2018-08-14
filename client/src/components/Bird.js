@@ -3,10 +3,10 @@ import { Thumbnail } from 'react-bootstrap';
 import { toTitleCase } from '../index.js';
 
 export const Bird = (props) => {
-  let nameInfo = <div className="bird-name-info">
-    <h4>{toTitleCase(props.bird.common_name)}</h4>
+  let nameInfo = <p className="bird-name-info">
+    <strong>{toTitleCase(props.bird.common_name)}</strong>
     <p><i>{toTitleCase(props.bird.scientific_name)}</i></p>
-  </div>
+  </p>
 
   let songInfo = <audio
     id={props.bird.id}
@@ -41,10 +41,10 @@ export const Bird = (props) => {
           className="full-content"
           src={props.bird.image}
           alt={props.bird.common_name}>
-          <div>
+          <p className="bird-description">
             {nameInfo}{songInfo}
             <a href={props.bird.url} target='_blank'>View on Audubon</a>
-          </div>
+          </p>
         </Thumbnail>
     }
   }

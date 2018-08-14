@@ -5,7 +5,7 @@ import { toTitleCase } from '../index.js';
 import { selectBirds } from '../actions/exerciseActions.js';
 import '../index.css';
 
-class ExercisePage extends Component {
+class BirdsFilter extends Component {
   constructor() {
     super();
     this.state = {
@@ -133,4 +133,4 @@ function mapDispatchToProps(dispatch) {
   return { selectBirds: (birds) => dispatch(selectBirds(birds)) }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExercisePage)
+export default connect(mapStateToProps, mapDispatchToProps)(BirdsFilter)

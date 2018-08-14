@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import { fetchBirds } from '../actions/fetchBirds.js';
 import BirdsPage from '../containers/BirdsPage.js';
-import ExercisePage from '../containers/ExercisePage.js';
+import ExercisePage from '../containers/BirdsFilter';
 import HomePage from '../containers/HomePage.js';
 import Exercise from '../containers/Exercise.js';
 import NavBar from './NavBar.js';

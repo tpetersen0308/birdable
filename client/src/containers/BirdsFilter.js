@@ -83,7 +83,7 @@ class BirdsFilter extends Component {
 
     this.props.selectBirds(birds);
 
-    this.props.handleSubmit();
+    this.props.handleSubmitRoute();
   }
 
   render() {

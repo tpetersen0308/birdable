@@ -27,32 +27,37 @@ img {
   margin-bottom: 5%;
 }
 
-.bird-cards {
-  margin: auto
+.thumbnail {
+  display: inline-block;
+  width: 300px;
+  height: 275px;
+  float: center;
+  vertical-align: bottom;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
-.thumbnail {
-  width: 20%;
-  min-width: 300px;
+a > .thumbnail {
+  display: inline-block;
+  width: 300px;
   height: 275px;
-  float: left;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 3%;
+  float: center;
+  vertical-align: bottom;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .thumbnail.full-content {
-  width: 20%;
-  min-width: 300px;
+  display: inline-block;
+  width: 300px;
   height: 350px;
-  float: left;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 3%;
+  float: center;
+  vertical-align: bottom;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 #home-bird {
-  margin-left: 35%;
   width: 30%;
 }
 
@@ -68,11 +73,13 @@ img {
   width: 100%;
 }
 
-.birds-list {
+/* .birds-list {
   display: inline-block;
+  width: 90%;
   margin: auto;
-}
+} */
 
-.bird-description {
+/* .bird-description {
   vertical-align: bottom;
-}
+} */
+

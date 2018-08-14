@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import BirdsFilter from './BirdsFilter';
+import { selectBirdsForExercise } from '../actions/exerciseActions.js';
 
 class ExercisePage extends Component {
 
@@ -12,10 +14,16 @@ class ExercisePage extends Component {
         <br />
         <h4>Select families and regions to practice identifying:</h4>
         <br />
-        <BirdsFilter handleSubmitRoute={this.submitForExercise} />
+        <BirdsFilter handleSubmitRoute={this.submitForExercise} selectAction={this.props.selectBirdsForExercise} />
       </div>
     )
   }
 }
 
-export default ExercisePage;
+function mapDispatchToProps(dispatch) {
+  return {
+    selectBirdsForExercise: (birds) => dispatch(selectBirdsForExercise(birds)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ExercisePage);

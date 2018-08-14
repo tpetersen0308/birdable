@@ -36,7 +36,9 @@ img {
   min-width: 300px;
   height: 275px;
   float: left;
-  margin-left: 4%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 3%;
 }
 
 .thumbnail.full-content {
@@ -44,7 +46,9 @@ img {
   min-width: 300px;
   height: 350px;
   float: left;
-  margin-left: 4%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 3%;
 }
 
 #home-bird {

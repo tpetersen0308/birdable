@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Checkbox, DropdownButton } from 'react-bootstrap';
 import { toTitleCase } from '../index.js';
-import { selectBirds } from '../actions/exerciseActions.js';
+import { selectBirdsForExercise } from '../actions/exerciseActions.js';
 import '../index.css';
 
 class BirdsFilter extends Component {
@@ -81,7 +81,7 @@ class BirdsFilter extends Component {
     birds = this.filterByFamilies(birds, this.state.selectedFamilies);
     birds = this.filterByRegions(birds, this.state.selectedRegions);
 
-    this.props.selectBirds(birds);
+    this.props.selectBirdsForExercise(birds);
 
     this.props.handleSubmitRoute();
   }
@@ -129,7 +129,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { selectBirds: (birds) => dispatch(selectBirds(birds)) }
+  return { selectBirdsForExercise: (birds) => dispatch(selectBirdsForExercise(birds)) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BirdsFilter)

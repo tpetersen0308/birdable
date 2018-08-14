@@ -1,5 +1,5 @@
-export function selectBirds(birds) {
-  return { type: "SELECT_BIRDS", payload: birds }
+export function selectBirdsForExercise(birds) {
+  return { type: "SELECT_BIRDS_FOR_EXERCISE", payload: birds }
 }
 
 export function addProblem(problem) {

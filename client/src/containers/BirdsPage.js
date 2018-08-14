@@ -21,10 +21,14 @@ class BirdsPage extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { birds: state.browse.birdSelection }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     selectBirdsForBrowse: (birds) => dispatch(selectBirdsForBrowse(birds)),
   }
 }
 
-export default connect(null, mapDispatchToProps)(BirdsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(BirdsPage);

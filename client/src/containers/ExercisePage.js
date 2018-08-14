@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button, Checkbox, DropdownButton } from 'react-bootstrap';
+import { toTitleCase } from '../index.js';
 import { selectBirds } from '../actions/exerciseActions.js';
-import { BirdFilter } from '../components/BirdFilter.js';
 import '../index.css';
 
 class ExercisePage extends Component {
@@ -94,15 +95,25 @@ class ExercisePage extends Component {
         <br />
         <h4>Select families and regions to practice identifying:</h4>
         <br />
-        {this.props.loading ? <h4>loading...</h4> :
-          <BirdFilter
-            families={taxonomicFamilies}
-            regions={regions}
-            handleFamilyCheckbox={this.handleFamilyCheckbox}
-            handleRegionCheckbox={this.handleRegionCheckbox}
-            handleSubmit={this.handleSubmit}
-          />}
-
+        <div id="filter-dropdown">
+          <DropdownButton
+            bsStyle="warning"
+            bsSize="large"
+            title="Families"
+          >
+            {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} value={family}>{toTitleCase(family)}</Checkbox>)}
+          </DropdownButton>
+          {'  '}
+          <DropdownButton
+            bsSize="large"
+            bsStyle='warning'
+            title="Regions"
+          >
+            {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} value={region}>{toTitleCase(region)}</Checkbox>)}
+          </DropdownButton>
+          {'  '}
+          <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Go!</Button>
+        </div>
       </div>
 
     )
@@ -114,8 +125,7 @@ function mapStateToProps(state) {
     birds: state.birds,
     exercise: {
       birdSelection: state.exercise.birdSelection,
-    },
-    loading: state.loading,
+    }
   }
 }
 

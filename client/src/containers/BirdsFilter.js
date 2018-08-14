@@ -92,9 +92,6 @@ class BirdsFilter extends Component {
 
     return (
       <div>
-        <br />
-        <h4>Select families and regions to practice identifying:</h4>
-        <br />
         <div id="filter-dropdown">
           <DropdownButton
             bsStyle="warning"

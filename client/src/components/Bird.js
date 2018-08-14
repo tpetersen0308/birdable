@@ -23,8 +23,7 @@ export const Bird = (props) => {
         return <Thumbnail
           src={props.bird.image}
           alt={props.bird.common_name}>
-          <div
-            className="bird-card">
+          <div>
             {songInfo}
           </div>
         </Thumbnail>
@@ -32,8 +31,7 @@ export const Bird = (props) => {
         return <Thumbnail
           src={props.bird.image}
           alt={props.bird.common_name}>
-          <div
-            className="bird-card">
+          <div>
             {nameInfo}
           </div>
         </Thumbnail>
@@ -43,8 +41,7 @@ export const Bird = (props) => {
           className="full-content"
           src={props.bird.image}
           alt={props.bird.common_name}>
-          <div
-            className="bird-card">
+          <div>
             {nameInfo}{songInfo}
           </div>
         </Thumbnail>

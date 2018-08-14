@@ -20,11 +20,34 @@ export const Bird = (props) => {
   let birdInfo = exerciseType => {
     switch (exerciseType) {
       case "NAME":
-        return <Thumbnail src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{songInfo}</div></Thumbnail>
+        return <Thumbnail
+          src={props.bird.image}
+          alt={props.bird.common_name}>
+          <div
+            className="bird-card">
+            {songInfo}
+          </div>
+        </Thumbnail>
       case "SONG":
-        return <Thumbnail src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{nameInfo}</div></Thumbnail>
+        return <Thumbnail
+          src={props.bird.image}
+          alt={props.bird.common_name}>
+          <div
+            className="bird-card">
+            {nameInfo}
+          </div>
+        </Thumbnail>
       default:
-        return <Thumbnail id={props.id} className="full-content" src={props.bird.image} alt={props.bird.common_name}><div className="bird-card">{nameInfo}{songInfo}</div></Thumbnail>
+        return <Thumbnail
+          id={props.id}
+          className="full-content"
+          src={props.bird.image}
+          alt={props.bird.common_name}>
+          <div
+            className="bird-card">
+            {nameInfo}{songInfo}
+          </div>
+        </Thumbnail>
     }
   }
 

@@ -7,7 +7,7 @@ import { BirdsList } from '../components/BirdsList.js';
 class BirdsPage extends Component {
 
   submitForBrowse = () => {
-    this.props.history.push('/birds');
+    this.props.history.push('/browse');
   }
 
   render() {

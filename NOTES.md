@@ -46,43 +46,5 @@ TODO:
 ** There are no duplicate bird records
 ** Bird common names contain only lower-case characters, hyphens, and whitespace
 
-REACT COMPONENTS:
-- Bird
-  - Receives props:
-    - bird: a bird object from the store
-    - exerciseType: "name" or "song" -- determines what information should be displayed
-- SongExercise
-  - Renders BirdOptions
-  - Renders SongSample
-- NameExercise
-  - Renders NameOptions
-  - Renders BirdClue
-- ExercisePage
-  - controls exercise logic
-  - retrieves exercise resources from store and passes into exercise components as props
-  - Flow:
-    - On load, displays option to practice matching birds by song, or by name.
-    - Links route to correct exercise type
-    - When an answer is submitted, a solution page is loaded that displays results
-      - all songs and names should become available
-      - include 'next exercise' button
 
 
-
-SAMPLE CODE FOR BIRD LIST
-
-    let birds = this.props.birds.slice(0, 4).map(bird =>
-      <Col xs={6} md={4}>
-        <Thumbnail src={bird.image} alt={bird.common_name} width="30%" height="42">
-          <h3>{bird.common_name}</h3>
-          <p>{bird.scientific_name}</p>
-          <p>
-            <audio
-              id={bird.id}
-              controls
-              src={bird.song}>
-              Your browser does not support the <code>audio</code> element.
-          </audio></p>
-        </Thumbnail>
-      </Col>
-    )

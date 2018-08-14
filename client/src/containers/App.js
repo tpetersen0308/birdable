@@ -27,10 +27,10 @@ class App extends Component {
               <NavBar />
             </header>
             <Route exact path='/' component={HomePage} />
-            <Route exact path='/birds' component={BirdsPage} />
-            <Route exact path='/exercises' component={ExercisePage} />
-            <Route path='/exercises/problem' component={Exercise} />
-            <Route path='/exercises/solution' component={Exercise} />
+            <Route exact path='/browse' component={BirdsPage} />
+            <Route exact path='/practice' component={ExercisePage} />
+            <Route path='/practice/exercise' component={Exercise} />
+            {/* <Route path='/exercises/solution' component={Exercise} /> */}
           </div>
         </Router>
       </div>

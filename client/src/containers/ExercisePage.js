@@ -6,7 +6,7 @@ import { selectBirdsForExercise } from '../actions/exerciseActions.js';
 class ExercisePage extends Component {
 
   submitForExercise = () => {
-    this.props.history.push('/exercises/problem');
+    this.props.history.push('/practice/exercise');
   }
   render() {
     return (

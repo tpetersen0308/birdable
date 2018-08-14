@@ -22,7 +22,7 @@ class Exercise extends Component {
     this.props.addProblem({
       type: 'SONG',
       birds: birds,
-      correctAnswerKey: birds[Math.floor(Math.random() * 4)].id,
+      correctAnswerKey: birds[Math.floor(Math.random() * birds.length)].id,
     })
   }
 
@@ -39,7 +39,8 @@ class Exercise extends Component {
 
   getBirdsForProblem = birdSelection => {
     let birds = [];
-    for (let i = 0; i < 4; i++) {
+    let length = birdSelection.length >= 4 ? 4 : birdSelection.length;
+    for (let i = 0; i < length; i++) {
       birds.push(birdSelection[Math.floor(Math.random() * birdSelection.length)]);
       birdSelection = birdSelection.filter(bird => bird.common_name !== birds[i].common_name);
     }

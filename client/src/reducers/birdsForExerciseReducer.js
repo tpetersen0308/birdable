@@ -1,4 +1,4 @@
-function birdSelectionReducer(state = [], action) {
+function birdsForExerciseReducer(state = [], action) {
   switch (action.type) {
     case "SELECT_BIRDS_FOR_EXERCISE":
       return action.payload;
@@ -7,4 +7,4 @@ function birdSelectionReducer(state = [], action) {
   }
 }
 
-export default birdSelectionReducer;
+export default birdsForExerciseReducer;

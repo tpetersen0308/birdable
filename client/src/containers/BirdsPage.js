@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BirdsFilter from './BirdsFilter';
 import { selectBirdsForBrowse } from '../actions/browseActions.js';
+import { BirdsList } from '../components/BirdsList.js';
 
 class BirdsPage extends Component {
 
@@ -16,6 +17,8 @@ class BirdsPage extends Component {
         <h4>Select families and regions to browse, or hit 'Go!' to see them all!</h4>
         <br />
         <BirdsFilter handleSubmitRoute={this.submitForBrowse} selectAction={this.props.selectBirdsForBrowse} />
+        <br />
+        <BirdsList />
       </div>
     )
   }

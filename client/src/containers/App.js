@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import '../App.css';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { fetchBirds } from '../actions/fetchBirds.js';
-import BirdsPage from '../containers/BirdsPage.js';
-import ExercisePage from '../containers/ExercisePage.js';
-import HomePage from '../containers/HomePage.js';
-import Exercise from '../containers/Exercise.js';
-import NavBar from './NavBar.js';
+import BirdsPage from './BirdsPage.js';
+import ExercisePage from './ExercisePage.js';
+import HomePage from './HomePage.js';
+import Exercise from './Exercise.js';
+import NavBar from '../components/NavBar.js';
 
 class App extends Component {
 

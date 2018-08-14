@@ -23,7 +23,7 @@ class App extends Component {
           <div>
             <header className="App-header">
               <h1 className="App-title">birdable</h1>
-              <p>an online resource for improving bird identification skills</p>
+              <p>an online resource for practicing bird identification</p>
               <NavBar />
             </header>
             <Route exact path='/' component={HomePage} />

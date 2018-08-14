@@ -120,9 +120,6 @@ class BirdsFilter extends Component {
 function mapStateToProps(state) {
   return {
     birds: state.birds,
-    exercise: {
-      birdSelection: state.exercise.birdSelection,
-    },
     loading: state.loading,
   }
 }

@@ -32,6 +32,7 @@ img {
 
 .thumbnail {
   width: 20%;
+  min-width: 300px;
   height: 300px;
   float: left;
   margin-left: 4%;
@@ -39,6 +40,7 @@ img {
 
 .thumbnail.full-content {
   width: 20%;
+  min-width: 300px;
   height: 350px;
   float: left;
   margin-left: 4%;

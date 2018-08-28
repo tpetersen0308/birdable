@@ -8,6 +8,7 @@ const Solution = (props) => {
   let correctBird = props.problem.birds.find(bird => bird.id === props.problem.correctAnswerKey);
   let birds = props.problem.birds.map(bird => <Bird
     bird={bird}
+    key={bird.id}
     id={correct ? (bird === correctBird ? 'correct-answer' : '')
       : (bird === correctBird ? 'correct-answer'
         : (bird.id === props.userAnswer ? 'incorrect-answer'

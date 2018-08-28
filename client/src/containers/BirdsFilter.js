@@ -97,6 +97,7 @@ class BirdsFilter extends Component {
               bsStyle="warning"
               bsSize="large"
               title="Families"
+              id="family-dropdown-menu"
             >
               {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} key={family} value={family}>{toTitleCase(family)}</Checkbox>)}
             </DropdownButton>
@@ -105,6 +106,7 @@ class BirdsFilter extends Component {
               bsSize="large"
               bsStyle='warning'
               title="Regions"
+              id="region-dropdown-menu"
             >
               {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} key={region} value={region}>{toTitleCase(region)}</Checkbox>)}
             </DropdownButton>

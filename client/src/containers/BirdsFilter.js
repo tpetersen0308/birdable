@@ -98,7 +98,7 @@ class BirdsFilter extends Component {
               bsSize="large"
               title="Families"
             >
-              {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} value={family}>{toTitleCase(family)}</Checkbox>)}
+              {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} key={family} value={family}>{toTitleCase(family)}</Checkbox>)}
             </DropdownButton>
             {'  '}
             <DropdownButton

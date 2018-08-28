@@ -28,7 +28,10 @@ const Problem = (props) => {
       <br />
       <br />
       <div className="bird-cards">
-        {birds}
+        {birds.slice(0, 2)}
+      </div>
+      <div className="bird-cards">
+        {birds.slice(2, 4)}
       </div>
       <br />
     </div>

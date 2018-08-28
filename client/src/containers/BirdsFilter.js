@@ -106,7 +106,7 @@ class BirdsFilter extends Component {
               bsStyle='warning'
               title="Regions"
             >
-              {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} value={region}>{toTitleCase(region)}</Checkbox>)}
+              {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} key={region} value={region}>{toTitleCase(region)}</Checkbox>)}
             </DropdownButton>
             {'  '}
             <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Go!</Button>

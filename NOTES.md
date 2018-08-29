@@ -32,11 +32,16 @@ FRONTEND
 
 
 TODO:
-- Problem and Solution are presentational components conditionally rendered by Exercise
-- Birds can be selected by generation 4 random numbers between 0 and birds.length 
+- Get permission to use media before deploying to Heroku
 - Add user class
 - Add user authentication
+  - Look into using oAuth on heroku apps
+  - Look into oAuth async sign-in requests
 - Add exercise class(es)
+  - Match name to list of picture options (songs included)
+  - Match picture to list of name options (songs included)
+  - Match picture to list of song options
+- Add more song samples to each bird
 - Add correct_song_answers, incorrect_song_answers, correct_name_answers, and 
   incorrect_name_answers attributes to bird table in order to be able to implement
   difficulty setting in future.

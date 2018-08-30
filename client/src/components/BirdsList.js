@@ -1,3 +1,8 @@
+/*
+    BirdsList is a stateless presentational component that renders a div with 
+    a list of Bird objects determined by the collection passed in as props.
+*/
+
 import React from 'react';
 import { Bird } from './Bird.js';
 

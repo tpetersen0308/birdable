@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProblem, addUserAnswer } from '../actions/exerciseActions.js';
+import { updateBirdStats } from '../actions/birdActions.js';
 import Problem from '../components/Problem.js';
 import Solution from '../components/Solution.js';
 
@@ -11,7 +12,10 @@ class Exercise extends Component {
   }
 
   submitAnswer = (answerKey) => {
+    let correctAnswerKey = this.props.exercise.problem.correctAnswerKey
+    let correct = this.correct(correctAnswerKey, answerKey);
     this.props.addUserAnswer(answerKey);
+    updateBirdStats(correctAnswerKey, correct);
   }
 
   correct = (answer, userAnswer) => {

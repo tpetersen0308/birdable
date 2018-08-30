@@ -23,7 +23,7 @@ class BirdsController < ApplicationController
     else
       @bird.incorrect_answers += 1
     end
-    binding.pry
+
     @bird.save
 
     render json: @bird

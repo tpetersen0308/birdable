@@ -45,6 +45,9 @@ TODO:
 - Add correct_song_answers, incorrect_song_answers, correct_name_answers, and 
   incorrect_name_answers attributes to bird table in order to be able to implement
   difficulty setting in future.
+  - add update action to BirdsController
+  - In Exercise.js::submitAnswer(), dispatch an action to add correct or incorrect
+    answer in an API POST request with fetch(). 
 
 ** Birds #168, #186, #219, #406, #424, #430, #571 have no regions assigned
 ** All birds have all other attributes assigned

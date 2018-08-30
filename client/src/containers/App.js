@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { fetchBirds } from '../actions/fetchBirds.js';
+import { fetchBirds } from '../actions/birdActions.js';
 import BirdsPage from './BirdsPage.js';
 import ExercisePage from './ExercisePage.js';
 import HomePage from './HomePage.js';

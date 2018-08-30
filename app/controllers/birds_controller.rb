@@ -14,4 +14,11 @@ class BirdsController < ApplicationController
     render json: @birds
   end
 
+  def update
+    bird = Bird.find_by(:id => params[:id])
+
+    bird.update(bird_params)
+
+    render json: bird
+  end
 end

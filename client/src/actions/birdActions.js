@@ -13,17 +13,18 @@ export function fetchBirds() {
   };
 }
 
-export function updateBirdStats(bird_id, correct) {
-  return fetch('http://localhost:3000/api/birds/' + bird_id, {
+export function updateBirdStats(bird_id, data) {
+  return fetch(`/api/birds/${bird_id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify({ correct: correct })
-  }).then(response => response.json())
+    body: JSON.stringify(data),
+  })
+    .then(response => response.json())
     .then(bird => {
       console.log(`Bird id#${bird.id}, ${toTitleCase(bird.common_name)}'s stats successfully updated.\n  
-        Stat: ${correct ? "Correct Answers" : "Incorrect Answers"}\n  
-        New Value: ${correct ? bird.correct_answers : bird.incorrect_answers}`)
+        Stat: ${data.correct ? "Correct Answers" : "Incorrect Answers"}\n  
+        New Value: ${data.correct ? bird.correct_answers : bird.incorrect_answers}`)
     })
 }

@@ -13,7 +13,7 @@ const Problem = (props) => {
   let birds = props.problem.birds.map(bird => <a onClick={() => props.submitAnswer(bird.id)} key={bird.id}><Bird bird={bird} key={bird.id} exerciseType="SONG" /></a>)
 
   // the correct bird is the one with an id matching the problem's correctAnswerKey.
-  let correctBird = props.problem.birds.filter(bird => bird.id === props.problem.correctAnswerKey)[0]
+  let correctBird = props.problem.birds.find(bird => bird.id === props.problem.correctAnswerKey);
 
   // create div with the audio element corresponding to the correct answer.
   let songAudio = ''

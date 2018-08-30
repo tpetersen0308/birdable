@@ -15,7 +15,7 @@ class Exercise extends Component {
     let correctAnswerKey = this.props.exercise.problem.correctAnswerKey
     let correct = this.correct(correctAnswerKey, answerKey);
     this.props.addUserAnswer(answerKey);
-    updateBirdStats(correctAnswerKey, correct);
+    updateBirdStats(correctAnswerKey, { correct: correct });
   }
 
   correct = (answer, userAnswer) => {

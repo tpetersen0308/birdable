@@ -1,10 +1,21 @@
+/*
+    Problem is a stateless presentational component that renders the content
+    for the problem portion of an exercise: a song sample, and four options
+    of birds to match the song to.
+*/
+
 import React from 'react';
 import '../index.css';
 import { Bird } from './Bird.js';
 
 const Problem = (props) => {
+  // map Bird components from the collection passed in as props.
   let birds = props.problem.birds.map(bird => <a onClick={() => props.submitAnswer(bird.id)} key={bird.id}><Bird bird={bird} key={bird.id} exerciseType="SONG" /></a>)
+
+  // the correct bird is the one with an id matching the problem's correctAnswerKey.
   let correctBird = props.problem.birds.filter(bird => bird.id === props.problem.correctAnswerKey)[0]
+
+  // create div with the audio element corresponding to the correct answer.
   let songAudio = ''
   if (correctBird) {
     songAudio = <div>

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   scope '/api' do
     get "/birds" => "birds#index"
     get "/birds/:filter" => "birds#index"
+    put "/birds/:id" => "birds#update"
   end
 end

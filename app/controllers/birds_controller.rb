@@ -15,16 +15,17 @@ class BirdsController < ApplicationController
   end
 
   def update
-    bird = Bird.find_by(:id => params[:id])
+    binding.pry
+    @bird = Bird.find_by(:id => params[:id])
 
     if params[:correct]
-      bird.correct_answers += 1
+      @bird.correct_answers += 1
     else
-      bird.incorrect_answers += 1
+      @bird.incorrect_answers += 1
     end
 
-    bird.save
+    @bird.save
 
-    render json: bird
+    render json: @bird
   end
 end

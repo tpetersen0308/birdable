@@ -32,6 +32,7 @@ FRONTEND
 
 
 TODO:
+- Refactor Problem, Solution, etc. to render birds through BirdsList component
 - Get permission to use media before deploying to Heroku
 - Add user class
 - Add user authentication

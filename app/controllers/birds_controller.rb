@@ -18,7 +18,7 @@ class BirdsController < ApplicationController
   def update
     @bird = Bird.find_by(:id => params[:id])
 
-    if params[:correct] == "true"
+    if params[:correct]
       @bird.correct_answers += 1
     else
       @bird.incorrect_answers += 1

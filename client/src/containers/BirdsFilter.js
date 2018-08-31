@@ -139,6 +139,7 @@ class BirdsFilter extends Component {
 
     return (
       <div>
+        {/* wait to display filter menus until async request is complete */}
         {this.props.loading ? <h4>loading...</h4> :
           <div id="filter-dropdown">
             <DropdownButton

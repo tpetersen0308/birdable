@@ -1,9 +1,12 @@
+// HomePage component renders a Bird component randomly selected from state.
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Bird } from '../components/Bird.js';
 
 class HomePage extends Component {
 
+  // randomBird() function returns a bird object selected at random from the passed-in array
   randomBird = (birds) => {
     return birds[Math.floor(Math.random() * birds.length)];
   }
@@ -14,6 +17,7 @@ class HomePage extends Component {
         <br />
         <h3>Look at this cool bird!</h3>
         <br />
+        {/* wait to render Bird until async request is complete */}
         {this.props.loading ? <h4>loading...</h4> : <Bird id='home-bird' bird={this.randomBird(this.props.birds)} />}
       </div>
     )

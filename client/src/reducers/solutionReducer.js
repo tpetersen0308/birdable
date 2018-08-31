@@ -1,3 +1,5 @@
+// solutionReducer() adds a new solution to state.
+
 function solutionReducer(state = {
   type: '',
   birds: [],

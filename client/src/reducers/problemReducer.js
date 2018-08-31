@@ -1,3 +1,5 @@
+// problemReducer() adds a new problem to state.
+
 function problemReducer(state = {
   type: '',
   birds: [],

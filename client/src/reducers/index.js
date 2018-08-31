@@ -1,3 +1,5 @@
+// indexReducer() determines the root values of state.
+
 import { combineReducers } from 'redux';
 import birdsReducer from './birdsReducer';
 import loadingReducer from './loadingReducer.js';

@@ -1,3 +1,8 @@
+/*
+    The App component establishes routing and dispatches the action
+    to add the birds collection to state.
+*/
+
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
@@ -11,6 +16,7 @@ import NavBar from '../components/NavBar.js';
 
 class App extends Component {
 
+  // upon mounting, dispatch action to add birds to state
   componentDidMount() {
     this.props.fetchBirds();
   }
@@ -30,7 +36,6 @@ class App extends Component {
             <Route exact path='/browse' component={BirdsPage} />
             <Route exact path='/practice' component={ExercisePage} />
             <Route path='/practice/exercise' component={Exercise} />
-            {/* <Route path='/exercises/solution' component={Exercise} /> */}
           </div>
         </Router>
       </div>
@@ -38,10 +43,12 @@ class App extends Component {
   }
 }
 
+// add empty array to default props to prevent ReferenceError on initial mount
 App.defaultProps = {
   birds: [],
 }
 
+// map fetchBirds() action to props
 function mapDispatchToProps(dispatch) {
   return {
     fetchBirds: () => dispatch(fetchBirds()),

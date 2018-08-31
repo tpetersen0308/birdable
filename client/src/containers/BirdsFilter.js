@@ -1,3 +1,10 @@
+/* 
+    BirdsFilter component renders dropdown menus with filtering options for
+    exercises and browsing, filters the appropriate collection of birds based
+    on user selections, and adds the collection to state and handles routing 
+    based on which functions are passed in as props.
+*/
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Checkbox, DropdownButton } from 'react-bootstrap';
@@ -13,6 +20,33 @@ class BirdsFilter extends Component {
     }
   }
 
+  /* 
+      selectFamily() function takes a family-name string as an argument
+      and adds it to the selectedFamilies array in state.
+  */
+  selectFamily = family => {
+    this.setState({
+      ...this.state,
+      selectedFamilies: this.state.selectedFamilies.concat(family)
+    }, () => console.log(this.state.selectedFamilies))
+  }
+
+  /* 
+      deselectFamily() function takes a family-name string as an argument
+      and removes it from the selectedFamilies array in state.
+  */
+  deselectFamily = family => {
+    this.setState({
+      ...this.state,
+      selectedFamilies: this.state.selectedFamilies.filter(familyName => familyName !== family)
+    }, () => console.log(this.state.selectedFamilies))
+  }
+
+  /* 
+      handleFamilyCheckbox() function conditionally determines whether a
+      family should be added to or removed from state based on whether a 
+      checkbox has been selected or deselected.
+  */
   handleFamilyCheckbox = event => {
     if (event.target.checked) {
       this.selectFamily(event.target.value);
@@ -21,6 +55,33 @@ class BirdsFilter extends Component {
     }
   }
 
+  /* 
+      selectRegion() function takes a region-name string as an argument
+      and adds it to the selectedRegions array in state.
+  */
+  selectRegion = region => {
+    this.setState({
+      ...this.state,
+      selectedRegions: this.state.selectedRegions.concat(region)
+    }, () => console.log(this.state.selectedRegions))
+  }
+
+  /* 
+      deselectRegion() function takes a region-name string as an argument
+      and removes it from the selectedRegions array in state.
+  */
+  deselectRegion = region => {
+    this.setState({
+      ...this.state,
+      selectedRegions: this.state.selectedRegions.filter(regionName => regionName !== region)
+    }, () => console.log(this.state.selectedRegions))
+  }
+
+  /*
+      handleRegionCheckbox() function conditionally determines whether a
+      region should be added to or removed from state based on whether a 
+      checkbox has been selected or deselected.
+  */
   handleRegionCheckbox = event => {
     if (event.target.checked) {
       this.selectRegion(event.target.value);
@@ -29,34 +90,11 @@ class BirdsFilter extends Component {
     }
   }
 
-  selectFamily = family => {
-    this.setState({
-      ...this.state,
-      selectedFamilies: this.state.selectedFamilies.concat(family)
-    }, () => console.log(this.state.selectedFamilies))
-  }
-
-  selectRegion = region => {
-    this.setState({
-      ...this.state,
-      selectedRegions: this.state.selectedRegions.concat(region)
-    }, () => console.log(this.state.selectedRegions))
-  }
-
-  deselectFamily = family => {
-    this.setState({
-      ...this.state,
-      selectedFamilies: this.state.selectedFamilies.filter(familyName => familyName !== family)
-    }, () => console.log(this.state.selectedFamilies))
-  }
-
-  deselectRegion = region => {
-    this.setState({
-      ...this.state,
-      selectedRegions: this.state.selectedRegions.filter(regionName => regionName !== region)
-    }, () => console.log(this.state.selectedRegions))
-  }
-
+  /*
+      filterByFamilies() function takes arguments of an array of bird objects
+      and a list of family names, and returns an array of any bird objects from
+      the passed-in array which belong to any of the taxonomic families from the list.
+  */
   filterByFamilies = (birds, families) => {
     if (families.length > 0) {
       birds = birds.filter(bird => families.includes(bird.family))
@@ -64,6 +102,11 @@ class BirdsFilter extends Component {
     return birds
   }
 
+  /*
+      filterByRegions() function takes arguments of an array of bird objects
+      and a list of region names, and returns an array of any bird objects from
+      the passed-in array which belong to any of the regions from the list.
+  */
   filterByRegions = (birds, regions) => {
     if (regions.length > 0) {
       for (let regionName of regions) {
@@ -73,6 +116,11 @@ class BirdsFilter extends Component {
     return birds
   }
 
+  /*
+      handleSubmit() function filters the bird collection from props according
+      to the final user selections, dispatches the action passed in as props, and
+      pushes the route determined by a function passed in as props.
+  */
   handleSubmit = event => {
     event.preventDefault();
 

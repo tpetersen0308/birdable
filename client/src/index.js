@@ -1,3 +1,9 @@
+/*
+    index.js imports dependencies, sets up Redux store, sets up middleware, and renders
+    the App component to start the program. It also exports functions that are not 
+    specific to any React component.
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,12 +14,14 @@ import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/index.js';
 
+// create Redux store
 const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunk),
 );
 
+// toTitleCase() function titlecases a string
 export function toTitleCase(str) {
   return str.replace(
     /\w\S*/g,
@@ -23,6 +31,7 @@ export function toTitleCase(str) {
   );
 }
 
+// urlSafeString() function returns a string that can safely be used in a url
 export function urlSafeString(str) {
   return str.replace(/\s/g, '-').replace(/[^a-zA-Z\-]/g, '').toLowerCase()
 }

@@ -25,8 +25,8 @@ class ExercisePage extends Component {
         <br />
         <h4>What would you like to practice?</h4>
 
-        <Radio checked value="SONG">Identifying birds by their song</Radio>
-        <Radio value="NAME">Identifying birds by their name</Radio>
+        <Radio checked value="SONG" onChange={this.handleTypeSelection}>Identifying birds by their song</Radio>
+        <Radio value="NAME" onChange={this.handleTypeSelection}>Identifying birds by their name</Radio>
 
         <h4>Select families and regions to practice identifying:</h4>
         <br />

@@ -17,3 +17,7 @@ export function addSolution(solution) {
 export function addUserAnswer(userAnswer) {
   return { type: "ADD_USER_ANSWER", payload: userAnswer }
 }
+
+export function addExerciseType(type) {
+  return { type: "ADD_EXERCISE_TYPE", payload: type }
+}

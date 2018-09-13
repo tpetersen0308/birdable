@@ -11,6 +11,12 @@ import { selectBirdsForExercise, addExerciseType } from '../actions/exerciseActi
 import { Radio } from 'react-bootstrap';
 
 class ExercisePage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      exerciseType: "SONG",
+    }
+  }
 
   /*
       submitForExercise() function pushes the exercise route to re-render

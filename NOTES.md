@@ -33,6 +33,7 @@ FRONTEND
 
 TODO:
 - Refactor Problem, Solution, etc. to render birds through BirdsList component
+- Refactor exercise to call resetExercise() in component lifecycle hook.
 - Get permission to use media before deploying to Heroku
 - Add user class
 - Add user authentication

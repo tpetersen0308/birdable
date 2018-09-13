@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BirdsFilter from './BirdsFilter';
 import { selectBirdsForExercise } from '../actions/exerciseActions.js';
+import { Radio } from 'react-bootstrap';
 
 class ExercisePage extends Component {
 
@@ -22,6 +23,11 @@ class ExercisePage extends Component {
     return (
       <div>
         <br />
+        <h4>What would you like to practice?</h4>
+
+        <Radio checked value="SONG">Identifying birds by their song</Radio>
+        <Radio value="NAME">Identifying birds by their name</Radio>
+
         <h4>Select families and regions to practice identifying:</h4>
         <br />
         <BirdsFilter handleSubmitRoute={this.submitForExercise} selectAction={this.props.selectBirdsForExercise} />

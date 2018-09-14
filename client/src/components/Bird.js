@@ -36,17 +36,17 @@ export const Bird = (props) => {
         return <Thumbnail
           src={props.bird.image}
           alt={props.bird.common_name}>
-          <p>
+          <div>
             {songInfo}
-          </p>
+          </div>
         </Thumbnail>
       case "SONG":
         return <Thumbnail
           src={props.bird.image}
           alt={props.bird.common_name}>
-          <p>
+          <div>
             {nameInfo}
-          </p>
+          </div>
         </Thumbnail>
       default:
         return <Thumbnail
@@ -54,10 +54,10 @@ export const Bird = (props) => {
           className="full-content"
           src={props.bird.image}
           alt={props.bird.common_name}>
-          <p className="bird-description">
+          <div className="bird-description">
             {nameInfo}{songInfo}
             <a href={props.bird.url} target='_blank'>View on Audubon</a>
-          </p>
+          </div>
         </Thumbnail>
     }
   }

@@ -88,6 +88,7 @@ class Exercise extends Component {
         {/* render a Solution if a userAnswer has been added to state, else render a Problem */}
         {this.props.exercise.userAnswer ?
           <Solution
+            type={this.props.exercise.type}
             problem={this.props.exercise.problem}
             userAnswer={this.props.exercise.userAnswer}
             correct={this.correct}

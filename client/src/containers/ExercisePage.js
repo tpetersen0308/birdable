@@ -18,6 +18,16 @@ class ExercisePage extends Component {
     }
   }
 
+  /* 
+      handleTypeSelection sets the exerciseType in state based on the
+      user's exercise type selection.
+  */
+  handleTypeSelection = event => {
+    this.setState({
+      exerciseType: event.target.value,
+    }, () => console.log(`Exercise type has been set to ${this.state.exerciseType}.`));
+  }
+
   /*
       submitForExercise() function pushes the exercise route to re-render
       the ExercisePage component for a new exercise.

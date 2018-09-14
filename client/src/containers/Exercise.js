@@ -65,7 +65,7 @@ class Exercise extends Component {
 
   // quit() function pushes the home route to history to exit exercise mode.
   quit = () => {
-    this.props.history.push('/');
+    this.props.history.push('/practice');
   }
 
   /*

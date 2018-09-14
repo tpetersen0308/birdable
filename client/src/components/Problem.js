@@ -20,7 +20,15 @@ const Problem = (props) => {
   let clue = ''
   if (correctBird) {
     switch (props.type) {
-      case "SONG": //if the exercise type is SONG, assign an audio element to clue.
+      case "NAME": //if the exercise type is NAME, assign name information to clue.
+        clue = <div>
+          <h4>Select the bird that matches the name below:</h4>
+          <br />
+          <h2>{toTitleCase(correctBird.common_name)}</h2>
+          <h3><i>{toTitleCase(correctBird.scientific_name)}</i></h3>
+        </div>
+        break;
+      default: //default exercise type is SONG, assign an audio element to clue.
         clue = <div>
           <h4>Listen to the song sample and select the matching bird below:</h4>
           <br />
@@ -30,16 +38,9 @@ const Problem = (props) => {
             controls
             src={correctBird.song}>
             Your browser does not support the <code>audio</code> element.
-        </audio>
+          </audio>
         </div>
         break;
-      case "NAME": //if the exercise type is NAME, assign name information to clue.
-        clue = <div>
-          <h4>Select the bird that matches the name below:</h4>
-          <br />
-          <h2>{toTitleCase(correctBird.common_name)}</h2>
-          <h3><i>{toTitleCase(correctBird.scientific_name)}</i></h3>
-        </div>
     }
   }
 

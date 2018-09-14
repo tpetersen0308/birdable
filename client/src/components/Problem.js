@@ -18,18 +18,28 @@ const Problem = (props) => {
   // create div with the audio element corresponding to the correct answer.
   let clue = ''
   if (correctBird) {
-
-    clue = <div>
-      <h4>Listen to the song sample and select the matching bird below:</h4>
-      <br />
-      <br />
-      <audio
-        id={props.problem.correctAnswerKey}
-        controls
-        src={correctBird.song}>
-        Your browser does not support the <code>audio</code> element.
-    </audio>
-    </div>
+    switch (props.type) {
+      case "SONG":
+        clue = <div>
+          <h4>Listen to the song sample and select the matching bird below:</h4>
+          <br />
+          <br />
+          <audio
+            id={props.problem.correctAnswerKey}
+            controls
+            src={correctBird.song}>
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+        </div>
+        break;
+      case "NAME":
+        clue = <div>
+          <h4>Select the bird that matches the name below:</h4>
+          <br />
+          <h2>{correctBird.common_name}</h2>
+          <h3><i>{correctBird.scientific_name}</i></h3>
+        </div>
+    }
   }
 
   return (

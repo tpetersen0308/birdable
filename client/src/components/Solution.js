@@ -31,11 +31,25 @@ const Solution = (props) => {
           : ''))}
   />)
 
+  /*
+      displayFeedback displays the feeback based on exercise type
+      and whether or not the user's answer was correct.
+  */
+  const displayFeedback = (correct) => {
+    if (correct) {
+      return "Correct!";
+    } else if (props.type === "SONG") {
+      return "Sorry, the correct answer was " + toTitleCase(correctBird.common_name) + '.';
+    } else {
+      return "Incorrect. Keep practicing!"
+    }
+  }
+
   return (
     <div>
       <br />
       <br />
-      <h4>{correct ? "Correct!" : "Sorry, the correct answer was " + toTitleCase(correctBird.common_name) + ':'}</h4>
+      <h4>{displayFeedback(correct)}</h4>
       <br />
       <Button onClick={props.resetExercise}>Next Exercise</Button>
       {'  '}

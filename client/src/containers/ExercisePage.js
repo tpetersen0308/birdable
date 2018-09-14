@@ -42,10 +42,12 @@ class ExercisePage extends Component {
       <div>
         <br />
         <h4>What would you like to practice?</h4>
-
-        <Radio checked={this.state.exerciseType === "SONG" ? true : false} value="SONG" onChange={this.handleTypeSelection}>Identifying birds by their song</Radio>
-        <Radio checked={this.state.exerciseType === "NAME" ? true : false} value="NAME" onChange={this.handleTypeSelection}>Identifying birds by their name</Radio>
-
+        <br />
+        <Radio checked={this.state.exerciseType === "SONG" ? true : false} value="SONG" onChange={this.handleTypeSelection} inline>Identifying birds by their song</Radio>
+        {" "}
+        <Radio checked={this.state.exerciseType === "NAME" ? true : false} value="NAME" onChange={this.handleTypeSelection} inline>Identifying birds by their name</Radio>
+        <br />
+        <br />
         <h4>Select families and regions to practice identifying:</h4>
         <br />
         <BirdsFilter handleSubmitRoute={this.submitForExercise} selectAction={this.props.selectBirdsForExercise} />

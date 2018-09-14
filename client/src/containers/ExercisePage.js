@@ -29,10 +29,12 @@ class ExercisePage extends Component {
   }
 
   /*
-      submitForExercise() function pushes the exercise route to re-render
-      the ExercisePage component for a new exercise.
+      submitForExercise() function dispatches an action to set the exercise 
+      type in state and pushes the exercise route to re-renderthe ExercisePage 
+      component for a new exercise.
   */
   submitForExercise = () => {
+    this.props.addExerciseType(this.state.exerciseType);
     this.props.history.push('/practice/exercise');
   }
   render() {
@@ -55,6 +57,7 @@ class ExercisePage extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     selectBirdsForExercise: (birds) => dispatch(selectBirdsForExercise(birds)),
+    addExerciseType: (exerciseType) => dispatch(addExerciseType(exerciseType)),
   }
 }
 

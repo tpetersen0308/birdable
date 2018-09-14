@@ -46,7 +46,7 @@ class Exercise extends Component {
   */
   resetProblem = (birds) => {
     this.props.addProblem({
-      type: 'SONG',
+      type: this.props.exercise.type,
       birds: birds, //assign birds from argument
       correctAnswerKey: birds[Math.floor(Math.random() * birds.length)].id, //randomly select bird for correct answer
     })

@@ -6,6 +6,7 @@
 
 import React from 'react';
 import '../index.css';
+import { toTitleCase } from '../index.js';
 import { Bird } from './Bird.js';
 
 const Problem = (props) => {
@@ -36,8 +37,8 @@ const Problem = (props) => {
         clue = <div>
           <h4>Select the bird that matches the name below:</h4>
           <br />
-          <h2>{correctBird.common_name}</h2>
-          <h3><i>{correctBird.scientific_name}</i></h3>
+          <h2>{toTitleCase(correctBird.common_name)}</h2>
+          <h3><i>{toTitleCase(correctBird.scientific_name)}</i></h3>
         </div>
     }
   }

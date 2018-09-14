@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BirdsFilter from './BirdsFilter';
 import { selectBirdsForExercise, addExerciseType } from '../actions/exerciseActions.js';
-import { Radio } from 'react-bootstrap';
+import { Radio, FormGroup } from 'react-bootstrap';
 
 class ExercisePage extends Component {
   constructor() {
@@ -41,8 +41,8 @@ class ExercisePage extends Component {
         <br />
         <h4>What would you like to practice?</h4>
 
-        <Radio checked value="SONG" onChange={this.handleTypeSelection}>Identifying birds by their song</Radio>
-        <Radio value="NAME" onChange={this.handleTypeSelection}>Identifying birds by their name</Radio>
+        <Radio checked={this.state.exerciseType === "SONG" ? true : false} value="SONG" onChange={this.handleTypeSelection}>Identifying birds by their song</Radio>
+        <Radio checked={this.state.exerciseType === "NAME" ? true : false} value="NAME" onChange={this.handleTypeSelection}>Identifying birds by their name</Radio>
 
         <h4>Select families and regions to practice identifying:</h4>
         <br />

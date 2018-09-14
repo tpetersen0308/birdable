@@ -15,11 +15,11 @@ const Problem = (props) => {
   // the correct bird is the one with an id matching the problem's correctAnswerKey.
   let correctBird = props.problem.birds.find(bird => bird.id === props.problem.correctAnswerKey);
 
-  // create div with the audio element corresponding to the correct answer.
+  // create div with the clue and prompt corresponding to the correct answer.
   let clue = ''
   if (correctBird) {
     switch (props.type) {
-      case "SONG":
+      case "SONG": //if the exercise type is SONG, assign an audio element to clue.
         clue = <div>
           <h4>Listen to the song sample and select the matching bird below:</h4>
           <br />
@@ -32,7 +32,7 @@ const Problem = (props) => {
         </audio>
         </div>
         break;
-      case "NAME":
+      case "NAME": //if the exercise type is NAME, assign name information to clue.
         clue = <div>
           <h4>Select the bird that matches the name below:</h4>
           <br />

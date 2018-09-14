@@ -16,9 +16,13 @@ const Problem = (props) => {
   let correctBird = props.problem.birds.find(bird => bird.id === props.problem.correctAnswerKey);
 
   // create div with the audio element corresponding to the correct answer.
-  let songAudio = ''
+  let clue = ''
   if (correctBird) {
-    songAudio = <div>
+
+    clue = <div>
+      <h4>Listen to the song sample and select the matching bird below:</h4>
+      <br />
+      <br />
       <audio
         id={props.problem.correctAnswerKey}
         controls
@@ -32,10 +36,7 @@ const Problem = (props) => {
     <div>
       <br />
       <br />
-      <h4>Listen to the song sample and select the matching bird below:</h4>
-      <br />
-      <br />
-      {songAudio}
+      {clue}
       <br />
       <br />
       <div className="bird-cards">

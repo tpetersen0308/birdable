@@ -95,6 +95,7 @@ class Exercise extends Component {
             quit={this.quit}
           /> :
           <Problem
+            type={this.props.exercise.type}
             problem={this.props.exercise.problem}
             submitAnswer={this.submitAnswer}
           />}

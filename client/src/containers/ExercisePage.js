@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BirdsFilter from './BirdsFilter';
 import { selectBirdsForExercise, addExerciseType } from '../actions/exerciseActions.js';
-import { Radio, FormGroup } from 'react-bootstrap';
+import { Radio } from 'react-bootstrap';
 
 class ExercisePage extends Component {
   constructor() {

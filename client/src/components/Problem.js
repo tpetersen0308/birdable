@@ -10,7 +10,7 @@ import { Bird } from './Bird.js';
 
 const Problem = (props) => {
   // map Bird components from the collection passed in as props.
-  let birds = props.problem.birds.map(bird => <a onClick={() => props.submitAnswer(bird.id)} key={bird.id}><Bird bird={bird} key={bird.id} exerciseType="SONG" /></a>)
+  let birds = props.problem.birds.map(bird => <a onClick={() => props.submitAnswer(bird.id)} key={bird.id}><Bird bird={bird} key={bird.id} exerciseType={props.type} /></a>)
 
   // the correct bird is the one with an id matching the problem's correctAnswerKey.
   let correctBird = props.problem.birds.find(bird => bird.id === props.problem.correctAnswerKey);

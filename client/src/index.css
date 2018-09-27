@@ -23,42 +23,35 @@ img {
   background: 50% 50% no-repeat; /* 50% 50% centers image in div */
   max-width: 100%; 
   max-height: 150px; 
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 10%;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .thumbnail {
+  position: relative;
   display: inline-block;
   width: 300px;
   height: 275px;
-  float: center;
   vertical-align: bottom;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin: 1%;
 }
 
 a > .thumbnail {
   display: inline-block;
   width: 300px;
   height: 275px;
-  float: center;
   vertical-align: bottom;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin: 1%;
 }
 
 .thumbnail.full-content {
+  position: relative;
   display: inline-block;
   width: 300px;
-  height: 350px;
-  float: center;
+  height: 325px;
   vertical-align: bottom;
-  margin-left: 1%;
-  margin-right: 1%;
-}
-
-#home-bird {
-  width: 30%;
+  margin: 1%;
 }
 
 #correct-answer {
@@ -73,13 +66,8 @@ a > .thumbnail {
   width: 100%;
 }
 
-/* .birds-list {
-  display: inline-block;
-  width: 90%;
-  margin: auto;
-} */
-
-/* .bird-description {
-  vertical-align: bottom;
-} */
-
+.thumbnail > .caption {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}

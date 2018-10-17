@@ -1,41 +1,19 @@
 import fetch from 'isomorphic-fetch';
 
 /*
-    addUser() adds the user to the redux store
+    addUser() adds the user to the redux store.
 */
 export function addUser(user) {
   return { type: "ADD_USER", payload: user }
 }
 
 /*
-    createUser() fires a POST request to the Rails API to create a new
-    user resource.
+    postUser() fires a POST request to the Rails API to either log in 
+    or create a new user depending on the route argument. 
 */
-export function createUser(data) {
+export function postUser(route, data) {
   return dispatch => {
-    return fetch("/api/v1/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(user => {
-        dispatch(addUser(user));
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
-}
-
-/* 
-    loginUser() fires a POST request to the Rails API to create a user session
-*/
-export function loginUser(data) {
-  return dispatch => {
-    return fetch("/login", {
+    return fetch(route, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",

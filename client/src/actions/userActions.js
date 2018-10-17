@@ -8,6 +8,13 @@ export function addUser(user) {
 }
 
 /*
+    removeUser() removes the user from the redux store.
+*/
+export function removeUser() {
+  return { type: "REMOVE_USER", payload: null }
+}
+
+/*
     postUser() fires a POST request to the Rails API to either log in 
     or create a new user depending on the route argument. 
 */

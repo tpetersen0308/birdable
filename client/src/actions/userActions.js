@@ -1,6 +1,13 @@
 import fetch from 'isomorphic-fetch';
 
 /*
+    addUser() adds the user to the redux store
+*/
+export function addUser(user) {
+  return { type: "ADD_USER", payload: user }
+}
+
+/*
     createUser() fires a POST request to the Rails API to create a new
     user resource.
 */

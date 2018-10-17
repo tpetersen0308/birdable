@@ -22,7 +22,7 @@ export function createUser(data) {
     })
       .then(response => response.json())
       .then(user => {
-        //dispatch action to add user to store
+        dispatch(addUser(user));
       })
       .catch(error => {
         console.log(error);

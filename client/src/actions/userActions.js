@@ -29,3 +29,25 @@ export function createUser(data) {
       })
   }
 }
+
+/* 
+    loginUser() fires a POST request to the Rails API to create a user session
+*/
+export function loginUser(data) {
+  return dispatch => {
+    return fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(user => {
+        dispatch(addUser(user));
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+}

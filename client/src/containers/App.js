@@ -36,7 +36,7 @@ class App extends Component {
             </header>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/login' component={Login} />
-            <Route exact path='/register' component={register} />
+            <Route exact path='/register' component={Register} />
             <Route exact path='/browse' component={BirdsPage} />
             <Route exact path='/practice' component={ExercisePage} />
             <Route path='/practice/exercise' component={Exercise} />

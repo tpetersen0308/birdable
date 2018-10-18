@@ -27,6 +27,12 @@ const NavBar = () => {
       >
         Browse Birds
       </NavLink>
+      <NavLink
+        style={{ marginRight: '10px', color: 'white' }}
+        to="/login"
+      >
+        Log In
+      </NavLink>
     </div>
   );
 }

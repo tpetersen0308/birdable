@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
+import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
 
 class Register extends Component {
+
+
   render() {
     return (
       <div>
@@ -9,7 +11,25 @@ class Register extends Component {
           <Panel.Heading>
             <Panel.Title componentClass="h3">Register a new user account below:</Panel.Title>
           </Panel.Heading>
-          <Panel.Body>[registration form]</Panel.Body>
+          <Panel.Body>
+            <Form>
+              <FormGroup controlId="formHorizontalEmail">
+                <FormControl type="email" placeholder="Email" />
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalPassword">
+                <FormControl type="password" placeholder="Password" />
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalPassword">
+                <FormControl type="password" placeholder="Confirm Password" />
+              </FormGroup>
+
+              <FormGroup>
+                <Button type="submit">Sign in</Button>
+              </FormGroup>
+            </Form>
+          </Panel.Body>
         </Panel>
       </div>
     )

@@ -71,3 +71,9 @@ a > .thumbnail {
   bottom: 0px;
   width: 100%;
 }
+
+.panel {
+  width: 50%;
+  margin: auto;
+  margin-top: 2em;
+}

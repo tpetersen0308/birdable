@@ -16,11 +16,7 @@ class Register extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.dispatch(postUser('/api/v1/users', {
-      user: {
-        email: event.currentTarget[0].value,
-        password: event.currentTarget[1].value,
-        password_confirmation: event.currentTarget[2].value,
-      },
+      user: this.state,
     }));
   }
 

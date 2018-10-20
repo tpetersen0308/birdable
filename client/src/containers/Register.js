@@ -24,8 +24,15 @@ class Register extends Component {
     }));
   }
 
-  render() {
+  handleEmailChange = event => {
+    event.preventDefault();
+    this.setState({
+      ...this.state,
+      email: event.target.value,
+    });
+  }
 
+  render() {
     return (
       <div>
         <Panel>
@@ -35,7 +42,7 @@ class Register extends Component {
           <Panel.Body>
             <Form onSubmit={this.handleSubmit}>
               <FormGroup controlId="formHorizontalEmail">
-                <FormControl type="email" placeholder="Email" />
+                <FormControl type="email" placeholder="Email" onChange={this.handleEmailChange} />
               </FormGroup>
 
               <FormGroup controlId="formHorizontalPassword">

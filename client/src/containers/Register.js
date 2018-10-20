@@ -4,6 +4,14 @@ import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, Col } from '
 import { postUser } from '../actions/userActions.js';
 
 class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+      password_confirmation: '',
+    }
+  }
 
   handleSubmit = event => {
     event.preventDefault();

@@ -32,6 +32,14 @@ class Register extends Component {
     });
   }
 
+  handlePasswordChange = event => {
+    event.preventDefault();
+    this.setState({
+      ...this.state,
+      password: event.target.value,
+    });
+  }
+
   render() {
     return (
       <div>
@@ -46,7 +54,7 @@ class Register extends Component {
               </FormGroup>
 
               <FormGroup controlId="formHorizontalPassword">
-                <FormControl type="password" placeholder="Password" />
+                <FormControl type="password" placeholder="Password" onChange={this.handlePasswordChange} />
               </FormGroup>
 
               <FormGroup controlId="formHorizontalPasswordConfirm">

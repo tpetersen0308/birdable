@@ -11,6 +11,29 @@ class Login extends Component {
     }
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.dispatch(postUser('/login', {
+      user: this.state,
+    }));
+  }
+
+  handleEmailChange = event => {
+    event.preventDefault();
+    this.setState({
+      ...this.state,
+      email: event.target.value,
+    });
+  }
+
+  handlePasswordChange = event => {
+    event.preventDefault();
+    this.setState({
+      ...this.state,
+      password: event.target.value,
+    });
+  }
+
   render() {
     return (
       <div>

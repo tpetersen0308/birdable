@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
 
 class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+    }
+  }
+
   render() {
     return (
       <div>

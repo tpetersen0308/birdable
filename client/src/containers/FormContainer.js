@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Register from './Register.js';
+import Login from './Login.js';
 
 class FormContainer extends Component {
   constructor() {
@@ -13,6 +15,10 @@ class FormContainer extends Component {
   render() {
     return (
       <div>
+        {this.props.history.location.pathname === "/register" ?
+          <Register /> :
+          <Login />
+        }
       </div>
     )
   }

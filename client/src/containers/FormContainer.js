@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Register from './Register.js';
-import Login from './Login.js';
+import Register from '../components/Register.js';
+import Login from '../components/Login.js';
 
 class FormContainer extends Component {
   constructor() {

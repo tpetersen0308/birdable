@@ -66,7 +66,7 @@ class Register extends Component {
               </FormGroup>
 
               <FormGroup>
-                <Button type="submit">Sign in</Button>
+                <Button type="submit">Sign up</Button>
               </FormGroup>
             </Form>
           </Panel.Body>

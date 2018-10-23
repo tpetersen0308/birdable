@@ -84,6 +84,7 @@ class FormContainer extends Component {
             validateEmail={this.validateEmail}
             validatePassword={this.validatePassword}
             validatePasswordConfirm={this.validatePasswordConfirm}
+            user={this.props.user}
           /> :
           <Login
             handleSubmit={this.handleSubmit}
@@ -97,4 +98,10 @@ class FormContainer extends Component {
   }
 }
 
-export default connect()(FormContainer);
+const mapStateToProps = function (state) {
+  return {
+    user: state.user,
+  }
+}
+
+export default connect(mapStateToProps)(FormContainer);

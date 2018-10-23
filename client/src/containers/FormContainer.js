@@ -18,6 +18,7 @@ class FormContainer extends Component {
     this.handlePasswordConfirmChange = this.handlePasswordConfirmChange.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
+    this.validatePasswordConfirm = this.validatePasswordConfirm.bind(this);
   }
 
   handleSubmit = event => {
@@ -63,6 +64,11 @@ class FormContainer extends Component {
     return 'error';
   }
 
+  validatePasswordConfirm = () => {
+    if (this.state.password_confirmation.length >= 8 && this.state.password_confirmation === this.state.password) return 'success';
+    return 'error';
+  }
+
   render() {
     return (
       <div>
@@ -74,6 +80,7 @@ class FormContainer extends Component {
             handlePasswordConfirmChange={this.handlePasswordConfirmChange}
             validateEmail={this.validateEmail}
             validatePassword={this.validatePassword}
+            validatePasswordConfirm={this.validatePasswordConfirm}
           /> :
           <Login
             handleSubmit={this.handleSubmit}

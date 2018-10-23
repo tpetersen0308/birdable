@@ -20,7 +20,8 @@ class FormContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatch(postUser('/api/v1/users', {
+    const route = this.props.history.location.pathname === "/register" ? '/api/v1/users' : '/login'
+    this.props.dispatch(postUser(route, {
       user: this.state,
     }));
   }

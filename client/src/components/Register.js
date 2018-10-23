@@ -37,7 +37,12 @@ export const Register = (props) => {
             </FormGroup>
 
             <FormGroup>
-              <Button type="submit">Sign up</Button>
+              <Button
+                type="submit"
+                disabled={props.validateEmail() !== 'success' || props.validatePassword() !== 'success' || props.validatePasswordConfirm() !== 'success'}
+              >
+                Sign up
+              </Button>
             </FormGroup>
           </Form>
         </Panel.Body>

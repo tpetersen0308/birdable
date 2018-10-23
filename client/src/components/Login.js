@@ -1,73 +1,37 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
-import { postUser } from '../actions/userActions.js';
+import { Link } from 'react-router-dom';
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: '',
-      password: '',
-    }
-  }
+export const Login = (props) => {
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.dispatch(postUser('/login', {
-      user: this.state,
-    }));
-  }
+  return (
+    <div>
+      <Panel>
+        <Panel.Heading>
+          <Panel.Title componentClass="h3">Enter your e-mail and password below to log in:</Panel.Title>
+        </Panel.Heading>
+        <Panel.Body>
+          <Form onSubmit={props.handleSubmit}>
+            <FormGroup controlId="formHorizontalEmail">
+              <FormControl type="email" placeholder="Email" onChange={props.handleEmailChange} />
+            </FormGroup>
 
-  handleEmailChange = event => {
-    event.preventDefault();
-    this.setState({
-      ...this.state,
-      email: event.target.value,
-    });
-  }
+            <FormGroup controlId="formHorizontalPassword">
+              <FormControl type="password" placeholder="Password" onChange={props.handlePasswordChange} />
+            </FormGroup>
 
-  handlePasswordChange = event => {
-    event.preventDefault();
-    this.setState({
-      ...this.state,
-      password: event.target.value,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <Panel>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">Enter your e-mail and password below to log in:</Panel.Title>
-          </Panel.Heading>
-          <Panel.Body>
-            <Form onSubmit={this.handleSubmit}>
-              <FormGroup controlId="formHorizontalEmail">
-                <FormControl type="email" placeholder="Email" onChange={this.handleEmailChange} />
-              </FormGroup>
-
-              <FormGroup controlId="formHorizontalPassword">
-                <FormControl type="password" placeholder="Password" onChange={this.handlePasswordChange} />
-              </FormGroup>
-
-              <FormGroup>
-                <Button type="submit">Sign in</Button>
-              </FormGroup>
-            </Form>
-            Don't have an account? {" "}
-            <Link
-              to="/register"
-            >
-              Sign up!
+            <FormGroup>
+              <Button type="submit">Sign in</Button>
+            </FormGroup>
+          </Form>
+          Don't have an account? {" "}
+          <Link
+            to="/register"
+          >
+            Sign up!
             </Link>
-          </Panel.Body>
-        </Panel>
-      </div>
-    )
-  }
+        </Panel.Body>
+      </Panel>
+    </div>
+  )
 }
-
-export default connect()(Login);

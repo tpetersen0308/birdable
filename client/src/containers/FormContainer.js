@@ -90,7 +90,6 @@ class FormContainer extends Component {
             handleEmailChange={this.handleEmailChange}
             handlePasswordChange={this.handlePasswordChange}
             validateEmail={this.validateEmail}
-            validatePassword={this.validatePassword}
           />
         }
       </div>

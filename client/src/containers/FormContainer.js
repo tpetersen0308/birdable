@@ -16,6 +16,7 @@ class FormContainer extends Component {
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handlePasswordConfirmChange = this.handlePasswordConfirmChange.bind(this);
+    this.validateEmail = this.validateEmail.bind(this);
   }
 
   handleSubmit = event => {
@@ -50,6 +51,12 @@ class FormContainer extends Component {
     });
   }
 
+  validateEmail = () => {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(String(this.state.email).toLowerCase())) return 'success';
+    return 'error';
+  }
+
   render() {
     return (
       <div>
@@ -59,11 +66,13 @@ class FormContainer extends Component {
             handleEmailChange={this.handleEmailChange}
             handlePasswordChange={this.handlePasswordChange}
             handlePasswordConfirmChange={this.handlePasswordConfirmChange}
+            validateEmail={this.validateEmail}
           /> :
           <Login
             handleSubmit={this.handleSubmit}
             handleEmailChange={this.handleEmailChange}
             handlePasswordChange={this.handlePasswordChange}
+            validateEmail={this.validateEmail}
           />
         }
       </div>

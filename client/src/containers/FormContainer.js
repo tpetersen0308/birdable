@@ -55,17 +55,20 @@ class FormContainer extends Component {
 
   validateEmail = () => {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(String(this.state.email).toLowerCase())) return 'success';
+    if (this.state.email.length === 0) return null;
+    else if (re.test(String(this.state.email).toLowerCase())) return 'success';
     return 'error';
   }
 
   validatePassword = () => {
-    if (this.state.password.length >= 8) return 'success';
+    if (this.state.password.length === 0) return null;
+    else if (this.state.password.length >= 8) return 'success';
     return 'error';
   }
 
   validatePasswordConfirm = () => {
-    if (this.state.password_confirmation.length >= 8 && this.state.password_confirmation === this.state.password) return 'success';
+    if (this.state.password_confirmation.length === 0) return null;
+    else if (this.state.password_confirmation.length >= 8 && this.state.password_confirmation === this.state.password) return 'success';
     return 'error';
   }
 

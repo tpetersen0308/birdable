@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Register } from '../components/Register.js';
 import { Login } from '../components/Login.js';
-import { postUser } from '../actions/userActions.js';
+import { postUser, clearErrors } from '../actions/userActions.js';
 
 class FormContainer extends Component {
   constructor() {
@@ -35,6 +35,7 @@ class FormContainer extends Component {
       ...this.state,
       email: event.target.value,
     });
+    this.props.dispatch(clearErrors());
   }
 
   handlePasswordChange = event => {
@@ -56,7 +57,7 @@ class FormContainer extends Component {
   validateEmail = () => {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (this.state.email.length === 0) return null;
-    else if (re.test(String(this.state.email).toLowerCase())) return 'success';
+    else if (re.test(String(this.state.email).toLowerCase()) && this.props.user.errors === null) return 'success';
     return 'error';
   }
 

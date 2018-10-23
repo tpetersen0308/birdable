@@ -27,6 +27,11 @@ class FormContainer extends Component {
     this.props.dispatch(postUser(route, {
       user: this.state,
     }));
+    this.setState({
+      email: '',
+      password: '',
+      password_confirmation: '',
+    })
   }
 
   handleEmailChange = event => {
@@ -56,7 +61,8 @@ class FormContainer extends Component {
 
   validateEmail = () => {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (this.state.email.length === 0) return null;
+    if (this.props.user.errors) return 'error';
+    else if (this.state.email.length === 0) return null;
     else if (re.test(String(this.state.email).toLowerCase()) && this.props.user.errors === null) return 'success';
     return 'error';
   }
@@ -86,6 +92,9 @@ class FormContainer extends Component {
             validatePassword={this.validatePassword}
             validatePasswordConfirm={this.validatePasswordConfirm}
             user={this.props.user}
+            email={this.state.email}
+            password={this.state.password}
+            password_confirmation={this.state.password_confirmation}
           /> :
           <Login
             handleSubmit={this.handleSubmit}

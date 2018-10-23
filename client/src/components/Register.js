@@ -15,7 +15,11 @@ export const Register = (props) => {
               controlId="formHorizontalEmail"
               validationState={props.validateEmail()}
             >
-              <FormControl type="email" placeholder="Email" onChange={props.handleEmailChange} />
+              <FormControl
+                type="email"
+                placeholder="Email"
+                value={props.email}
+                onChange={props.handleEmailChange} />
               <FormControl.Feedback />
               {props.user && props.user.errors &&
                 <HelpBlock>{props.user.errors.email[0]}</HelpBlock>
@@ -26,7 +30,11 @@ export const Register = (props) => {
               controlId="formHorizontalPassword"
               validationState={props.validatePassword()}
             >
-              <FormControl type="password" placeholder="Password" onChange={props.handlePasswordChange} />
+              <FormControl
+                type="password"
+                placeholder="Password"
+                value={props.password}
+                onChange={props.handlePasswordChange} />
               {props.validatePassword() === 'error' && <HelpBlock>Passwords must be at least 8 characters.</HelpBlock>}
               <FormControl.Feedback />
             </FormGroup>
@@ -35,7 +43,11 @@ export const Register = (props) => {
               controlId="formHorizontalPasswordConfirm"
               validationState={props.validatePasswordConfirm()}
             >
-              <FormControl type="password" placeholder="Confirm Password" onChange={props.handlePasswordConfirmChange} />
+              <FormControl
+                type="password"
+                placeholder="Confirm Password"
+                value={props.password_confirmation}
+                onChange={props.handlePasswordConfirmChange} />
               <FormControl.Feedback />
             </FormGroup>
 

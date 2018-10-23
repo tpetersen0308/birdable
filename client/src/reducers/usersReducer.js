@@ -6,6 +6,8 @@ function usersReducer(state = { id: null, email: null, errors: null }, action) {
       return action.payload;
     case "REMOVE_USER":
       return action.payload;
+    case "CLEAR_ERRORS":
+      return { ...state, errors: null }
     default:
       return state;
   }

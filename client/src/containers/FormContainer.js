@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Register } from '../components/Register.js';
-import Login from '../components/Login.js';
+import { Login } from '../components/Login.js';
 import { postUser } from '../actions/userActions.js';
 
 class FormContainer extends Component {
@@ -60,7 +60,11 @@ class FormContainer extends Component {
             handlePasswordChange={this.handlePasswordChange}
             handlePasswordConfirmChange={this.handlePasswordConfirmChange}
           /> :
-          <Login />
+          <Login
+            handleSubmit={this.handleSubmit}
+            handleEmailChange={this.handleEmailChange}
+            handlePasswordChange={this.handlePasswordChange}
+          />
         }
       </div>
     )

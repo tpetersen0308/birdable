@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
+import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, Col, HelpBlock } from 'react-bootstrap';
 
 export const Register = (props) => {
 
@@ -16,6 +16,7 @@ export const Register = (props) => {
               validationState={props.validateEmail()}
             >
               <FormControl type="email" placeholder="Email" onChange={props.handleEmailChange} />
+              <FormControl.Feedback />
             </FormGroup>
 
             <FormGroup
@@ -23,6 +24,8 @@ export const Register = (props) => {
               validationState={props.validatePassword()}
             >
               <FormControl type="password" placeholder="Password" onChange={props.handlePasswordChange} />
+              {props.validatePassword() === 'error' && <HelpBlock>Passwords must be at least 8 characters.</HelpBlock>}
+              <FormControl.Feedback />
             </FormGroup>
 
             <FormGroup
@@ -30,6 +33,7 @@ export const Register = (props) => {
               validationState={props.validatePasswordConfirm()}
             >
               <FormControl type="password" placeholder="Confirm Password" onChange={props.handlePasswordConfirmChange} />
+              <FormControl.Feedback />
             </FormGroup>
 
             <FormGroup>

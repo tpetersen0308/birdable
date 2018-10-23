@@ -73,7 +73,8 @@ a > .thumbnail {
 }
 
 .panel {
-  width: 50%;
+  width: 90%;
+  max-width: 30em;
   margin: auto;
   margin-top: 2em;
 }

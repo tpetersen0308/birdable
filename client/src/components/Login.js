@@ -12,7 +12,9 @@ export const Login = (props) => {
         </Panel.Heading>
         <Panel.Body>
           <Form onSubmit={props.handleSubmit}>
-            <FormGroup controlId="formHorizontalEmail">
+            <FormGroup
+              controlId="formHorizontalEmail"
+              validationState={props.validateEmail()}>
               <FormControl type="email" placeholder="Email" onChange={props.handleEmailChange} />
             </FormGroup>
 

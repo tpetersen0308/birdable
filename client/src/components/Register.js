@@ -25,7 +25,10 @@ export const Register = (props) => {
               <FormControl type="password" placeholder="Password" onChange={props.handlePasswordChange} />
             </FormGroup>
 
-            <FormGroup controlId="formHorizontalPasswordConfirm">
+            <FormGroup
+              controlId="formHorizontalPasswordConfirm"
+              validationState={props.validatePasswordConfirm()}
+            >
               <FormControl type="password" placeholder="Confirm Password" onChange={props.handlePasswordConfirmChange} />
             </FormGroup>
 

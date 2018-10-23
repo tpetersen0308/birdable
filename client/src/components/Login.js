@@ -18,7 +18,10 @@ export const Login = (props) => {
               <FormControl type="email" placeholder="Email" onChange={props.handleEmailChange} />
             </FormGroup>
 
-            <FormGroup controlId="formHorizontalPassword">
+            <FormGroup
+              controlId="formHorizontalPassword"
+              validationState={props.validatePassword()}
+            >
               <FormControl type="password" placeholder="Password" onChange={props.handlePasswordChange} />
             </FormGroup>
 

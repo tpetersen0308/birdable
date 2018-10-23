@@ -16,6 +16,7 @@ export const Login = (props) => {
               controlId="formHorizontalEmail"
               validationState={props.validateEmail()}>
               <FormControl type="email" placeholder="Email" onChange={props.handleEmailChange} />
+              <FormControl.Feedback />
             </FormGroup>
 
             <FormGroup

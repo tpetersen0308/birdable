@@ -14,6 +14,10 @@ export function removeUser() {
   return { type: "REMOVE_USER", payload: null }
 }
 
+export function clearErrors() {
+  return { type: "CLEAR_ERRORS", payload: null }
+}
+
 /*
     postUser() fires a POST request to the Rails API to either log in 
     or create a new user depending on the route argument. 

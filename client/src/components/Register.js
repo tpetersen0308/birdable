@@ -21,8 +21,8 @@ export const Register = (props) => {
                 value={props.email}
                 onChange={props.handleEmailChange} />
               <FormControl.Feedback />
-              {props.user && props.user.errors &&
-                <HelpBlock>{props.user.errors.email[0]}</HelpBlock>
+              {props.user.errors && props.user.errors.email &&
+                <HelpBlock>That email {props.user.errors.email[0]}</HelpBlock>
               }
             </FormGroup>
 

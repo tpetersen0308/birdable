@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
+import { Panel, Form, FormGroup, ControlLabel, FormControl, Button, HelpBlock } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const Login = (props) => {
@@ -12,17 +12,27 @@ export const Login = (props) => {
         </Panel.Heading>
         <Panel.Body>
           <Form onSubmit={props.handleSubmit}>
+            {props.user.errors && props.user.errors.base &&
+              <HelpBlock>{props.user.errors.base[0]}</HelpBlock>}
             <FormGroup
               controlId="formHorizontalEmail"
-              validationState={props.validateEmail()}>
-              <FormControl type="email" placeholder="Email" onChange={props.handleEmailChange} />
+            >
+              <FormControl
+                type="email"
+                placeholder="Email"
+                value={props.email}
+                onChange={props.handleEmailChange} />
               <FormControl.Feedback />
             </FormGroup>
 
             <FormGroup
               controlId="formHorizontalPassword"
             >
-              <FormControl type="password" placeholder="Password" onChange={props.handlePasswordChange} />
+              <FormControl
+                type="password"
+                placeholder="Password"
+                value={props.password}
+                onChange={props.handlePasswordChange} />
             </FormGroup>
 
             <FormGroup>

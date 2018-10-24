@@ -49,6 +49,7 @@ class FormContainer extends Component {
       ...this.state,
       password: event.target.value,
     });
+    this.props.dispatch(clearErrors());
   }
 
   handlePasswordConfirmChange = event => {
@@ -100,7 +101,9 @@ class FormContainer extends Component {
             handleSubmit={this.handleSubmit}
             handleEmailChange={this.handleEmailChange}
             handlePasswordChange={this.handlePasswordChange}
-            validateEmail={this.validateEmail}
+            user={this.props.user}
+            email={this.state.email}
+            password={this.state.password}
           />
         }
       </div>

@@ -4,11 +4,12 @@ class SessionsController < ApplicationController
   def create
     @user = User.ci_find("email", params[:user][:email])
   
-    if @user && @user.authenticate(params[:user][:password])
+    if @user.class == User && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      render json: @user, status: 201
     else
-      render :json => { :errors => @user.errors}, status: 422
+      @user = User.new
+      @user.errors.add(:base, "The email or password you entered is incorrect")
     end
+    render json: @user, status: 201
   end
 end

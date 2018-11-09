@@ -23,7 +23,13 @@ class App extends Component {
     this.props.fetchBirds();
   }
 
+
   render() {
+
+    const responseGoogle = (response) => {
+      console.log(response);
+    }
+
     return (
       <div className="App">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" />
@@ -32,8 +38,8 @@ class App extends Component {
             <GoogleLogin
               clientId={secrets.GOOGLE_CLIENT_ID}
               buttonText="Login"
-              onSuccess={}
-              onFailure={}
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
             />
             <header className="App-header">
               <h1 className="App-title">birdable</h1>

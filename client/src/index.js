@@ -14,6 +14,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/index.js';
+import { secrets } from './conf/secrets.js';
 
 // create Redux store
 const store = createStore(

@@ -4,8 +4,6 @@
 */
 
 import React, { Component } from 'react';
-import GoogleLogin from 'react-google-login';
-import { secrets } from '../conf/secrets.js';
 import '../App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -23,13 +21,7 @@ class App extends Component {
     this.props.fetchBirds();
   }
 
-
   render() {
-
-    const responseGoogle = (response) => {
-      console.log(response);
-    }
-
     return (
       <div className="App">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" />
@@ -40,13 +32,6 @@ class App extends Component {
               <p>an online resource for practicing bird identification</p>
               <NavBar />
             </header>
-            <GoogleLogin
-              clientId={secrets.GOOGLE_CLIENT_ID}
-              buttonText="Log in with Google"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              className="btn btn-xs btn-primary"
-            />
             <Route exact path='/' component={HomePage} />
             <Route exact path='/browse' component={BirdsPage} />
             <Route exact path='/practice' component={ExercisePage} />

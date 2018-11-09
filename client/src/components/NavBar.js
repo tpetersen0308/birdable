@@ -39,7 +39,6 @@ const NavBar = () => {
       {/* dynamically display login/logout button based on login status */}
       <GoogleLogin
         clientId={secrets.GOOGLE_CLIENT_ID}
-        buttonText="Log in with Google"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         className="btn btn-xs btn-primary"

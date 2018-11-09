@@ -29,6 +29,12 @@ class App extends Component {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" />
         <Router>
           <div>
+            <GoogleLogin
+              clientId={secrets.GOOGLE_CLIENT_ID}
+              buttonText="Login"
+              onSuccess={}
+              onFailure={}
+            />
             <header className="App-header">
               <h1 className="App-title">birdable</h1>
               <p>an online resource for practicing bird identification</p>

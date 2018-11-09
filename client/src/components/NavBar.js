@@ -11,6 +11,8 @@ import { secrets } from '../conf/secrets.js';
 const NavBar = () => {
 
   const responseGoogle = (response) => {
+    // dispatch action to post user to backend API
+    // dispatch action to log user in
     console.log(response);
   }
 
@@ -34,6 +36,7 @@ const NavBar = () => {
       >
         Browse Birds
       </NavLink>
+      {/* dynamically display login/logout button based on login status */}
       <GoogleLogin
         clientId={secrets.GOOGLE_CLIENT_ID}
         buttonText="Log in with Google"

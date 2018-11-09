@@ -6,7 +6,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GoogleLogin from 'react-google-login';
 import './index.css';
 import App from './containers/App';
 import { Provider } from 'react-redux';
@@ -14,7 +13,6 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/index.js';
-import { secrets } from './conf/secrets.js';
 
 // create Redux store
 const store = createStore(

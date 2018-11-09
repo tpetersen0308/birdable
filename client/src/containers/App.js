@@ -4,6 +4,8 @@
 */
 
 import React, { Component } from 'react';
+import GoogleLogin from 'react-google-login';
+import { secrets } from '../conf/secrets.js';
 import '../App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';

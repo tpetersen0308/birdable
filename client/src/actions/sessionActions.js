@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 export function postUser(data) {
   return fetch("/users", {
     method: "POST",

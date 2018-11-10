@@ -16,7 +16,7 @@ class GoogleAuth extends Component {
     }
 
     return (
-      <div>
+      <span>
         {/* dynamically display login/logout button based on login status */}
         <GoogleLogin
           clientId={secrets.GOOGLE_CLIENT_ID}
@@ -24,7 +24,7 @@ class GoogleAuth extends Component {
           onFailure={responseGoogle}
           className="btn btn-xs btn-primary"
         />
-      </div>
+      </span>
     )
   }
 }

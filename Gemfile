@@ -37,6 +37,7 @@ gem 'active_model_serializers'
 gem 'thor', '~> 0.19.1'
 gem 'foreman', '~> 0.82.0'
 gem 'dotenv-rails'
+gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

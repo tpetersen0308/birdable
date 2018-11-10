@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import GoogleAuth from './GoogleAuth.js';
 
 const NavBar = () => {
 
@@ -28,6 +29,7 @@ const NavBar = () => {
       >
         Browse Birds
       </NavLink>
+      <GoogleAuth />
     </div>
   );
 }

@@ -51,3 +51,4 @@ build-iPhoneSimulator/
 
 NOTES.md
 /log/
+.env

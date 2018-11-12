@@ -12,10 +12,11 @@ class UsersController < ApplicationController
       @user = User.find_or_create_by(:email => response["email"])
       @user.update(:first_name => response["given_name"], :last_name => response["family_name"], :image_url => response["picture"])
       session[:id] = @user.id
-      render json: @user, status: 201
     else
-      # add error handling here
+      @user = User.new
+      @user.errors.add(:base, "Invalid login attempt")
     end
+    render json: @user
   end
 
 end

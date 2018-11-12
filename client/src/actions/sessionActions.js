@@ -10,10 +10,14 @@ export function postUser(data) {
   })
     .then(response => response.json())
     .then(user => {
-      addUser(user);
+      addCurrentUser(user);
     })
 }
 
-export function addUser(data) {
-  return { type: "ADD_USER", payload: data }
+export function addCurrentUser(data) {
+  return { type: "ADD_CURRENT_USER", payload: data }
+}
+
+export function loginUser() {
+  return { type: "LOGIN_USER", payload: true }
 }

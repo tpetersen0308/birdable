@@ -5,12 +5,15 @@ export function postUser(data) {
     method: "POST",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Authorization": data.tokenObj.id_token,
     },
     body: JSON.stringify(data),
   })
-    .then(response => response.JSON())
+    .then(response => response.json())
     .then(user => {
-      debugger;
+      addUser(user);
     })
+}
+
+export function addUser(data) {
+  return { type: "ADD_USER", payload: data }
 }

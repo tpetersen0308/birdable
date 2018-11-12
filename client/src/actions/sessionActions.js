@@ -21,3 +21,11 @@ export function addCurrentUser(data) {
 export function loginUser() {
   return { type: "LOGIN_USER", payload: true }
 }
+
+export function clearCurrentUser() {
+  return { type: "CLEAR_CURRENT_USER", payload: null }
+}
+
+export function logoutUser() {
+  return { type: "LOGOUT_USER", payload: false }
+}

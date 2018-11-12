@@ -15,17 +15,13 @@ export function postUser(data) {
 }
 
 export function addCurrentUser(data) {
-  return { type: "ADD_CURRENT_USER", payload: data }
-}
-
-export function loginUser() {
-  return { type: "LOGIN_USER", payload: true }
+  return {
+    type: "ADD_CURRENT_USER", payload: { user: data, logged_in: true }
+  }
 }
 
 export function clearCurrentUser() {
-  return { type: "CLEAR_CURRENT_USER", payload: null }
-}
-
-export function logoutUser() {
-  return { type: "LOGOUT_USER", payload: false }
+  return {
+    type: "CLEAR_CURRENT_USER", payload: { user: null, logged_in: false }
+  }
 }

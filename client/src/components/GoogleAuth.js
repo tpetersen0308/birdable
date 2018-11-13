@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
-import GoogleLogout from 'react-google-login';
+import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { secrets } from '../conf/secrets.js';
-import { postUser } from '../actions/sessionActions.js';
+import { postUser, endSession } from '../actions/sessionActions.js';
 
 class GoogleAuth extends Component {
 
@@ -14,18 +14,12 @@ class GoogleAuth extends Component {
       this.props.postUser(response);
     }
 
-    const logout = () => {
-      // dispatch action to clear session id in backend API
-    }
-
     if (this.props.loggedIn) {
       return (
         <span>
-          <GoogleLogout
-            buttonText="Logout"
-            onLogoutSuccess={logout}
-          >
-          </GoogleLogout>
+          <Button bsSize="xsmall" bsStyle="primary">
+            Logout
+          </Button>
         </span>
       )
     } else {

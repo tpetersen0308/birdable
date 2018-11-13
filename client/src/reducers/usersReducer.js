@@ -1,11 +1,15 @@
 function usersReducer(state = {
-  user: null,
-  logged_in: false,
+  currentUser: null,
+  loggedIn: false,
 }, action) {
   switch (action.type) {
     case "ADD_CURRENT_USER":
-      return { user: action.payload, logged_in: true }
+      return { currentUser: action.payload, loggedIn: true }
     case "CLEAR_CURRENT_USER":
       return action.payload;
+    default:
+      return state;
   }
 }
+
+export default usersReducer;

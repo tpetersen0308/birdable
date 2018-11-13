@@ -16,6 +16,19 @@ export function postUser(data) {
   }
 }
 
+export function endSession() {
+  return (dispatch) => {
+    return fetch("/sessions", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    }).then(() => {
+      dispatch(clearCurrentUser());
+    })
+  }
+}
+
 function addCurrentUser(data) {
   return {
     type: "ADD_CURRENT_USER", payload: data

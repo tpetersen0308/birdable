@@ -10,9 +10,7 @@ class GoogleAuth extends Component {
 
     const responseGoogle = (response) => {
       // dispatch action to post user to backend API
-      postUser(response);
-      // dispatch action to log user in
-      console.log(response);
+      this.props.postUser(response);
     }
 
     return (
@@ -31,7 +29,7 @@ class GoogleAuth extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    postUser: (user) => dispatch(postUser(postUser)),
+    postUser: (user) => dispatch(postUser(user)),
   }
 }
 

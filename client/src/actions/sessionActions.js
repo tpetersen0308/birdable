@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch';
 
 export function postUser(data) {
   return (dispatch) => {
-    return fetch("/users", {
+    return fetch("/sessions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",

@@ -16,7 +16,7 @@ export function postUser(data) {
 
 export function addCurrentUser(data) {
   return {
-    type: "ADD_CURRENT_USER", payload: { user: data, logged_in: true }
+    type: "ADD_CURRENT_USER", payload: data
   }
 }
 

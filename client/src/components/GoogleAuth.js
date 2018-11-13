@@ -27,10 +27,16 @@ class GoogleAuth extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    loggedIn: state.user.loggedIn,
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     postUser: (user) => dispatch(postUser(user)),
   }
 }
 
-export default connect(null, mapDispatchToProps)(GoogleAuth);
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleAuth);

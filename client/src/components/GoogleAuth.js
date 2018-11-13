@@ -14,10 +14,14 @@ class GoogleAuth extends Component {
       this.props.postUser(response);
     }
 
+    const logout = () => {
+      this.props.endSession();
+    }
+
     if (this.props.loggedIn) {
       return (
         <span>
-          <Button bsSize="xsmall" bsStyle="primary">
+          <Button bsSize="xsmall" bsStyle="primary" onClick={logout}>
             Logout
           </Button>
         </span>
@@ -47,6 +51,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     postUser: (user) => dispatch(postUser(user)),
+    endSession: () => dispatch(endSession()),
   }
 }
 

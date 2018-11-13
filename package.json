@@ -1,5 +1,7 @@
 {
   "name": "birdable",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react-google-login-logout": "^2.9.3"
+  }
 }

@@ -14,6 +14,10 @@ class GoogleAuth extends Component {
       this.props.postUser(response);
     }
 
+    const logout = () => {
+      // dispatch action to clear session id in backend API
+    }
+
     if (this.props.loggedIn) {
       return (
         <span>

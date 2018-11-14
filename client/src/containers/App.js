@@ -12,7 +12,7 @@ import BirdsPage from './BirdsPage.js';
 import ExercisePage from './ExercisePage.js';
 import HomePage from './HomePage.js';
 import Exercise from './Exercise.js';
-import NavBar from '../components/NavBar.js';
+import NavMenu from '../components/NavMenu.js';
 
 class App extends Component {
 
@@ -30,7 +30,7 @@ class App extends Component {
             <header className="App-header">
               <h1 className="App-title">birdable</h1>
               <p>an online resource for practicing bird identification</p>
-              <NavBar />
+              <NavMenu />
             </header>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/browse' component={BirdsPage} />

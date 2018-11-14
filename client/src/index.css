@@ -31,7 +31,8 @@ img {
 .thumbnail {
   position: relative;
   display: inline-block;
-  width: 300px;
+  max-width: 20em;
+  width: 100vw;
   height: 275px;
   vertical-align: bottom;
   margin: 1%;
@@ -39,7 +40,8 @@ img {
 
 a > .thumbnail {
   display: inline-block;
-  width: 300px;
+  max-width: 20em;
+  width: 100vw;
   height: 275px;
   vertical-align: bottom;
   margin: 1%;
@@ -48,7 +50,8 @@ a > .thumbnail {
 .thumbnail.full-content {
   position: relative;
   display: inline-block;
-  width: 300px;
+  max-width: 20em;
+  width: 100vw;
   height: 325px;
   vertical-align: bottom;
   margin: 1%;

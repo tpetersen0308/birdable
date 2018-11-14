@@ -29,6 +29,8 @@ const NavMenu = () => {
             >
               Browse Birds
             </NavItem>
+          </Nav>
+          <Nav pullRight>
             <NavItem>
               <GoogleAuth />
             </NavItem>

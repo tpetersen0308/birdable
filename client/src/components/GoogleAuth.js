@@ -35,7 +35,7 @@ class GoogleAuth extends Component {
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             className="btn btn-xs btn-primary"
-          /> to access your user profile
+          /> <span className="login-prompt">to access your user profile</span>
         </span>
       )
     }

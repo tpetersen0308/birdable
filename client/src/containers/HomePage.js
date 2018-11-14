@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Bird } from '../components/Bird.js';
+import { UserProfile } from '../components/UserProfile.js';
 
 class HomePage extends Component {
 
@@ -12,15 +13,24 @@ class HomePage extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <br />
-        <h3>Look at this cool bird!</h3>
-        <br />
-        {/* wait to render Bird until async request is complete */}
-        {this.props.loading ? <h4>loading...</h4> : <Bird id='home-bird' bird={this.randomBird(this.props.birds)} />}
-      </div>
-    )
+    if (this.props.loading) {
+      return (
+        <h4>loading...</h4>
+      )
+    } else if (this.props.loggedIn) {
+      return (
+        <UserProfile user={this.props.user} />
+      )
+    } else {
+      return (
+        <div>
+          <br />
+          <h3>Look at this cool bird!</h3>
+          <br />
+          <Bird id='home-bird' bird={this.randomBird(this.props.birds)} />
+        </div>
+      )
+    }
   }
 }
 
@@ -28,6 +38,8 @@ function mapStateToProps(state) {
   return {
     birds: state.birds,
     loading: state.loading,
+    user: state.user.currentUser,
+    loggedIn: state.user.loggedIn,
   }
 }
 

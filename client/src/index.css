@@ -71,3 +71,13 @@ a > .thumbnail {
   bottom: 0px;
   width: 100%;
 }
+
+.navbar {
+  max-width: 950px;
+  margin: auto;
+}
+
+.navbar > .container {
+  max-width: 950px;
+  margin: auto;
+}

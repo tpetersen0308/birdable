@@ -32,10 +32,12 @@ class App extends Component {
               <p>an online resource for practicing bird identification</p>
               <NavMenu />
             </header>
-            <Route exact path='/' component={HomePage} />
-            <Route exact path='/browse' component={BirdsPage} />
-            <Route exact path='/practice' component={ExercisePage} />
-            <Route path='/practice/exercise' component={Exercise} />
+            <div className="main-content">
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/browse' component={BirdsPage} />
+              <Route exact path='/practice' component={ExercisePage} />
+              <Route path='/practice/exercise' component={Exercise} />
+            </div>
           </div>
         </Router>
       </div>

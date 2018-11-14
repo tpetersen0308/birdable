@@ -75,6 +75,9 @@ a > .thumbnail {
 .navbar {
   max-width: 950px;
   margin: auto;
+  position: absolute;
+  z-index: 1;
+  opacity: 1;
 }
 
 .navbar > .container {

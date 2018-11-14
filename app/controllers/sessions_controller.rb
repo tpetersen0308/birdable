@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if response["aud"] == ENV['GOOGLE_CLIENT_ID']
       # if so, create/find user and create session
       @user = User.find_or_create_by(:email => response["email"])
-      @user.update(:first_name => response["given_name"], :last_name => response["family_name"], :image_url => response["picture"])
+      @user.update(:first_name => response["given_name"], :last_name => response["family_name"], :image_url => response["picture"].gsub("s96-c/photo.jpg", "s400-c/photo.jpg"), :image_url_small => response["picture"])
       session[:id] = @user.id
     else
       @user = User.new

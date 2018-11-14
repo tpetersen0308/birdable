@@ -87,3 +87,9 @@ a > .thumbnail {
   max-width: 950px;
   margin: auto;
 }
+
+.user-profile {
+  max-width: 30em;
+  width: 100vw;
+  margin: auto;
+}

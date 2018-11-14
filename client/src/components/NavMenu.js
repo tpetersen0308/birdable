@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import GoogleAuth from './GoogleAuth.js';
 
 const NavMenu = () => {
@@ -11,23 +12,20 @@ const NavMenu = () => {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem
-              style={{ marginRight: '10px', color: 'white' }}
-              href="/"
-            >
-              Home
+            <NavItem>
+              <NavLink to="/">
+                Home
+              </NavLink>
             </NavItem>
-            <NavItem
-              style={{ marginRight: '10px', color: 'white' }}
-              href="/practice"
-            >
-              Practice
+            <NavItem>
+              <NavLink to="/practice">
+                Practice
+              </NavLink>
             </NavItem>
-            <NavItem
-              style={{ marginRight: '10px', color: 'white' }}
-              href="/browse"
-            >
-              Browse Birds
+            <NavItem>
+              <NavLink to="/browse">
+                Browse Birds
+              </NavLink>
             </NavItem>
           </Nav>
           <Nav pullRight>

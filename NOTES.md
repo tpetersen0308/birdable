@@ -32,24 +32,21 @@ FRONTEND
 
 
 TODO:
+- Refactor NavBar with react bootstrap components.
+- Add user profile section with stats and profile picture.
+  - POST exercise results to backend API to track user solve rate.
+  - Users can favorite birds.
+    - Favorites can be a filter option when user is logged in.
+  - Users can add friends to compare performance, etc.
+- Make browse searchable?
+- Refactor so birds are loaded from backend API when user sets up exercise, not when app loads.
 - Refactor Problem, Solution, etc. to render birds through BirdsList component
 - Refactor exercise to call resetExercise() in component lifecycle hook.
 - Get permission to use media before deploying to Heroku
-- Add user class
 - Add user authentication
   - Look into using oAuth on heroku apps
-  - Look into oAuth async sign-in requests
-- Add exercise class(es)
-  - Match name to list of picture options (songs included)
-  - Match picture to list of name options (songs included)
-  - Match picture to list of song options
 - Add more song samples to each bird
-- Add correct_song_answers, incorrect_song_answers, correct_name_answers, and 
-  incorrect_name_answers attributes to bird table in order to be able to implement
-  difficulty setting in future.
-  - add update action to BirdsController
-  - In Exercise.js::submitAnswer(), dispatch an action to add correct or incorrect
-    answer in an API POST request with fetch(). 
+
 
 ** Birds #168, #186, #219, #406, #424, #430, #571 have no regions assigned
 ** All birds have all other attributes assigned

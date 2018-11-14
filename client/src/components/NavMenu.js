@@ -1,5 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import GoogleAuth from './GoogleAuth.js';
+import NavBar from './NavBar.js';
 
 const NavMenu = () => {
   return (
@@ -24,6 +26,9 @@ const NavMenu = () => {
               href="/browse"
             >
               Browse Birds
+            </NavItem>
+            <NavItem>
+              <GoogleAuth />
             </NavItem>
           </Nav>
         </Navbar.Collapse>

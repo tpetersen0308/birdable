@@ -93,3 +93,7 @@ a > .thumbnail {
   width: 100vw;
   margin: auto;
 }
+
+.top-birds-list {
+  text-align: left;
+}

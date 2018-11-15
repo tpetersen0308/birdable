@@ -30,7 +30,7 @@ export const UserProfile = (props) => {
       delete correctStatsByBirdId[topBirdId];
       max = 0;
     }
-    return <ol>{topBirdIds.map(id => toTitleCase(birds.find(bird => bird.id === parseInt(id)).common_name)).map(bird => {
+    return <ol className="top-birds-list">{topBirdIds.map(id => toTitleCase(birds.find(bird => bird.id === parseInt(id)).common_name)).map(bird => {
       return <li>{bird}</li>
     })}</ol>
   }

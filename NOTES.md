@@ -38,6 +38,7 @@ TODO:
   - Users can favorite birds.
     - Favorites can be a filter option when user is logged in.
   - Users can add friends to compare performance, etc.
+- Add footer with media attributions
 - Make browse searchable?
 - Refactor so birds are loaded from backend API when user sets up exercise, not when app loads.
 - Refactor Problem, Solution, etc. to render birds through BirdsList component

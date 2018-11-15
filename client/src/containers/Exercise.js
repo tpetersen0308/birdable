@@ -37,7 +37,7 @@ class Exercise extends Component {
     // if (this.props.loggedIn) {
     //   updateUserStats(this.props.user.id, { correct: correct });
     // }
-    postStat(this.props.loggedIn ? this.props.user.id : null, correctAnswerKey, { correct: correct });
+    this.props.postStat(this.props.loggedIn ? this.props.user.id : null, correctAnswerKey, { correct: correct });
   }
 
   /* 
@@ -125,6 +125,7 @@ function mapDispatchToProps(dispatch) {
   return {
     addProblem: (problem) => dispatch(addProblem(problem)),
     addUserAnswer: (userAnswer) => dispatch(addUserAnswer(userAnswer)),
+    postStat: (userId, birdId, data) => dispatch(postStat(userId, birdId, data)),
   }
 }
 

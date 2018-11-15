@@ -1,5 +1,6 @@
 import React from 'react';
 import { Panel, Image, ListGroupItem } from 'react-bootstrap';
+import { toTitleCase } from '../index.js';
 
 export const UserProfile = (props) => {
   const identificationRate = (stats) => {
@@ -10,26 +11,28 @@ export const UserProfile = (props) => {
     let correctStatsByBirdId = {};
     let topBirdIds = [];
     let topBirdId = null;
-    let counter = 0;
     let max = 0;
 
     for (let stat of stats.filter(stat => stat.correct === true)) {
       correctStatsByBirdId[stat.bird_id] = correctStatsByBirdId[stat.bird_id] + 1 || 1;
     }
 
-    while (counter < 5 && Object.keys(correctStatsByBirdId).length > 0) {
-      for (let stat in correctStatsByBirdId) {
-        if (max < correctStatsByBirdId[stat.bird_id]) {
-          max = correctStatsByBirdId[stat.bird_id];
-          topBirdId = stat.bird_id;
+    let n = Object.keys(correctStatsByBirdId).length >= 5 ? 5 : Object.keys(correctStatsByBirdId).length;
+
+    for (let i = 0; i < n; i++) {
+      for (let id in correctStatsByBirdId) {
+        if (max < correctStatsByBirdId[id]) {
+          max = correctStatsByBirdId[id];
+          topBirdId = id;
         }
       }
       topBirdIds.push(topBirdId);
       delete correctStatsByBirdId[topBirdId];
-      counter++
+      max = 0;
     }
-
-    return topBirdIds.map(id => birds.find(bird => bird.id === id).common_name);
+    return <ol>{topBirdIds.map(id => toTitleCase(birds.find(bird => bird.id === parseInt(id)).common_name)).map(bird => {
+      return <li>{bird}</li>
+    })}</ol>
   }
   return (
     <div>
@@ -40,10 +43,14 @@ export const UserProfile = (props) => {
         <Panel.Body>
           <Image src={props.user.image_url} circle />
           <h4>Your Stats:</h4>
-          <ListGroupItem><strong>Identification Rate:</strong> {identificationRate(props.user.stats)}%</ListGroupItem>
-          <ListGroupItem><strong>Top Birds:</strong> {getTopBirds(props.user.stats)}</ListGroupItem>
+          {props.loading ? <ListGroupItem>Loading...</ListGroupItem> :
+            <div>
+              <ListGroupItem><strong>Identification Rate:</strong> {identificationRate(props.user.stats)}%</ListGroupItem>
+              <ListGroupItem><strong>Top Birds:</strong> {getTopBirds(props.user.stats, props.birds)}</ListGroupItem>
+            </div>}
         </Panel.Body>
       </Panel>
     </div>
   )
 }
+

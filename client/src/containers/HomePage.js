@@ -19,7 +19,7 @@ class HomePage extends Component {
       )
     } else if (this.props.loggedIn) {
       return (
-        <UserProfile user={this.props.user} />
+        <UserProfile user={this.props.user} birds={this.props.birds} loading={this.props.loading} />
       )
     } else {
       return (

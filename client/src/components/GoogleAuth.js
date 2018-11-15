@@ -24,6 +24,8 @@ class GoogleAuth extends Component {
           <Button bsSize="xsmall" bsStyle="primary" onClick={logout}>
             Logout
           </Button>
+          {" "}
+          Logged in as {this.props.user.first_name} {this.props.user.last_name}
         </span>
       )
     } else {
@@ -45,6 +47,7 @@ class GoogleAuth extends Component {
 function mapStateToProps(state) {
   return {
     loggedIn: state.user.loggedIn,
+    user: state.user.currentUser,
   }
 }
 

@@ -9,10 +9,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProblem, addUserAnswer } from '../actions/exerciseActions.js';
 import { updateBirdStats } from '../actions/birdActions.js';
+import { updateUserStats } from '../actions/userActions.js';
 import Problem from '../components/Problem.js';
 import Solution from '../components/Solution.js';
 
 class Exercise extends Component {
+  constructor(props) {
+    super(props);
+    this.submitAnswer = this.submitAnswer.bind(this);
+  }
 
   // calling resetExercise() on initial mount prepares a new exercise for the user
   componentDidMount() {
@@ -30,6 +35,9 @@ class Exercise extends Component {
     let correct = this.correct(correctAnswerKey, answerKey);
     this.props.addUserAnswer(answerKey);
     updateBirdStats(correctAnswerKey, { correct: correct });
+    if (this.props.loggedIn) {
+      updateUserStats(this.props.user.id, { correct: correct });
+    }
   }
 
   /* 
@@ -108,6 +116,8 @@ class Exercise extends Component {
 function mapStateToProps(state) {
   return {
     exercise: state.exercise,
+    user: state.user.currentUser,
+    loggedIn: state.user.loggedIn,
   }
 }
 

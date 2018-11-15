@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181115001522) do
+ActiveRecord::Schema.define(version: 20181115002131) do
 
   create_table "birds", force: :cascade do |t|
     t.string "common_name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20181115001522) do
     t.datetime "updated_at", null: false
     t.index ["bird_id"], name: "index_birds_regions_on_bird_id"
     t.index ["region_id"], name: "index_birds_regions_on_region_id"
+  end
+
+  create_table "birds_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bird_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "regions", force: :cascade do |t|

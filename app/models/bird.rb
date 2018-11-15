@@ -1,6 +1,7 @@
 class Bird < ApplicationRecord
   has_many :birds_regions
   has_many :birds_users
+  has_many :stats
   has_many :users, through: :birds_users
   has_many :regions, through: :birds_regions
   after_initialize :add_url

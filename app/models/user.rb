@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :birds_users
+  has_many :stats
   has_many :birds, through: :birds_users
 
   def self.from_google_oauth(res)

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :stats
   delete "/sessions" => "sessions#destroy"
   post "/sessions" => "sessions#create"
   put "/users/:id" => "users#update"

@@ -1,3 +1,3 @@
 class StatSerializer < ActiveModel::Serializer
-  attributes :id, :correct
+  attributes :id, :user_id, :bird_id, :correct
 end

@@ -8,8 +8,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProblem, addUserAnswer } from '../actions/exerciseActions.js';
-import { updateBirdStats } from '../actions/birdActions.js';
-import { updateUserStats } from '../actions/userActions.js';
+import { postStat } from '../actions/statActions.js';
 import Problem from '../components/Problem.js';
 import Solution from '../components/Solution.js';
 
@@ -34,10 +33,11 @@ class Exercise extends Component {
     let correctAnswerKey = this.props.exercise.problem.correctAnswerKey
     let correct = this.correct(correctAnswerKey, answerKey);
     this.props.addUserAnswer(answerKey);
-    updateBirdStats(correctAnswerKey, { correct: correct });
-    if (this.props.loggedIn) {
-      updateUserStats(this.props.user.id, { correct: correct });
-    }
+    // updateBirdStats(correctAnswerKey, { correct: correct });
+    // if (this.props.loggedIn) {
+    //   updateUserStats(this.props.user.id, { correct: correct });
+    // }
+    postStat(this.props.loggedIn ? this.props.user.id : null, correctAnswerKey, { correct: correct });
   }
 
   /* 

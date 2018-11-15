@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   delete "/sessions" => "sessions#destroy"
   post "/sessions" => "sessions#create"
   put "/users/:id" => "users#update"
-  put "/stats/birds/:bird_id" => "stats#update"
-  put "/stats/birds/:bird_id/users/:user_id" => "stats#update"
+  post "/stats/birds/:bird_id" => "stats#create"
+  post "/stats/birds/:bird_id/users/:user_id" => "stats#create"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope '/api' do

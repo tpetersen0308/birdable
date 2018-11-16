@@ -1,4 +1,5 @@
-import React, { component } from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class LikeButton extends Component {
   render() {
@@ -8,4 +9,11 @@ class LikeButton extends Component {
   }
 }
 
-export default LikeButton;
+function mapStateToProps(state) {
+  return {
+    loggedIn: state.user.loggedIn,
+    user: state.user.currentUser,
+  }
+}
+
+export default connect(mapStateToProps)(LikeButton);

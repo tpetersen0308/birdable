@@ -97,3 +97,11 @@ a > .thumbnail {
 .top-birds-list {
   text-align: left;
 }
+
+.fa-heart {
+  float: left;
+}
+
+.fas.fa-heart {
+  color: red;
+}

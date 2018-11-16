@@ -15,3 +15,19 @@ export function updateUserStats(user_id, data) {
         New Value: ${data.correct ? user.correct_answers : user.incorrect_answers}`)
     })
 }
+
+export function addBirdToFavorites(user_id, data) {
+  {
+    return fetch(`/users/${user_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(user => {
+        console.log(`${user.first_name}'s favorites successfully updated.`)
+      })
+  }
+}

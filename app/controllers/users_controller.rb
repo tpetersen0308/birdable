@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(:id => params[:id])
 
+    if params[:bird_id]
+      @user.birds << Bird.find_by(:id => params[:bird_id])
     if params[:correct]
       @user.correct_answers += 1
     else

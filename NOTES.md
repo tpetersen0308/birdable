@@ -34,10 +34,11 @@ FRONTEND
 TODO:
 - Refactor NavBar with react bootstrap components.
 - Add user profile section with stats and profile picture.
-  - POST exercise results to backend API to track user solve rate.
   - Users can favorite birds.
     - Favorites can be a filter option when user is logged in.
   - Users can add friends to compare performance, etc.
+  - Add top families.
+  - Add top regions.
 - Add footer with media attributions
 - Make browse searchable?
 - Refactor so birds are loaded from backend API when user sets up exercise, not when app loads.

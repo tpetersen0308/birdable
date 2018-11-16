@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 export function addBirdToFavorites(user_id, data) {
-  {
+  return (dispatch) => {
     return fetch(`/users/${user_id}`, {
       method: "PUT",
       headers: {
@@ -11,7 +11,12 @@ export function addBirdToFavorites(user_id, data) {
     })
       .then(response => response.json())
       .then(user => {
+        dispatch(updateCurrentUser(user));
         console.log(`${user.first_name}'s favorites successfully updated.`)
       })
   }
+}
+
+function updateCurrentUser(user) {
+  return { type: "UPDATE_CURRENT_USER", payload: user }
 }

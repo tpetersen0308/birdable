@@ -3,9 +3,21 @@ import { connect } from 'react-redux';
 
 class LikeButton extends Component {
   render() {
-    return (
-      <i class="fas fa-heart"></i>
-    )
+    if (this.props.loggedIn) {
+      if (this.props.user.favorites.includes(this.props.birdId)) {
+        return (
+          <i class="far fa-heart"></i>
+        )
+      } else {
+        return (
+          <i class="fas fa-heart"></i>
+        )
+      }
+    } else {
+      return (
+        <i class="far fa-heart" title="You must be logged in to add favorites."></i>
+      )
+    }
   }
 }
 

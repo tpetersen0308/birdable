@@ -6,10 +6,8 @@ class UsersController < ApplicationController
 
     if params[:bird_id]
       @user.birds << Bird.find_by(:id => params[:bird_id])
-    if params[:correct]
-      @user.correct_answers += 1
     else
-      @user.incorrect_answers += 1
+      @user.errors.add(:base, "Could not add favorite.")
     end
 
     @user.save

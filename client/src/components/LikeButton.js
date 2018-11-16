@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Tooltip, OverlayTrigger, Button } from 'react-bootstrap';
 
 class LikeButton extends Component {
   render() {
+
+    const tooltip = (
+      <Tooltip id="tooltip">
+        You must be logged in to add favorites.
+      </Tooltip>
+    );
+
     if (this.props.loggedIn) {
       if (this.props.user.favorites.includes(this.props.birdId)) {
         return (
@@ -15,7 +23,9 @@ class LikeButton extends Component {
       }
     } else {
       return (
-        <i class="far fa-heart" title="You must be logged in to add favorites."></i>
+        <OverlayTrigger placement="bottom" overlay={tooltip}>
+          <i class="far fa-heart"></i>
+        </OverlayTrigger>
       )
     }
   }

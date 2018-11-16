@@ -6,6 +6,7 @@
 import React from 'react';
 import { Thumbnail } from 'react-bootstrap';
 import { toTitleCase } from '../index.js';
+import LikeButton from './LikeButton.js';
 
 export const Bird = (props) => {
 
@@ -56,6 +57,7 @@ export const Bird = (props) => {
           alt={props.bird.common_name}>
           <div className="bird-description">
             {nameInfo}{songInfo}
+            <LikeButton birdId={props.bird.id} />
             <a href={props.bird.url} target='_blank'>View on Audubon</a>
           </div>
         </Thumbnail>

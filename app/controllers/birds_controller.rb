@@ -16,19 +16,4 @@ class BirdsController < ApplicationController
 
     render json: @birds
   end
-
-  # BirdsController#update updates the answer stats of a given bird in the database
-  def update
-    @bird = Bird.find_by(:id => params[:id])
-
-    if params[:correct]
-      @bird.correct_answers += 1
-    else
-      @bird.incorrect_answers += 1
-    end
-
-    @bird.save
-
-    render json: @bird
-  end
 end

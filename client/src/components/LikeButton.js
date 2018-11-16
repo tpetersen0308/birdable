@@ -12,13 +12,13 @@ class LikeButton extends Component {
     );
 
     if (this.props.loggedIn) {
-      if (this.props.user.favorites.includes(this.props.birdId)) {
+      if (this.props.user.bird_ids.includes(this.props.birdId)) {
         return (
-          <i class="far fa-heart"></i>
+          <i class="fas fa-heart"></i>
         )
       } else {
         return (
-          <i class="fas fa-heart"></i>
+          <i class="far fa-heart"></i>
         )
       }
     } else {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
-import { addBirdToFavorites } from '../actions/userActions.js';
+import { updateFavorites } from '../actions/userActions.js';
 
 class LikeButton extends Component {
 
   favorite = () => {
-    this.props.addBirdToFavorites(this.props.user.id, { bird_id: this.props.birdId, add: true });
+    this.props.updateFavorites(this.props.user.id, { bird_id: this.props.birdId, add: true });
   }
 
   render() {
@@ -46,7 +46,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addBirdToFavorites: (userId, data) => dispatch(addBirdToFavorites(userId, data)),
+    updateFavorites: (userId, data) => dispatch(updateFavorites(userId, data)),
   }
 }
 

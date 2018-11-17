@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Tooltip, OverlayTrigger, Button } from 'react-bootstrap';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { addBirdToFavorites } from '../actions/userActions.js';
 
 class LikeButton extends Component {
+
+  favorite = () => {
+    this.props.addBirdToFavorites(this.props.user.id, { bird_id: this.props.birdId });
+  }
+
   render() {
 
     const tooltip = (
@@ -18,7 +24,7 @@ class LikeButton extends Component {
         )
       } else {
         return (
-          <i class="far fa-heart"></i>
+          <i class="far fa-heart" onClick={this.favorite}></i>
         )
       }
     } else {
@@ -38,4 +44,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(LikeButton);
+function mapDispatchToProps(dispatch) {
+  return {
+    addBirdToFavorites: (userId, data) => dispatch(addBirdToFavorites(userId, data)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LikeButton);

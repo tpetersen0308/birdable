@@ -9,7 +9,7 @@ export const UserProfile = (props) => {
   }
 
   const getFavoriteBirds = (user) => {
-    return <ListGroupItem><Table>{user.birds.map(bird => {
+    return <ListGroupItem id="favorite-birds"><Table>{user.birds.map(bird => {
       return <tr>
         <td>
           <LikeButton
@@ -68,10 +68,12 @@ export const UserProfile = (props) => {
             }
           </ListGroup>
           {props.user.birds.length > 0 &&
-            <ListGroup id="favorite-birds">
+            <div>
               <h4>Your Favorite Birds:</h4>
-              {getFavoriteBirds(props.user)}
-            </ListGroup>
+              <ListGroup >
+                {getFavoriteBirds(props.user)}
+              </ListGroup>
+            </div>
           }
         </Panel.Body>
       </Panel>

@@ -6,7 +6,7 @@ import { addBirdToFavorites } from '../actions/userActions.js';
 class LikeButton extends Component {
 
   favorite = () => {
-    this.props.addBirdToFavorites(this.props.user.id, { bird_id: this.props.birdId });
+    this.props.addBirdToFavorites(this.props.user.id, { bird_id: this.props.birdId, add: true });
   }
 
   render() {

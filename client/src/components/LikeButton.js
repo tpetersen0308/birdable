@@ -9,6 +9,10 @@ class LikeButton extends Component {
     this.props.updateFavorites(this.props.user.id, { bird_id: this.props.birdId, add: true });
   }
 
+  unFavorite = () => {
+    this.props.updateFavorites(this.props.user.id, { bird_id: this.props.birdId, add: false });
+  }
+
   render() {
 
     const tooltip = (
@@ -20,7 +24,7 @@ class LikeButton extends Component {
     if (this.props.loggedIn) {
       if (this.props.user.bird_ids.includes(this.props.birdId)) {
         return (
-          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart" onClick={this.unFavorite}></i>
         )
       } else {
         return (

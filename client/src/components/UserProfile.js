@@ -1,11 +1,27 @@
 import React from 'react';
-import { Panel, Image, ListGroupItem } from 'react-bootstrap';
+import { Panel, Image, ListGroup, ListGroupItem, Table } from 'react-bootstrap';
 import { toTitleCase } from '../index.js';
+import LikeButton from './LikeButton.js';
 
 export const UserProfile = (props) => {
   const identificationRate = (stats) => {
     return Math.floor((stats.filter(stat => stat.correct === true).length / stats.length) * 100);
   }
+
+  const getFavoriteBirds = (user) => {
+    return <ListGroupItem><Table>{user.birds.map(bird => {
+      return <tr>
+        <td>
+          <LikeButton
+            birdId={bird.id}
+          />
+        </td>
+        <td>{toTitleCase(bird.common_name)}</td>
+        <td><Image className="fav-bird-image" src={bird.image} /></td>
+      </tr>
+    })}</Table></ListGroupItem>
+  }
+
 
   const getTopBirds = (stats, birds) => {
     let correctStatsByBirdId = {};
@@ -43,11 +59,20 @@ export const UserProfile = (props) => {
         <Panel.Body>
           <Image src={props.user.image_url} circle />
           <h4>Your Stats:</h4>
-          {props.loading ? <ListGroupItem>Loading...</ListGroupItem> :
-            <div>
-              <ListGroupItem><strong>Identification Rate:</strong> {identificationRate(props.user.stats)}%</ListGroupItem>
-              <ListGroupItem><strong>Top Birds:</strong> {getTopBirds(props.user.stats, props.birds)}</ListGroupItem>
-            </div>}
+          <ListGroup>
+            {props.loading ? <ListGroupItem>Loading...</ListGroupItem> :
+              <div>
+                <ListGroupItem><strong>Identification Rate:</strong> {identificationRate(props.user.stats)}%</ListGroupItem>
+                <ListGroupItem><strong>Top Birds:</strong> {getTopBirds(props.user.stats, props.birds)}</ListGroupItem>
+              </div>
+            }
+          </ListGroup>
+          {props.user.birds.length > 0 &&
+            <ListGroup id="favorite-birds">
+              <h4>Your Favorite Birds:</h4>
+              {getFavoriteBirds(props.user)}
+            </ListGroup>
+          }
         </Panel.Body>
       </Panel>
     </div>

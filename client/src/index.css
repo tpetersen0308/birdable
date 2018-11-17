@@ -112,3 +112,8 @@ a > .thumbnail {
   background: 50% 50% no-repeat;
   margin-top: 0;
 }
+
+#favorite-birds {
+  overflow-y: auto;
+  max-height: 11em;
+}

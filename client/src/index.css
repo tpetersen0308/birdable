@@ -105,3 +105,10 @@ a > .thumbnail {
 .fas.fa-heart {
   color: red;
 }
+
+.fav-bird-image {
+  height: 2em;
+  position: relative;
+  background: 50% 50% no-repeat;
+  margin-top: 0;
+}

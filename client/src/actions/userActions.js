@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-export function addBirdToFavorites(user_id, data) {
+export function updateFavorites(user_id, data) {
   return (dispatch) => {
     return fetch(`/users/${user_id}`, {
       method: "PUT",

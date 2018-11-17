@@ -3,13 +3,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(:id => params[:id])
-
-    if params[:bird_id]
-      @user.birds << Bird.find_by(:id => params[:bird_id])
+    bird = Bird.find_by(:id => params[:bird_id])
+    if params[:add] == true
+      @user.birds << bird
+    elsif params[:add] == false
+      @user.birds.delete(bird)
     else
-      @user.errors.add(:base, "Could not add favorite.")
+      @user.errors.add(:base, "Could not update favorites.")
     end
-
     @user.save
 
     render json: @user

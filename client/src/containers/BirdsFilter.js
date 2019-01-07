@@ -160,6 +160,15 @@ class BirdsFilter extends Component {
               {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} key={region} value={region}>{toTitleCase(region)}</Checkbox>)}
             </DropdownButton>
             {'  '}
+            {this.props.currentUser && <DropdownButton
+              bsSize="large"
+              bsStyle='warning'
+              title="Favorites"
+              id="favorites-dropdown-menu"
+            >
+              {this.props.currentUser.birds.map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite} value={favorite}>{toTitleCase(favorite.common_name)}</Checkbox>)}
+            </DropdownButton>}
+            {'  '}
             <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Go!</Button>
           </div>}
       </div>
@@ -172,6 +181,7 @@ function mapStateToProps(state) {
   return {
     birds: state.birds,
     loading: state.loading,
+    currentUser: state.user.currentUser,
   }
 }
 

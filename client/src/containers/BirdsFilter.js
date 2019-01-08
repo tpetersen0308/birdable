@@ -91,6 +91,19 @@ class BirdsFilter extends Component {
   }
 
   /*
+      handleFavoritesCheckbox() function conditionally determines whether 
+      a favorite bird should be added to or removed from state based on whether
+      a checkbox has been selected or deselected.
+  */
+  handleFavoritesCheckbox = event => {
+    if (event.target.checked) {
+      this.selectFavorite(event.target.value);
+    } else {
+      this.deselectFamily(event.target.value);
+    }
+  }
+
+  /*
       filterByFamilies() function takes arguments of an array of bird objects
       and a list of family names, and returns an array of any bird objects from
       the passed-in array which belong to any of the taxonomic families from the list.

@@ -17,6 +17,7 @@ class BirdsFilter extends Component {
     this.state = {
       selectedFamilies: [],
       selectedRegions: [],
+      selectedFavorites: [],
     }
   }
 
@@ -90,17 +91,40 @@ class BirdsFilter extends Component {
     }
   }
 
+
   /*
-      handleFavoritesCheckbox() function conditionally determines whether 
-      a favorite bird should be added to or removed from state based on whether
-      a checkbox has been selected or deselected.
+  handleFavoritesCheckbox() function conditionally determines whether 
+  a favorite bird should be added to or removed from state based on whether
+  a checkbox has been selected or deselected.
   */
   handleFavoritesCheckbox = event => {
     if (event.target.checked) {
       this.selectFavorite(event.target.value);
     } else {
-      this.deselectFamily(event.target.value);
+      this.deselectFavorite(event.target.value);
     }
+  }
+
+  /* 
+      selectFavorite() function takes a favorite as an argument
+      and adds it to the selectedFavorites array in state.
+  */
+  selectFavorite = favorite => {
+    this.setState({
+      ...this.state,
+      selectedFavorites: this.state.selectedFavorites.concat(favorite)
+    }, () => console.log(this.state.selectedFavorites))
+  }
+
+  /* 
+      deselectFavorite() function takes a favorite as an argument
+      and removes it from the selectedFavorites array in state.
+  */
+  deselectFavorite = favorite => {
+    this.setState({
+      ...this.state,
+      selectedFavorites: this.state.selectedFavorites.filter(f => f !== favorite)
+    }, () => console.log(this.state.selectedFavorites))
   }
 
   /*
@@ -179,7 +203,7 @@ class BirdsFilter extends Component {
               title="Favorites"
               id="favorites-dropdown-menu"
             >
-              {this.props.currentUser.birds.map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite} value={favorite}>{toTitleCase(favorite.common_name)}</Checkbox>)}
+              {this.props.currentUser.birds.map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite.id} value={favorite.id}>{toTitleCase(favorite.common_name)}</Checkbox>)}
             </DropdownButton>}
             {'  '}
             <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Go!</Button>

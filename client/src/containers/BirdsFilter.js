@@ -112,7 +112,7 @@ class BirdsFilter extends Component {
   selectFavorite = favorite => {
     this.setState({
       ...this.state,
-      selectedFavorites: this.state.selectedFavorites.concat(favorite)
+      selectedFavorites: this.state.selectedFavorites.concat(parseInt(favorite))
     }, () => console.log(this.state.selectedFavorites))
   }
 
@@ -153,6 +153,18 @@ class BirdsFilter extends Component {
     return birds
   }
 
+  filterByFavorites = (birds, favorites) => {
+    if (favorites.length > 0) {
+      for (let favorite of favorites) {
+        let bird = this.props.birds.find(b => b.id === favorite);
+        if (!birds.includes(bird)) {
+          birds.push(bird);
+        }
+      }
+    }
+    return birds;
+  }
+
   /*
       handleSubmit() function filters the bird collection from props according
       to the final user selections, dispatches the action passed in as props, and
@@ -164,6 +176,7 @@ class BirdsFilter extends Component {
     let birds = this.props.birds;
     birds = this.filterByFamilies(birds, this.state.selectedFamilies);
     birds = this.filterByRegions(birds, this.state.selectedRegions);
+    birds = this.filterByFavorites(birds, this.state.selectedFavorites);
 
     this.props.selectAction(birds);
 

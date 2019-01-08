@@ -160,7 +160,7 @@ class BirdsFilter extends Component {
               {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} key={region} value={region}>{toTitleCase(region)}</Checkbox>)}
             </DropdownButton>
             {'  '}
-            {this.props.currentUser && <DropdownButton
+            {(this.props.currentUser && this.props.currentUser.birds.length > 0) && <DropdownButton
               bsSize="large"
               bsStyle='warning'
               title="Favorites"

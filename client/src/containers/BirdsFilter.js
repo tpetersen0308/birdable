@@ -18,6 +18,7 @@ class BirdsFilter extends Component {
       selectedFamilies: [],
       selectedRegions: [],
       selectedFavorites: [],
+      allFavoritesSelected: false,
     }
   }
 
@@ -123,7 +124,16 @@ class BirdsFilter extends Component {
   deselectFavorite = favorite => {
     this.setState({
       ...this.state,
+      allFavoritesSelected: false,
       selectedFavorites: this.state.selectedFavorites.filter(f => f !== favorite)
+    }, () => console.log(this.state.selectedFavorites))
+  }
+
+  selectAllFavorites = event => {
+    this.setState({
+      ...this.state,
+      selectedFavorites: event.target.checked ? this.props.currentUser.bird_ids : [],
+      allFavoritesSelected: event.target.checked,
     }, () => console.log(this.state.selectedFavorites))
   }
 
@@ -174,10 +184,16 @@ class BirdsFilter extends Component {
     event.preventDefault();
 
     let birds = this.props.birds;
-    birds = this.filterByFamilies(birds, this.state.selectedFamilies);
-    birds = this.filterByRegions(birds, this.state.selectedRegions);
-    birds = this.filterByFavorites(birds, this.state.selectedFavorites);
 
+    if (this.state.selectedFamilies.length > 0) {
+      birds = this.filterByFamilies(birds, this.state.selectedFamilies);
+    }
+    if (this.state.selectedRegions.length > 0) {
+      birds = this.filterByRegions(birds, this.state.selectedRegions);
+    }
+    if (this.state.selectedFavorites.length > 0) {
+      birds = this.filterByFavorites(birds.length === this.props.birds.length ? [] : birds, this.state.selectedFavorites);
+    }
     this.props.selectAction(birds);
 
     this.props.handleSubmitRoute();
@@ -216,7 +232,8 @@ class BirdsFilter extends Component {
               title="Favorites"
               id="favorites-dropdown-menu"
             >
-              {this.props.currentUser.birds.map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite.id} value={favorite.id}>{toTitleCase(favorite.common_name)}</Checkbox>)}
+              <Checkbox onChange={this.selectAllFavorites} checked={this.state.selectedFavorites.length === this.props.currentUser.bird_ids.length}>All</Checkbox>
+              {this.props.currentUser.birds.map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite.id} value={favorite.id} checked={this.state.selectedFavorites.includes(favorite.id)} disabled={this.state.allFavoritesSelected}>{toTitleCase(favorite.common_name)}</Checkbox>)}
             </DropdownButton>}
             {'  '}
             <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Go!</Button>

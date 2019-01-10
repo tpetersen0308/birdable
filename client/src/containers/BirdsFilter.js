@@ -92,7 +92,6 @@ class BirdsFilter extends Component {
     }
   }
 
-
   /*
   handleFavoritesCheckbox() function conditionally determines whether 
   a favorite bird should be added to or removed from state based on whether
@@ -129,6 +128,11 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedFavorites))
   }
 
+  /*
+      selectAllFavorites() function handles the click event when the all favorites
+      checkbox is selected, adding/removing all favorites to/from state according
+      to whether or not the box is checked.
+  */
   selectAllFavorites = event => {
     this.setState({
       ...this.state,
@@ -163,6 +167,10 @@ class BirdsFilter extends Component {
     return birds
   }
 
+  /* 
+      filterByFavorites() function adds any selected favorites to array of birds
+      passed in as an argument that are not already contained in the array.
+  */
   filterByFavorites = (birds, favorites) => {
     if (favorites.length > 0) {
       for (let favorite of favorites) {

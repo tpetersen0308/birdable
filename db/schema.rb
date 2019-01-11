@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181115015829) do
+ActiveRecord::Schema.define(version: 20190111000245) do
 
   create_table "birds", force: :cascade do |t|
     t.string "common_name"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 20181115015829) do
     t.integer "user_id"
     t.integer "bird_id"
     t.boolean "correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stats_regions", force: :cascade do |t|
+    t.integer "stat_id"
+    t.integer "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

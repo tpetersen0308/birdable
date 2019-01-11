@@ -4,6 +4,7 @@ class StatsController < ApplicationController
   def create
     @stat = Stat.create(:correct => params[:correct])
     @stat.bird = Bird.find_by(:id => params[:bird_id])
+    @stat.regions = @stat.bird.regions
     
     if params[:user_id]
       @stat.user = User.find_by(:id => params[:user_id])

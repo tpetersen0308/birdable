@@ -16,7 +16,7 @@ describe Bird do
   describe "attributes" do
     
     describe "common name" do
-      it "exists" do
+      it "is an attribute of Bird" do
         expect(bird.attributes.keys).to include("common_name")
       end
 
@@ -26,7 +26,7 @@ describe Bird do
     end
 
     describe "scientific name" do
-      it "exists" do
+      it "is an attribute of Bird" do
         expect(bird.attributes.keys).to include("scientific_name")
       end
 
@@ -36,7 +36,7 @@ describe Bird do
     end
 
     describe "image url" do
-      it "exists" do
+      it "is an attribute of Bird" do
         expect(bird.attributes.keys).to include("image")
       end
 
@@ -46,12 +46,22 @@ describe Bird do
     end
 
     describe "song url" do
-      it "exists" do
+      it "is an attribute of Bird" do
         expect(bird.attributes.keys).to include("song")
       end
 
       it "is a string" do
         expect(bird.song.class).to eq String
+      end
+    end
+
+    describe "taxonomic family" do
+      it "is an attribute of Bird" do
+        expect(bird.attributes.keys).to include("family")
+      end
+
+      it "is a string" do
+        expect(bird.family.class).to eq String
       end
     end
   end

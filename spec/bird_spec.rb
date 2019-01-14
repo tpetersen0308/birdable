@@ -78,5 +78,25 @@ describe Bird do
         expect(bird.url).to include "https://www.audubon.org/field-guide/bird"
       end
     end
+
+    describe "correct answers" do
+      it "is an attribute of Bird" do
+        expect(bird.attributes.keys).to include("correct_answers")
+      end
+
+      it "is a string" do
+        expect(bird.correct_answers.class).to eq Fixnum
+      end
+    end
+
+    describe "incorrect answers" do
+      it "is an attribute of Bird" do
+        expect(bird.attributes.keys).to include("incorrect_answers")
+      end
+
+      it "is a string" do
+        expect(bird.incorrect_answers.class).to eq Fixnum
+      end
+    end
   end
 end

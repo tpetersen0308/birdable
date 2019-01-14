@@ -31,7 +31,7 @@ describe Bird do
       end
 
       it "is a string" do
-        expect(bird.common_name.class).to eq String
+        expect(bird.scientific_name.class).to eq String
       end
     end
 
@@ -41,9 +41,18 @@ describe Bird do
       end
 
       it "is a string" do
-        expect(bird.common_name.class).to eq String
+        expect(bird.image.class).to eq String
       end
     end
 
+    describe "song url" do
+      it "exists" do
+        expect(bird.attributes.keys).to include("song")
+      end
+
+      it "is a string" do
+        expect(bird.song.class).to eq String
+      end
+    end
   end
 end

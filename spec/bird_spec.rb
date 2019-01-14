@@ -35,5 +35,15 @@ describe Bird do
       end
     end
 
+    describe "image url" do
+      it "exists" do
+        expect(bird.attributes.keys).to include("image")
+      end
+
+      it "is a string" do
+        expect(bird.common_name.class).to eq String
+      end
+    end
+
   end
 end

@@ -28,6 +28,13 @@ describe Bird do
     end
   end
 
+  describe ".add_url" do
+    it "automatically assigns a url for the correct Audubon field guide page when a Bird is instantiated" do
+      new_bird = Bird.new(common_name: "western screech-owl")
+      expect(new_bird.url).to eq "https://www.audubon.org/field-guide/bird/western-screech-owl"
+    end
+  end
+
   describe "attributes" do
     
     describe "common name" do

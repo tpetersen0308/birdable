@@ -28,6 +28,13 @@ describe Bird do
     end
   end
 
+  describe ".audubon_url" do
+    it "formats the url path to remove unfriendly characters from the common name attribute and replace spaces with hyphens" do
+      new_bird = Bird.new(common_name: "we@##st%er*n !sc889reech-owl")
+      expect(new_bird.url).to eq "https://www.audubon.org/field-guide/bird/western-screech-owl"
+    end
+  end
+
   describe ".add_url" do
     it "automatically assigns a url for the correct Audubon field guide page when a Bird is instantiated" do
       new_bird = Bird.new(common_name: "western screech-owl")

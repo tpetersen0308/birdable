@@ -7,7 +7,6 @@ describe Bird do
     image: "https://cdn.audubon.org/cdn/farfuture/onl3tDMdXUmZ...", 
     song: "https://cdn.audubon.org/cdn/farfuture/FddSaHlvdtcl...",
     family: "albatrosses", 
-    url: "https://www.audubon.org/field-guide/bird/black-foo...", 
     correct_answers: 0, 
     incorrect_answers: 0)
   
@@ -20,6 +19,12 @@ describe Bird do
   describe ".by_region" do 
     it "returns all of the birds associated with a given region" do
       expect(Bird.by_region("california").first).to eq bird
+    end
+  end
+
+  describe ".by_family" do 
+    it "returns all of the birds from a given taxonomic family" do
+      expect(Bird.by_family("albatrosses").first).to eq bird
     end
   end
 

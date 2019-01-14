@@ -13,6 +13,16 @@ describe Bird do
   
   bird.regions << [Region.new(name: "california"), Region.new(name: "northwest"), Region.new(name: "alaska and the north"), Region.new(name: "western canada")]
 
+  it "has many regions" do
+    expect(bird.regions.first.class).to eq Region
+  end
+
+  describe ".by_region" do 
+    it "returns all of the birds associated with a given region" do
+      expect(Bird.by_region("california").first).to eq bird
+    end
+  end
+
   describe "attributes" do
     
     describe "common name" do

@@ -25,5 +25,15 @@ describe Bird do
       end
     end
 
+    describe "scientific name" do
+      it "exists" do
+        expect(bird.attributes.keys).to include("scientific_name")
+      end
+
+      it "is a string" do
+        expect(bird.common_name.class).to eq String
+      end
+    end
+
   end
 end

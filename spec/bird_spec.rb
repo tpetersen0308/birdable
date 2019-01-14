@@ -64,5 +64,19 @@ describe Bird do
         expect(bird.family.class).to eq String
       end
     end
+
+    describe "audubon url" do
+      it "is an attribute of Bird" do
+        expect(bird.attributes.keys).to include("url")
+      end
+
+      it "is a string" do
+        expect(bird.url.class).to eq String
+      end
+
+      it "links to a bird show page on the Audubon Field Guide" do
+        expect(bird.url).to include "https://www.audubon.org/field-guide/bird"
+      end
+    end
   end
 end

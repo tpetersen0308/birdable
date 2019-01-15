@@ -13,7 +13,7 @@ describe Bird do
   bird.regions << [Region.new(name: "california"), Region.new(name: "northwest"), Region.new(name: "alaska and the north"), Region.new(name: "western canada")]
 
   it "has many regions" do
-    expect(bird.regions.first.class).to eq Region
+    expect(Bird.reflect_on_association(:regions).macro).to eq :has_many
   end
 
   describe ".by_region" do 

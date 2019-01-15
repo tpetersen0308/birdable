@@ -16,6 +16,10 @@ describe Bird do
     expect(Bird.reflect_on_association(:regions).macro).to eq :has_many
   end
 
+  it "has many birds_regions" do
+    expect(Bird.reflect_on_association(:birds_regions).macro).to eq :has_many
+  end
+
   describe ".by_region" do 
     it "returns all of the birds associated with a given region" do
       expect(Bird.by_region("california").first).to eq bird

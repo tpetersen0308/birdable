@@ -5,7 +5,7 @@ import LikeButton from './LikeButton.js';
 
 export const UserProfile = (props) => {
   const identificationRate = (stats) => {
-    return Math.floor((stats.filter(stat => stat.correct === true).length / stats.length) * 100);
+    return Math.floor((stats.filter(stat => stat.correct === true).length / stats.length) * 100) || 0;
   }
 
   const getFavoriteBirds = (user) => {
@@ -46,9 +46,13 @@ export const UserProfile = (props) => {
       delete correctStatsByBirdId[topBirdId];
       max = 0;
     }
-    return <ol className="top-birds-list">{topBirdIds.map(id => toTitleCase(birds.find(bird => bird.id === parseInt(id)).common_name)).map(bird => {
-      return <li>{bird}</li>
-    })}</ol>
+    if (topBirdIds.length > 0) {
+      return <ol className="top-birds-list">{topBirdIds.map(id => toTitleCase(birds.find(bird => bird.id === parseInt(id)).common_name)).map(bird => {
+        return <li>{bird}</li>
+      })}</ol>
+    } else {
+      return "You have not yet identified any birds."
+    }
   }
   return (
     <div>

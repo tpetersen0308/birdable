@@ -13,12 +13,12 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/index.js';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // create Redux store
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk),
+  composeWithDevTools(applyMiddleware(thunk)),
 );
 
 // toTitleCase() function titlecases a string

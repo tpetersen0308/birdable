@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { secrets } from '../conf/secrets.js';
+// import secrets file when working in development
+// import { secrets } from '../conf/secrets.js';
 import { postUser, endSession } from '../actions/sessionActions.js';
 
 class GoogleAuth extends Component {

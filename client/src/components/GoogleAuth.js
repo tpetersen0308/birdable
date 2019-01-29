@@ -33,7 +33,7 @@ class GoogleAuth extends Component {
         <span>
           {/* dynamically display login/logout button based on login status */}
           <GoogleLogin
-            clientId={secrets.GOOGLE_CLIENT_ID}
+            clientId={process.env.NODE_ENV === "production" ? process.env.GOOGLE_CLIENT_ID : secrets.GOOGLE_CLIENT_ID}
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             className="btn btn-xs btn-primary"

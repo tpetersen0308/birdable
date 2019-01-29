@@ -2,7 +2,7 @@
   "name": "birdable",
   "private": true,
   "engines": {
-    "node": "6.11.2"
+    "node": "10.9.0"
   },
   "dependencies": {
     "react-google-login-logout": "^2.9.3",

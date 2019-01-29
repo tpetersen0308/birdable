@@ -6,7 +6,7 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "build": "cd client && npm install && npm run build && cd ..",
+    "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   }

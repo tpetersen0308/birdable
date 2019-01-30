@@ -3,7 +3,7 @@ import GoogleLogin from 'react-google-login';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 // import secrets file when working in development
-// import { secrets } from '../conf/secrets.js';
+import { secrets } from '../conf/secrets.js';
 import { postUser, endSession } from '../actions/sessionActions.js';
 
 class GoogleAuth extends Component {
@@ -25,8 +25,6 @@ class GoogleAuth extends Component {
           <Button bsSize="xsmall" bsStyle="primary" onClick={logout}>
             Logout
           </Button>
-          {" "}
-          Logged in as {this.props.user.first_name} {this.props.user.last_name}
         </span>
       )
     } else {
@@ -35,13 +33,13 @@ class GoogleAuth extends Component {
           {/* dynamically display login/logout button based on login status */}
           <GoogleLogin
             // uncomment the following line when working in a development environment
-            // clientId={secrets.GOOGLE_CLIENT_ID}       
+            clientId={secrets.GOOGLE_CLIENT_ID}
             // comment out the following line when working in a development environment  
-            clientId={process.env.GOOGLE_CLIENT_ID}
+            // clientId={process.env.GOOGLE_CLIENT_ID}
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             className="btn btn-xs btn-primary"
-          /> <span className="login-prompt">to access your user profile</span>
+          />
         </span>
       )
     }

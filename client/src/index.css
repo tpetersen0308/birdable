@@ -117,3 +117,7 @@ a > .thumbnail {
   overflow-y: auto;
   max-height: 11em;
 }
+
+.filter-field {
+  margin-top: 10px;
+}

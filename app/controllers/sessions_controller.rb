@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     id_token = params[:tokenObj][:id_token]
     response = HTTParty.get("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{id_token}")
     # check if aud key contains google client id 
-    if response["aud"] == ENV['GOOGLE_CLIENT_ID']
+    if response["aud"] == ENV['REACT_APP_GOOGLE_CLIENT_ID']
       # if so, create/find user and create session
       @user = User.from_google_oauth(response)
       session[:id] = @user.id

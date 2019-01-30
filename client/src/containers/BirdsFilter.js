@@ -221,6 +221,7 @@ class BirdsFilter extends Component {
               bsSize="large"
               title="Families"
               id="family-dropdown-menu"
+              className="filter-field"
             >
               {taxonomicFamilies.map(family => <Checkbox onChange={this.handleFamilyCheckbox} key={family} value={family}>{toTitleCase(family)}</Checkbox>)}
             </DropdownButton>
@@ -230,6 +231,7 @@ class BirdsFilter extends Component {
               bsStyle='warning'
               title="Regions"
               id="region-dropdown-menu"
+              className="filter-field"
             >
               {regions.map(region => <Checkbox onChange={this.handleRegionCheckbox} key={region} value={region}>{toTitleCase(region)}</Checkbox>)}
             </DropdownButton>
@@ -239,12 +241,13 @@ class BirdsFilter extends Component {
               bsStyle='warning'
               title="Favorites"
               id="favorites-dropdown-menu"
+              className="filter-field"
             >
               <Checkbox onChange={this.selectAllFavorites} checked={this.state.selectedFavorites.length === this.props.currentUser.bird_ids.length}>All</Checkbox>
               {this.props.currentUser.birds.map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite.id} value={favorite.id} checked={this.state.selectedFavorites.includes(favorite.id)} disabled={this.state.allFavoritesSelected}>{toTitleCase(favorite.common_name)}</Checkbox>)}
             </DropdownButton>}
             {'  '}
-            <Button bsSize="large" type="submit" onClick={this.handleSubmit}>Go!</Button>
+            <Button bsSize="large" className="filter-field" type="submit" onClick={this.handleSubmit}>Go!</Button>
           </div>}
       </div>
 

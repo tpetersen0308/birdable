@@ -3,12 +3,11 @@
     navigation menu.
 */
 
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import GoogleAuth from './GoogleAuth.js';
 
 const NavBar = () => {
-
   return (
     <div style={{ borderTop: '1px solid white', paddingTop: '10px', marginBottom: '12px' }}>
       <NavLink
@@ -29,7 +28,6 @@ const NavBar = () => {
       >
         Browse Birds
       </NavLink>
-      <GoogleAuth />
     </div>
   );
 }

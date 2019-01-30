@@ -13,6 +13,7 @@ import ExercisePage from './ExercisePage.js';
 import HomePage from './HomePage.js';
 import Exercise from './Exercise.js';
 import NavMenu from '../components/NavMenu.js';
+import NavBar from '../components/NavBar.js';
 
 class App extends Component {
 
@@ -31,7 +32,7 @@ class App extends Component {
             <header className="App-header">
               <h1 className="App-title">birdable</h1>
               <p>an online resource for practicing bird identification</p>
-              <NavMenu />
+              <NavBar />
             </header>
             <div className="main-content">
               <Route exact path='/' component={HomePage} />

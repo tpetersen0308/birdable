@@ -57,7 +57,7 @@ export const Bird = (props) => {
           alt={props.bird.common_name}>
           <div className="bird-description">
             {nameInfo}{songInfo}
-            {/* <LikeButton birdId={props.bird.id} /> */}
+            <LikeButton birdId={props.bird.id} />
             <a href={props.bird.url} target='_blank'>View on Audubon</a>
           </div>
         </Thumbnail>

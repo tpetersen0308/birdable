@@ -35,7 +35,7 @@ class GoogleAuth extends Component {
             // uncomment the following line when working in a development environment
             // clientId={secrets.GOOGLE_CLIENT_ID}
             // comment out the following line when working in a development environment  
-            clientId={process.env.GOOGLE_CLIENT_ID}
+            client_id={process.env.GOOGLE_CLIENT_ID}
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             className="btn btn-xs btn-primary"

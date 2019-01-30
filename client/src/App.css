@@ -12,6 +12,9 @@
   height: 150px;
   padding: 20px;
   color: white;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 
 .App-title {
@@ -24,7 +27,7 @@
 }
 
 .main-content {
-  padding-top: 15em;
+  padding-top: 150px;
 }
 
 @keyframes App-logo-spin {

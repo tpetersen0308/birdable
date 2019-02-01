@@ -28,7 +28,7 @@ class BirdsPage extends Component {
         <br />
         <h4>Select families and regions to browse, or hit 'Go!' to see them all!</h4>
         <br />
-        <BirdsFilter handleSubmitRoute={this.submitForBrowse} selectAction={this.props.selectBirdsForBrowse} />
+        <BirdsFilter handleSubmitRoute={this.submitForBrowse} actionType="SELECT_BIRDS_FOR_BROWSE" />
         <br />
         <br />
         <BirdsList birds={this.props.birds} />

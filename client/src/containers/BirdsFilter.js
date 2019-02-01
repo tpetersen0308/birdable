@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Checkbox, DropdownButton } from 'react-bootstrap';
 import { toTitleCase } from '../index.js';
+import { fetchBirds, clearBirds } from '../actions/birdActions';
 import '../index.css';
 
 class BirdsFilter extends Component {
@@ -19,6 +20,7 @@ class BirdsFilter extends Component {
       selectedRegions: [],
       selectedFavorites: [],
       allFavoritesSelected: false,
+      loading: false,
     }
   }
 
@@ -142,48 +144,6 @@ class BirdsFilter extends Component {
   }
 
   /*
-      filterByFamilies() function takes arguments of an array of bird objects
-      and a list of family names, and returns an array of any bird objects from
-      the passed-in array which belong to any of the taxonomic families from the list.
-  */
-  filterByFamilies = (birds, families) => {
-    if (families.length > 0) {
-      birds = birds.filter(bird => families.includes(bird.family))
-    }
-    return birds
-  }
-
-  /*
-      filterByRegions() function takes arguments of an array of bird objects
-      and a list of region names, and returns an array of any bird objects from
-      the passed-in array which belong to any of the regions from the list.
-  */
-  filterByRegions = (birds, regions) => {
-    if (regions.length > 0) {
-      for (let regionName of regions) {
-        birds = birds.filter(bird => bird.regions.map(region => region.name).includes(regionName))
-      }
-    }
-    return birds
-  }
-
-  /* 
-      filterByFavorites() function adds any selected favorites to array of birds
-      passed in as an argument that are not already contained in the array.
-  */
-  filterByFavorites = (birds, favorites) => {
-    if (favorites.length > 0) {
-      for (let favorite of favorites) {
-        let bird = this.props.birds.find(b => b.id === favorite);
-        if (!birds.includes(bird)) {
-          birds.push(bird);
-        }
-      }
-    }
-    return birds;
-  }
-
-  /*
       handleSubmit() function filters the bird collection from props according
       to the final user selections, dispatches the action passed in as props, and
       pushes the route determined by a function passed in as props.
@@ -191,20 +151,25 @@ class BirdsFilter extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    let birds = this.props.birds;
+    let filterParams = {
+      families: this.state.selectedFamilies,
+      regions: this.state.selectedRegions,
+      favorites: this.state.selectedFavorites,
+    }
 
-    if (this.state.selectedFamilies.length > 0) {
-      birds = this.filterByFamilies(birds, this.state.selectedFamilies);
-    }
-    if (this.state.selectedRegions.length > 0) {
-      birds = this.filterByRegions(birds, this.state.selectedRegions);
-    }
-    if (this.state.selectedFavorites.length > 0) {
-      birds = this.filterByFavorites(birds.length === this.props.birds.length ? [] : birds, this.state.selectedFavorites);
-    }
-    this.props.selectAction(birds);
+    this.setState({
+      ...this.state,
+      loading: true,
+    })
 
-    this.props.handleSubmitRoute();
+    this.props.fetchBirds(filterParams, this.props.actionType).then(() => {
+      this.setState({
+        ...this.state,
+        loading: false,
+      })
+      this.props.handleSubmitRoute();
+    })
+
   }
 
   render() {
@@ -248,6 +213,7 @@ class BirdsFilter extends Component {
             </DropdownButton>}
             {'  '}
             <Button bsSize="large" className="filter-field" type="submit" onClick={this.handleSubmit}>Go!</Button>
+            {this.state.loading && <h4>Loading...</h4>}
           </div>}
       </div>
 
@@ -258,9 +224,14 @@ class BirdsFilter extends Component {
 function mapStateToProps(state) {
   return {
     birds: state.birds,
-    loading: state.loading,
     currentUser: state.user.currentUser,
   }
 }
 
-export default connect(mapStateToProps)(BirdsFilter)
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchBirds: (filters, actionType) => dispatch(fetchBirds(filters, actionType)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BirdsFilter)

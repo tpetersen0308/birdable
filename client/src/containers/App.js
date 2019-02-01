@@ -5,23 +5,19 @@
 
 import React, { Component } from 'react';
 import '../App.css';
-import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { fetchBirds } from '../actions/birdActions.js';
+import { connect } from 'react-redux';
 import BirdsPage from './BirdsPage.js';
 import ExercisePage from './ExercisePage.js';
 import HomePage from './HomePage.js';
 import Exercise from './Exercise.js';
-import NavMenu from '../components/NavMenu.js';
 import NavBar from '../components/NavBar.js';
+import { fetchBird } from '../actions/birdActions.js';
 
 class App extends Component {
-
-  // upon mounting, dispatch action to add birds to state
-  componentDidMount() {
-    this.props.fetchBirds();
+  componentWillMount() {
+    this.props.fetchBird();
   }
-
   render() {
     return (
       <div className="App">
@@ -47,23 +43,10 @@ class App extends Component {
   }
 }
 
-// add empty array to default props to prevent ReferenceError on initial mount
-App.defaultProps = {
-  birds: [],
-}
-
-// map fetchBirds() action to props
 function mapDispatchToProps(dispatch) {
   return {
-    fetchBirds: () => dispatch(fetchBirds()),
+    fetchBird: () => dispatch(fetchBird()),
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    birds: state.birds,
-    loading: state.loading
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App);

@@ -28,12 +28,12 @@ class Bird < ApplicationRecord
   # Bird.by_region returns an array of all birds associated with a given region
   def self.by_region(region_name)
     self.all.select do |bird| 
-      bird.regions.map{|region| region.url_safe_attribute("name")}.include?(region_name)
+      bird.regions.map{|region| region.url_safe_attribute("name")}.include?(region_name.gsub(' ', '-').gsub(/[^a-z\-]/, ''))
     end.sort_by{|bird| bird.common_name}
   end
 
   # Bird.by_family returns an array of all birds classified under the same taxonomy
   def self.by_family(family_name)
-    self.all.select{|bird| bird.url_safe_attribute("family") == family_name}.sort_by{|bird| bird.common_name}
+    self.all.select{|bird| bird.url_safe_attribute("family") == family_name.gsub(' ', '-').gsub(/[^a-z\-]/, '')}.sort_by{|bird| bird.common_name}
   end
 end

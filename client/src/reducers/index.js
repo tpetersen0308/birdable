@@ -1,7 +1,7 @@
 // indexReducer() determines the root values of state.
 
 import { combineReducers } from 'redux';
-import birdsReducer from './birdsReducer';
+import birdReducer from './birdReducer';
 import loadingReducer from './loadingReducer.js';
 import exerciseReducer from './exerciseReducer.js';
 import browseReducer from './browseReducer.js';
@@ -9,7 +9,7 @@ import usersReducer from './usersReducer.js';
 
 
 const rootReducer = combineReducers({
-  birds: birdsReducer,
+  randomBird: birdReducer,
   exercise: exerciseReducer,
   browse: browseReducer,
   loading: loadingReducer,

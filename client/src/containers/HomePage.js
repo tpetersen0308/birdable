@@ -6,12 +6,6 @@ import { Bird } from '../components/Bird.js';
 import { UserProfile } from '../components/UserProfile.js';
 
 class HomePage extends Component {
-
-  // randomBird() function returns a bird object selected at random from the passed-in array
-  randomBird = (birds) => {
-    return birds[Math.floor(Math.random() * birds.length)];
-  }
-
   render() {
     if (this.props.loading) {
       return (
@@ -27,7 +21,7 @@ class HomePage extends Component {
           <br />
           <h3>Look at this cool bird!</h3>
           <br />
-          <Bird id='home-bird' bird={this.randomBird(this.props.birds)} />
+          <Bird id='home-bird' bird={this.props.bird} />
         </div>
       )
     }
@@ -36,7 +30,7 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
   return {
-    birds: state.birds,
+    bird: state.randomBird,
     loading: state.loading,
     user: state.user.currentUser,
     loggedIn: state.user.loggedIn,

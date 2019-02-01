@@ -91,25 +91,30 @@ class Exercise extends Component {
   }
 
   render() {
-    return (
-      <div>
-        {/* render a Solution if a userAnswer has been added to state, else render a Problem */}
-        {this.props.exercise.userAnswer ?
-          <Solution
-            type={this.props.exercise.type}
-            problem={this.props.exercise.problem}
-            userAnswer={this.props.exercise.userAnswer}
-            correct={this.correct}
-            resetExercise={this.resetExercise}
-            quit={this.quit}
-          /> :
-          <Problem
-            type={this.props.exercise.type}
-            problem={this.props.exercise.problem}
-            submitAnswer={this.submitAnswer}
-          />}
-      </div>
-    )
+    if (this.props.loading) {
+      return <h4>Loading...</h4>
+    }
+    else {
+      return (
+        <div>
+          {/* render a Solution if a userAnswer has been added to state, else render a Problem */}
+          {this.props.exercise.userAnswer ?
+            <Solution
+              type={this.props.exercise.type}
+              problem={this.props.exercise.problem}
+              userAnswer={this.props.exercise.userAnswer}
+              correct={this.correct}
+              resetExercise={this.resetExercise}
+              quit={this.quit}
+            /> :
+            <Problem
+              type={this.props.exercise.type}
+              problem={this.props.exercise.problem}
+              submitAnswer={this.submitAnswer}
+            />}
+        </div>
+      )
+    }
   }
 }
 
@@ -118,6 +123,7 @@ function mapStateToProps(state) {
     exercise: state.exercise,
     user: state.user.currentUser,
     loggedIn: state.user.loggedIn,
+    loading: state.loading,
   }
 }
 

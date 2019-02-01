@@ -50,7 +50,7 @@ class ExercisePage extends Component {
         <br />
         <h4>Select families and regions to practice identifying:</h4>
         <br />
-        <BirdsFilter handleSubmitRoute={this.submitForExercise} selectAction={this.props.selectBirdsForExercise} />
+        <BirdsFilter handleSubmitRoute={this.submitForExercise} actionType="SELECT_BIRDS_FOR_EXERCISE" />
       </div>
     )
   }

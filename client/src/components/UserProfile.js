@@ -19,7 +19,13 @@ class UserProfile extends Component {
   }
 
   getFavoriteBirds = (user) => {
-    return <ListGroupItem id="favorite-birds"><Table>{user.birds.map(bird => {
+    const sortedBirds = user.birds.sort((a, b) => {
+      if (a.common_name < b.common_name) { return -1 }
+      else if (a.common_name > b.common_name) { return 1 }
+      else { return 0 }
+    });
+
+    return <ListGroupItem id="favorite-birds"><Table>{sortedBirds.map(bird => {
       return <tr>
         <td>
           <LikeButton

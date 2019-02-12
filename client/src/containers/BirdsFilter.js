@@ -143,6 +143,14 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedFavorites))
   }
 
+  sortFavorites = birds => {
+    return birds.sort((a, b) => {
+      if (a.common_name < b.common_name) { return -1 }
+      else if (a.common_name > b.common_name) { return 1 }
+      else { return 0 }
+    })
+  }
+
   /*
       handleSubmit() function filters the bird collection from props according
       to the final user selections, dispatches the action passed in as props, and
@@ -169,7 +177,6 @@ class BirdsFilter extends Component {
       })
       this.props.handleSubmitRoute();
     })
-
   }
 
   render() {
@@ -209,7 +216,7 @@ class BirdsFilter extends Component {
               className="filter-field"
             >
               <Checkbox onChange={this.selectAllFavorites} checked={this.state.selectedFavorites.length === this.props.currentUser.bird_ids.length}>All</Checkbox>
-              {this.props.currentUser.birds.map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite.id} value={favorite.id} checked={this.state.selectedFavorites.includes(favorite.id)} disabled={this.state.allFavoritesSelected}>{toTitleCase(favorite.common_name)}</Checkbox>)}
+              {this.sortFavorites(this.props.currentUser.birds).map(favorite => <Checkbox onChange={this.handleFavoritesCheckbox} key={favorite.id} value={favorite.id} checked={this.state.selectedFavorites.includes(favorite.id)} disabled={this.state.allFavoritesSelected}>{toTitleCase(favorite.common_name)}</Checkbox>)}
             </DropdownButton>}
             {'  '}
             <Button bsSize="large" className="filter-field" type="submit" onClick={this.handleSubmit}>Go!</Button>

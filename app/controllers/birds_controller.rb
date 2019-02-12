@@ -19,6 +19,8 @@ class BirdsController < ApplicationController
         @birds = Bird.all
       end
   
+    elsif params[:user_id]
+      @birds = User.find_by(:id => params[:user_id]).top_birds
     else
       @birds = Bird.find_by(id: 1 + rand(Bird.last.id))
     end

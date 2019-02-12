@@ -34,9 +34,23 @@ class UserProfile extends Component {
 
   getTopBirds = (topBirds) => {
     if (topBirds && topBirds.length > 0) {
-      return <ol className="top-birds-list">{topBirds.map(bird => {
-        return <li>{toTitleCase(bird.common_name)}</li>
-      })}</ol>
+
+      return <ListGroupItem id="top-birds-list"><strong>Top Birds:</strong>
+        <Table>
+          {topBirds.map(bird => {
+            return <tr>
+              <td>
+                <LikeButton
+                  birdId={bird.id}
+                />
+              </td>
+              <td>{toTitleCase(bird.common_name)}</td>
+              <td><Image className="fav-bird-image" src={bird.image} /></td>
+            </tr>
+          })}
+        </Table>
+      </ListGroupItem>
+
     } else {
       return "You have not yet identified any birds."
     }
@@ -56,7 +70,7 @@ class UserProfile extends Component {
               {this.props.loading ? <ListGroupItem>Loading...</ListGroupItem> :
                 <div>
                   <ListGroupItem><strong>Identification Rate:</strong> {this.identificationRate(this.props.user.currentUser.stats)}%</ListGroupItem>
-                  <ListGroupItem><strong>Top Birds:</strong> {this.getTopBirds(this.props.user.topBirds)}</ListGroupItem>
+                  {this.getTopBirds(this.props.user.topBirds)}
                 </div>
               }
             </ListGroup>

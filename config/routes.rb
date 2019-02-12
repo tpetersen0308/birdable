@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     scope '/v1' do
       get "/birds" => "birds#index"
       get "/birds/:filter" => "birds#index"
+      get "/users/:user_id/birds/top-birds" => "birds#index"
       put "/birds/:id" => "birds#update"
     end
   end

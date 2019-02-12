@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Bird } from '../components/Bird.js';
-import { UserProfile } from '../components/UserProfile.js';
+import UserProfile from '../components/UserProfile.js';
 
 class HomePage extends Component {
   render() {
@@ -13,7 +13,7 @@ class HomePage extends Component {
       )
     } else if (this.props.loggedIn) {
       return (
-        <UserProfile user={this.props.user} birds={this.props.birds} loading={this.props.loading} />
+        <UserProfile />
       )
     } else {
       return (
@@ -32,7 +32,6 @@ function mapStateToProps(state) {
   return {
     bird: state.randomBird,
     loading: state.loading,
-    user: state.user.currentUser,
     loggedIn: state.user.loggedIn,
   }
 }

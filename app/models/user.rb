@@ -13,4 +13,14 @@ class User < ApplicationRecord
       u.incorrect_answers = 0 unless u.incorrect_answers
     end
   end
+
+  def top_birds
+    top_bird_ids = self.stats.where(correct: true).group_by do |stat| 
+      stat.bird_id
+    end.sort_by do |k,v| 
+      v.size
+    end.reverse!.map{|group| group[0]}.slice(0,5)
+
+    return top_bird_ids.map{|bird_id| Bird.find_by(:id => bird_id)}
+  end
 end

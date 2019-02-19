@@ -1,8 +1,3 @@
-/*
-    The App component establishes routing and dispatches the action
-    to add the birds collection to state.
-*/
-
 import React, { Component } from 'react';
 import '../App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';

@@ -1,7 +1,3 @@
-/*
-    exerciseActions.js defines functions that return actions with the
-    appropriate types and payloads to maintain exercise state.
-*/
 export function selectBirdsForExercise(birds) {
   return { type: "SELECT_BIRDS_FOR_EXERCISE", payload: birds }
 }

@@ -1,5 +1,3 @@
-// HomePage component renders a Bird component randomly selected from state.
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Bird } from '../components/Bird.js';

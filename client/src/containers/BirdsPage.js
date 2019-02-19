@@ -1,10 +1,3 @@
-/*
-    BirdsPage component renders a BirdsFilter component, passing in the 
-    appropriate action and function as props for maintaining state and handling
-    routing for browsing, and renders a BirdsList component, passing in the 
-    birds collection determined by user selection.
-*/
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BirdsFilter from './BirdsFilter';
@@ -13,11 +6,6 @@ import { BirdsList } from '../components/BirdsList.js';
 
 class BirdsPage extends Component {
 
-  /* 
-      submitForBrowse() function pushes the route to re-render the component
-      so new user selections replace the collection on the page instead of
-      merging with the currently displayed collection.
-  */
   submitForBrowse = () => {
     this.props.history.push('/browse');
   }

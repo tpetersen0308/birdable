@@ -1,8 +1,3 @@
-/* 
-    birdsReducer() returns the action's payload of an array of bird
-    objects from GET request to Rails API to be added to state.
-*/
-
 function birdsReducer(state = {
   birds: [],
   randomBird: []

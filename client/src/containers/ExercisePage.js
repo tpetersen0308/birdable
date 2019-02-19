@@ -1,9 +1,3 @@
-/*
-    ExercisePage component renders a BirdsFilter component, passing in the 
-    appropriate action and function as props for maintaining state and handling
-    routing for exercises.
-*/
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BirdsFilter from './BirdsFilter';
@@ -18,21 +12,12 @@ class ExercisePage extends Component {
     }
   }
 
-  /* 
-      handleTypeSelection sets the exerciseType in state based on the
-      user's exercise type selection.
-  */
   handleTypeSelection = event => {
     this.setState({
       exerciseType: event.target.value,
     }, () => console.log(`Exercise type has been set to ${this.state.exerciseType}.`));
   }
 
-  /*
-      submitForExercise() function dispatches an action to set the exercise 
-      type in state and pushes the exercise route to re-renderthe ExercisePage 
-      component for a new exercise.
-  */
   submitForExercise = () => {
     this.props.addExerciseType(this.state.exerciseType);
     this.props.history.push('/practice/exercise');

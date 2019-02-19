@@ -1,8 +1,3 @@
-/*
-  The Bird component is a stateless presentational component that renders a thumbnail
-  with content determined conditionally based on props.
-*/
-
 import React from 'react';
 import { Thumbnail } from 'react-bootstrap';
 import { toTitleCase } from '../index.js';
@@ -10,13 +5,11 @@ import LikeButton from './LikeButton.js';
 
 export const Bird = (props) => {
 
-  // nameInfo div displays common name and scientific name
   let nameInfo = <div className="bird-name-info">
     <strong>{toTitleCase(props.bird.common_name)}</strong>
     <p><i>{toTitleCase(props.bird.scientific_name)}</i></p>
   </div>
 
-  // songInfo audio element allows user to play bird's song sample
   let songInfo = <audio
     id={props.bird.id}
     className="audio-small"
@@ -27,9 +20,7 @@ export const Bird = (props) => {
 
   /* 
     birdInfo() function combines name and song info conditionally based on exercise
-    type. If the exercise is for matching a song to a bird, the song info is omitted
-    If the exercise is for matching a name to a bird, the name info is omitted. If
-    no exercise type is provided, all information is displayed in the thumbnail.
+    type, because different info should be displayed depending on the context.
   */
   let birdInfo = exerciseType => {
     switch (exerciseType) {

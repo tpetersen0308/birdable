@@ -1,10 +1,3 @@
-/* 
-    BirdsFilter component renders dropdown menus with filtering options for
-    exercises and browsing, filters the appropriate collection of birds based
-    on user selections, and adds the collection to state and handles routing 
-    based on which functions are passed in as props.
-*/
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Checkbox, DropdownButton } from 'react-bootstrap';
@@ -24,10 +17,6 @@ class BirdsFilter extends Component {
     }
   }
 
-  /* 
-      selectFamily() function takes a family-name string as an argument
-      and adds it to the selectedFamilies array in state.
-  */
   selectFamily = family => {
     this.setState({
       ...this.state,
@@ -35,10 +24,6 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedFamilies))
   }
 
-  /* 
-      deselectFamily() function takes a family-name string as an argument
-      and removes it from the selectedFamilies array in state.
-  */
   deselectFamily = family => {
     this.setState({
       ...this.state,
@@ -46,11 +31,6 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedFamilies))
   }
 
-  /* 
-      handleFamilyCheckbox() function conditionally determines whether a
-      family should be added to or removed from state based on whether a 
-      checkbox has been selected or deselected.
-  */
   handleFamilyCheckbox = event => {
     if (event.target.checked) {
       this.selectFamily(event.target.value);
@@ -59,10 +39,6 @@ class BirdsFilter extends Component {
     }
   }
 
-  /* 
-      selectRegion() function takes a region-name string as an argument
-      and adds it to the selectedRegions array in state.
-  */
   selectRegion = region => {
     this.setState({
       ...this.state,
@@ -70,10 +46,6 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedRegions))
   }
 
-  /* 
-      deselectRegion() function takes a region-name string as an argument
-      and removes it from the selectedRegions array in state.
-  */
   deselectRegion = region => {
     this.setState({
       ...this.state,
@@ -81,11 +53,6 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedRegions))
   }
 
-  /*
-      handleRegionCheckbox() function conditionally determines whether a
-      region should be added to or removed from state based on whether a 
-      checkbox has been selected or deselected.
-  */
   handleRegionCheckbox = event => {
     if (event.target.checked) {
       this.selectRegion(event.target.value);
@@ -94,11 +61,6 @@ class BirdsFilter extends Component {
     }
   }
 
-  /*
-  handleFavoritesCheckbox() function conditionally determines whether 
-  a favorite bird should be added to or removed from state based on whether
-  a checkbox has been selected or deselected.
-  */
   handleFavoritesCheckbox = event => {
     if (event.target.checked) {
       this.selectFavorite(event.target.value);
@@ -107,10 +69,6 @@ class BirdsFilter extends Component {
     }
   }
 
-  /* 
-      selectFavorite() function takes a favorite as an argument
-      and adds it to the selectedFavorites array in state.
-  */
   selectFavorite = favorite => {
     this.setState({
       ...this.state,
@@ -118,10 +76,6 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedFavorites))
   }
 
-  /* 
-      deselectFavorite() function takes a favorite as an argument
-      and removes it from the selectedFavorites array in state.
-  */
   deselectFavorite = favorite => {
     this.setState({
       ...this.state,
@@ -130,11 +84,6 @@ class BirdsFilter extends Component {
     }, () => console.log(this.state.selectedFavorites))
   }
 
-  /*
-      selectAllFavorites() function handles the click event when the all favorites
-      checkbox is selected, adding/removing all favorites to/from state according
-      to whether or not the box is checked.
-  */
   selectAllFavorites = event => {
     this.setState({
       ...this.state,
@@ -151,11 +100,6 @@ class BirdsFilter extends Component {
     })
   }
 
-  /*
-      handleSubmit() function filters the bird collection from props according
-      to the final user selections, dispatches the action passed in as props, and
-      pushes the route determined by a function passed in as props.
-  */
   handleSubmit = event => {
     event.preventDefault();
 

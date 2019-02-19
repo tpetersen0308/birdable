@@ -1,8 +1,8 @@
 import fetch from 'isomorphic-fetch';
 
 /* 
-    fetchBirds() fires GET request to the Rails API for the bird collection
-    and dispatches an action to add the collection to state.
+    fetchBirds() gets birds from the backend and sets the loading state to prevent type errors 
+    that occur when components mount before data is available.
 */
 export function fetchBirds(filterParams = { families: [], regions: [], favorites: [] }, actionType) {
   let url = '/api/v1/birds/' + JSON.stringify(filterParams);

@@ -3,10 +3,7 @@ require "json"
 class BirdsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
-  # BirdsController#index returns a collection of birds based on filter param, if present,
-  # and returns the entire collection of birds if no filter param is present.
   def index
-
     if !!params["filter"]
       filters = JSON.parse(params["filter"])
 

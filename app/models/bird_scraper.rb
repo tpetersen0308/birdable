@@ -1,19 +1,14 @@
 require 'nokogiri'
 require 'open-uri'
 
-# class BirdScraper provides class methods that use Nokogiri to scrape information 
-# from the Audubon Society's North American Bird Guide.
 class BirdScraper < ApplicationRecord
 
-  # BirdScraper.get_page returns the html response from the url argument.
   def self.get_page(url)
     Nokogiri::HTML(open(url))
   end
 
-  # BirdScraper.scrape_taxonomies scrapes the taxonomy dropdown list of the guide
-  # and returns a hash of the family_tid attributes and the associated family names
-  # which will be used to build the urls that are needed to scrape bird information
-  # by taxonomic family.
+  # BirdScraper.scrape_taxonomies associates the tid attributes with family names in a hash so that
+  # bird data can be scraped according to taxonomic family.
   def self.scrape_taxonomies(url)
     taxonomies = {}
     self.get_page(url).css("select#edit-field-bird-family-tid option").each.with_index do |taxon, i|
@@ -23,10 +18,8 @@ class BirdScraper < ApplicationRecord
     return taxonomies
   end
 
-  # BirdScraper.scrape_regions scrapes the region dropdown list of the guide
-  # and returns a hash of the region_tid attributes and the associated region names
-  # which will be used to build the urls that are needed to scrape bird information
-  # by taxonomic region.
+  # BirdScraper.scrape_regions associates the tid attributes with region names in a hash so that
+  # bird data can be scraped according to region.
   def self.scrape_regions(url)
     regions = {}
     self.get_page(url).css("select#edit-field-bird-region-tid option").each.with_index do |region, i|
@@ -36,12 +29,8 @@ class BirdScraper < ApplicationRecord
     return regions
   end
   
-  # BirdScraper.scrape_bird_names_by_region takes a region hash as an argument 
-  # and iterates through it, creating a new url for each regional sub-page of the guide
-  # for a list of the names of birds in each region. It accounts for infinite scrolling
-  # with a while loop that increments the page number until all birds from a given region
-  # have been collected, and returns a hash of region names pointing to arrays of
-  # associated bird names.
+  # BirdScraper.scrape_bird_names_by_region associates each region with its respective bird 
+  # names in a hash, so that region data can be easily added to bird records in the database.
   def self.scrape_bird_names_by_region(regions)
     birds_by_region = {}
     
@@ -66,9 +55,8 @@ class BirdScraper < ApplicationRecord
     return birds_by_region
   end
 
-  # BirdScraper.scrape_birds_by_family_tid scrapes bird data from a taxonomy page determined
-  # by its family_tid argument, and returns an array of hashes containing data for each bird
-  # on the page for which a song sample is included.
+  # BirdScraper.scrape_birds_by_family_tid scrapes bird data by taxonomic family, so that 
+  # bird records can be properly associated with their taxonomic families. 
   def self.scrape_birds_by_family_tid(family_tid, family_name)
     url = "https://www.audubon.org/bird-guide?field_bird_family_tid=" + family_tid
     doc = self.get_page(url)

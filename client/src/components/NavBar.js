@@ -1,9 +1,3 @@
-/*
-    NavBar is a stateless presentational component that renders the app's
-    navigation menu.
-*/
-
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import GoogleAuth from './GoogleAuth';

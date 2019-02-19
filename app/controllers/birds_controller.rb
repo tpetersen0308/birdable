@@ -7,9 +7,12 @@ class BirdsController < ApplicationController
     if !!params["filter"]
       filters = JSON.parse(params["filter"])
 
-      @birds = filters["families"].map{|family| Bird.by_family(family)}
-      @birds << filters["regions"].map{|region| Bird.by_region(region)}
+      @birds_by_family = filters["families"].map{|family| Bird.by_family(family)}.flatten
+      @birds_by_region = filters["regions"].map{|region| Bird.by_region(region)}.flatten
+      @favorite_birds = Bird.where({id: filters["favorites"]})
+      @birds = @birds_by_family & @birds_by_region
       @birds << Bird.where({id: filters["favorites"]})
+
       @birds = @birds.flatten.uniq
   
       if @birds.length == 0

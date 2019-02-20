@@ -10,7 +10,13 @@ class BirdsController < ApplicationController
       @birds_by_family = filters["families"].map{|family| Bird.by_family(family)}.flatten
       @birds_by_region = filters["regions"].map{|region| Bird.by_region(region)}.flatten
       @favorite_birds = Bird.where({id: filters["favorites"]})
-      @birds = @birds_by_family & @birds_by_region
+
+      if @birds_by_family.length == 0 || @birds_by_region.length == 0
+        @birds = @birds_by_family.concat(@birds_by_region)
+      else
+        @birds = @birds_by_family & @birds_by_region
+      end
+      
       @birds << Bird.where({id: filters["favorites"]})
 
       @birds = @birds.flatten.uniq
